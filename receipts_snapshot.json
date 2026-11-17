@@ -1,12 +1,5 @@
 [
   {
-    "ts": "2026-11-17T17:24:37.139306Z",
-    "action": "REPO://RELEASE_HERMES_AE_391",
-    "authority": "HUMAN://ROOT",
-    "prev": "f3f3cca049b47351008e12d29968eb3e9c7489819afb7766fa8c1726d1d7db0c",
-    "hash": "49a582d875298b45b70ef2ab4bfb6aff4205a9c93792f2f10a054682c17d3d26"
-  },
-  {
     "ts": "2026-11-17T17:28:44.440439Z",
     "action": "AE://AGENT",
     "authority": "HUMAN://ROOT",
@@ -418,5 +411,12 @@
     "authority": "HUMAN://ROOT",
     "prev": "12dc3ba6b47567c047510d594f466dc8a4bc7fb72ab1ff154697b64f6256377c",
     "hash": "38d75e491da0ba9fd6ec038437f12c96b627a6208f506414753531ea130b9500"
+  },
+  {
+    "ts": "2026-11-17T22:33:47.540252Z",
+    "action": "PUBLISH://DAO_BRAIN",
+    "authority": "HUMAN://ROOT",
+    "prev": "38d75e491da0ba9fd6ec038437f12c96b627a6208f506414753531ea130b9500",
+    "hash": "88678f1f9b378c389feecb91e0d4b33b60da92b5e8e19b5e611e96d13a11b742"
   }
 ]
