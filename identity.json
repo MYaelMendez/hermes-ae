@@ -1,0 +1,28 @@
+{
+  "authority": "HUMAN://ROOT",
+  "principle": "authority not transferable · execution visible",
+  "bindings": {
+    "F2": {
+      "name": "nous girl",
+      "role": "root voice",
+      "body": null,
+      "use": "asks, challenges, holds the human-root frame"
+    },
+    "M2": {
+      "name": "hermes-agent",
+      "role": "build voice",
+      "body": "asimov-1",
+      "actor": "hermes-asimov",
+      "runtime": "tiny-voca M2 ONNX + official 25-DOF Asimov-1 CAD",
+      "use": "explains, demonstrates, executes, and returns receipts"
+    }
+  },
+  "actor": {
+    "name": "Asimov-1",
+    "source": "menloresearch/asimov-1",
+    "dof": 25,
+    "links": 26,
+    "identity": "hermes-agent build body",
+    "authority": "HUMAN://ROOT"
+  }
+}

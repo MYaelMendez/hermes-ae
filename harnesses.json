@@ -8,18 +8,35 @@
       "name": "voice",
       "authority": "HUMAN://ROOT",
       "runtime": "tiny-voca ONNX (voices nous-girl F2 / hermes-agent M2, 24 kHz)",
-      "inputs": ["text", "voice_id", "speed"],
-      "outputs": ["wav", "viseme_sequence"],
+      "inputs": [
+        "text",
+        "voice_id",
+        "speed"
+      ],
+      "outputs": [
+        "wav",
+        "viseme_sequence"
+      ],
       "receipt_action": "TTS://SPEAK",
       "fallback": "offline espeak at 24 kHz with viseme emission disabled; receipt records degraded mode",
-      "description": "Speaks authored text with the two OpenSourceWare voices (nous-girl F2, hermes-agent M2) through the tiny-voca ONNX runtime and derives phoneme-timed visemes for lip sync."
+      "description": "Speaks authored text with the two OpenSourceWare voices (nous-girl F2, hermes-agent M2) through the tiny-voca ONNX runtime and derives phoneme-timed visemes for lip sync.",
+      "embodied_by": {
+        "M2": "asimov-1"
+      }
     },
     {
       "name": "media",
       "authority": "HUMAN://ROOT",
       "runtime": "ffmpeg-agentic",
-      "inputs": ["frames", "audio", "codec_profile"],
-      "outputs": ["mp4", "qc_report"],
+      "inputs": [
+        "frames",
+        "audio",
+        "codec_profile"
+      ],
+      "outputs": [
+        "mp4",
+        "qc_report"
+      ],
       "receipt_action": "VIDEO://RENDER",
       "fallback": "static ffmpeg H.264/AAC profile with no agentic repair; receipt records fixed-pipeline mode",
       "description": "Agentically encodes rendered frames and narration into H.264/AAC 9:16 video and runs ffprobe/volumedetect QC gates before an artifact is accepted."
@@ -28,8 +45,13 @@
       "name": "control",
       "authority": "HUMAN://ROOT",
       "runtime": "vlc-mesh",
-      "inputs": ["media_uri", "command"],
-      "outputs": ["playback_state"],
+      "inputs": [
+        "media_uri",
+        "command"
+      ],
+      "outputs": [
+        "playback_state"
+      ],
       "receipt_action": "VLC://CONTROL",
       "fallback": "local VLC RC interface with single-node playback; mesh nodes are skipped and recorded as unavailable",
       "description": "Controls playback across a mesh of VLC nodes for human review of finished clips, keeping every play/pause/seek action receipted."
@@ -38,8 +60,15 @@
       "name": "physics",
       "authority": "HUMAN://ROOT",
       "runtime": "MuJoCo 4.0.1 (nu=25)",
-      "inputs": ["model_xml", "qpos", "controls"],
-      "outputs": ["trajectory", "qpos_series"],
+      "inputs": [
+        "model_xml",
+        "qpos",
+        "controls"
+      ],
+      "outputs": [
+        "trajectory",
+        "qpos_series"
+      ],
       "receipt_action": "PHYSICS://STEP",
       "fallback": "kinematic interpolation with contact dynamics disabled; receipt records non-physical mode",
       "description": "Steps real MuJoCo 4.0.1 dynamics for the 25 actuated degrees of freedom (nu=25) and returns qpos traces consumed by the viewport and robot harnesses."
@@ -48,8 +77,14 @@
       "name": "viewport",
       "authority": "HUMAN://ROOT",
       "runtime": "Three.js / WebGL qpos viewer",
-      "inputs": ["qpos_series", "mesh_assets"],
-      "outputs": ["rendered_frames", "camera_state"],
+      "inputs": [
+        "qpos_series",
+        "mesh_assets"
+      ],
+      "outputs": [
+        "rendered_frames",
+        "camera_state"
+      ],
       "receipt_action": "VIEWPORT://RENDER",
       "fallback": "Pillow 2D compositor with perspective projection disabled; receipt records flat-render mode",
       "description": "Renders the MuJoCo qpos stream as a 9:16 Three.js/WebGL viewport of the Asimov-1 body for capture and review."
@@ -58,18 +93,32 @@
       "name": "robot",
       "authority": "HUMAN://ROOT",
       "runtime": "hermes-asimov / Asimov-1 (25-DOF)",
-      "inputs": ["pose", "gait_command"],
-      "outputs": ["qpos", "end_effector_states"],
+      "inputs": [
+        "pose",
+        "gait_command"
+      ],
+      "outputs": [
+        "qpos",
+        "end_effector_states"
+      ],
       "receipt_action": "ROBOT://POSE",
       "fallback": "frozen rest pose with no locomotion; receipt records that the robot model was unavailable",
-      "description": "Drives the 25-DOF hermes-asimov Asimov-1 humanoid, from fixed-base physics capture to mocap-guided free walk solved by MuJoCo."
+      "description": "Drives the 25-DOF hermes-asimov Asimov-1 humanoid, from fixed-base physics capture to mocap-guided free walk solved by MuJoCo.",
+      "identity": "hermes-agent build body",
+      "actor": "asimov-1"
     },
     {
       "name": "publish",
       "authority": "HUMAN://ROOT",
       "runtime": "GitHub Pages + generate_gallery",
-      "inputs": ["artifacts", "gallery_repo"],
-      "outputs": ["gallery_url", "index_page"],
+      "inputs": [
+        "artifacts",
+        "gallery_repo"
+      ],
+      "outputs": [
+        "gallery_url",
+        "index_page"
+      ],
       "receipt_action": "PUBLISH://GALLERY",
       "fallback": "write artifacts to a local dist directory with no push; receipt records unpublished state",
       "description": "Generates the gallery index with generate_gallery and publishes finished videos and hero pages to the GitHub Pages gh-pages branch under human authority."
@@ -78,8 +127,14 @@
       "name": "course",
       "authority": "HUMAN://ROOT",
       "runtime": "two-voice open courses (tiny-voca F2/M2)",
-      "inputs": ["lesson_json", "voice_map"],
-      "outputs": ["course_mp4", "course_receipt"],
+      "inputs": [
+        "lesson_json",
+        "voice_map"
+      ],
+      "outputs": [
+        "course_mp4",
+        "course_receipt"
+      ],
       "receipt_action": "COURSE://<ID>",
       "fallback": "captioned slides-only video with narration disabled; receipt records silent-course mode",
       "description": "Synthesizes two-voice OpenSourceWare lessons (osw-101, osw-102, osw-103) from a JSON script into a 9:16 course video with a COURSE:// receipt."
@@ -88,8 +143,15 @@
       "name": "ledger",
       "authority": "HUMAN://ROOT",
       "runtime": "unified hash-chained ae-receipts.jsonl",
-      "inputs": ["action", "authority", "payload"],
-      "outputs": ["receipt", "chain_head"],
+      "inputs": [
+        "action",
+        "authority",
+        "payload"
+      ],
+      "outputs": [
+        "receipt",
+        "chain_head"
+      ],
       "receipt_action": "LEDGER://APPEND",
       "fallback": "append to a local plaintext journal with chain verification disabled; receipt records unverified mode",
       "description": "The unified, tamper-evident receipt ledger: a SHA-256 hash chain anchored at GENESIS under HUMAN://ROOT, persisted as ae-receipts.jsonl, that records every harness action."

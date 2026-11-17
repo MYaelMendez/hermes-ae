@@ -2,6 +2,14 @@
 
 Published artifacts from the `hermes-ae` studio.
 
+## Asimov — hermes-agent Build Body
+
+- File: `asimov-agent-build-916.mp4`
+- Specs: 720x1280, 24 fps, 12.0 s, h264/aac
+- Physics: Official Asimov-1 CAD on mocap-guided MuJoCo qpos trace; voice M2 hermes-agent
+- Receipt: `f56c9a95d08c22f3e3afe7b1b7c4184e8be75ff27244ab4ec9886fe8f01f8949`
+- [Download](https://raw.githubusercontent.com/MYaelMendez/MYaelMendez.github.io/gh-pages/asimov-agent-build-916.mp4)
+
 ## MoH Masterpiece — The Mixture of Harnesses
 
 - File: `moh-masterpiece-916.mp4`

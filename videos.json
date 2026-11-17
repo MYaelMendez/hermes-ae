@@ -2,6 +2,17 @@
   "gallery": "https://raw.githubusercontent.com/MYaelMendez/MYaelMendez.github.io/gh-pages/videos.html",
   "videos": [
     {
+      "name": "asimov-agent-build-916.mp4",
+      "title": "Asimov \u2014 hermes-agent Build Body",
+      "url": "https://raw.githubusercontent.com/MYaelMendez/MYaelMendez.github.io/gh-pages/asimov-agent-build-916.mp4",
+      "resolution": "720x1280",
+      "fps": 24,
+      "duration_s": 12.0,
+      "codec": "h264/aac",
+      "physics": "Official Asimov-1 CAD on mocap-guided MuJoCo qpos trace; voice M2 hermes-agent",
+      "receipt": "f56c9a95d08c22f3e3afe7b1b7c4184e8be75ff27244ab4ec9886fe8f01f8949"
+    },
+    {
       "name": "moh-masterpiece-916.mp4",
       "title": "MoH Masterpiece \u2014 The Mixture of Harnesses",
       "url": "https://raw.githubusercontent.com/MYaelMendez/MYaelMendez.github.io/gh-pages/moh-masterpiece-916.mp4",

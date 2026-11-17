@@ -1,3 +1,9 @@
+## 3.1.0
+
+- Bound Asimov-1 as the visible body of the `hermes-agent` build voice.
+- Added `identity.json`, `docs/ASIMOV_AGENT.md`, and the `ae({op:"agent_body"})` op.
+- Published the `asimov-agent-build-916.mp4` identity proof clip.
+
 ## 3.0.1
 
 - Fixed `run_harness` so it validates `chain` instead of requiring a single `name`.
