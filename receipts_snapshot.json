@@ -1,19 +1,5 @@
 [
   {
-    "ts": "2026-11-17T05:58:11.751174Z",
-    "action": "REPO://RELEASE_HERMES_AE_380",
-    "authority": "HUMAN://ROOT",
-    "prev": "3e97363e52c50f3a88b179c04e650a9fd392717f78dc68871ba8673045df728a",
-    "hash": "6ac24665b6be9e70e6d553e94eaa03d7331415c84aec0b5524aff51ecbe587de"
-  },
-  {
-    "ts": "2026-11-17T06:01:58.942242Z",
-    "action": "STATE://PRE_RESET_POLISH",
-    "authority": "HUMAN://ROOT",
-    "prev": "6ac24665b6be9e70e6d553e94eaa03d7331415c84aec0b5524aff51ecbe587de",
-    "hash": "63cb6fd8d241fa05b986e14f76407b5ca0b79162f3d18656fac9b36152183e36"
-  },
-  {
     "ts": "2026-11-17T17:09:22.100120Z",
     "action": "PUBLISH://SOVEREIGN_BUNDLE",
     "authority": "HUMAN://ROOT",
@@ -418,5 +404,19 @@
     "authority": "HUMAN://ROOT",
     "prev": "9ac6ac22d7d0c3b1167f18fce4c1a6e6bea583e275412ca3cd6ddfce89a8bf6a",
     "hash": "da0fd42461bee8f714028a42a64448bef8582458a2757368c274e8a89cb29a6e"
+  },
+  {
+    "ts": "2026-11-17T22:23:00.972726Z",
+    "action": "POLICY://BIND",
+    "authority": "HUMAN://ROOT",
+    "prev": "da0fd42461bee8f714028a42a64448bef8582458a2757368c274e8a89cb29a6e",
+    "hash": "d8e8c0cf407b89df00bf2609ae48334802fddccccff49db91e832c9a5a18de3b"
+  },
+  {
+    "ts": "2026-11-17T22:23:00.973200Z",
+    "action": "REPO://RELEASE_HERMES_AE_3130",
+    "authority": "HUMAN://ROOT",
+    "prev": "d8e8c0cf407b89df00bf2609ae48334802fddccccff49db91e832c9a5a18de3b",
+    "hash": "5ee8e85bd1b33b22a1c44b1ed3a255d8b07b7d73dcf531959d456ed3cc11af88"
   }
 ]

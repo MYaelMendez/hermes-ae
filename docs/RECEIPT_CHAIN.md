@@ -4,8 +4,6 @@ Sanitized snapshot: 60 entries. Full ledger is `HUMAN://ROOT` hash-chained.
 
 | Time | Action | Authority | Hash |
 |---|---|---|---|
-| 2026-11-17T17:28:44.441271Z | `AE://OPS` | HUMAN://ROOT | `db8f96f9586e4c76…` |
-| 2026-11-17T17:28:44.443503Z | `AE://VERIFY` | HUMAN://ROOT | `13ae290debdaf21a…` |
 | 2026-11-17T17:31:06.616886Z | `VIDEO://ASIMOV_AGENT_CAPABILITIES` | HUMAN://ROOT | `4885451a88a38de0…` |
 | 2026-11-17T17:36:11.012415Z | `ARTIFACT://MENLO_ASIMOV_FFMPEG` | HUMAN://ROOT | `bc3af22969741a8a…` |
 | 2026-11-17T17:44:29.156479Z | `AE://AGENT` | HUMAN://ROOT | `8c2314e8c1e0c7bf…` |
@@ -44,3 +42,5 @@ Sanitized snapshot: 60 entries. Full ledger is `HUMAN://ROOT` hash-chained.
 | 2026-11-17T21:44:24.813150Z | `AE://TWIN` | HUMAN://ROOT | `2cb816356f6b7d8c…` |
 | 2026-11-17T21:46:32.298513Z | `AVATAR://USD_BIND` | HUMAN://ROOT | `9ac6ac22d7d0c3b1…` |
 | 2026-11-17T21:51:12.078676Z | `REPO://RELEASE_HERMES_AE_3120` | HUMAN://ROOT | `da0fd42461bee8f7…` |
+| 2026-11-17T22:23:00.972726Z | `POLICY://BIND` | HUMAN://ROOT | `d8e8c0cf407b89df…` |
+| 2026-11-17T22:23:00.973200Z | `REPO://RELEASE_HERMES_AE_3130` | HUMAN://ROOT | `5ee8e85bd1b33b22…` |
