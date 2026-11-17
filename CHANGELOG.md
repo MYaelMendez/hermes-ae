@@ -1,3 +1,9 @@
+## 3.8.0
+
+- Bound `mobility.foundation/mobility/` as the canonical public homepage for
+  Asimov Agent and the æLOCOMOTION package, with the GitHub Pages path retained
+  as fallback.
+
 ## 3.7.0
 
 - Unified the robot identity as **Asimov Agent**: one `ae({"op":"agent"})` call

@@ -46,7 +46,7 @@ def main():
         assert sorted(ctx.tools) == ["ae"], ctx.tools
         ae = ctx.tools["ae"][0]
         status = json.loads(ae({"op": "status"}))
-        assert status["success"] and status["result"]["version"] == "3.7.0"
+        assert status["success"] and status["result"]["version"] == "3.8.0"
         ops = json.loads(ae({"op": "ops"}))
         expected = {"speak", "tts_speak", "voices", "tts_voices", "tts_receipts", "probe", "witness", "gallery", "physics",
                     "studio_sync", "studio_video", "free_walk", "masterpiece", "harnesses", "agent_body", "ffmpeg_demo", "policy_locomotion", "viewport_dom", "agent"}

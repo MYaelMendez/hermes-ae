@@ -54,6 +54,8 @@
       "policy_walk",
       "viewport_dom",
       "masterpiece"
-    ]
+    ],
+    "homepage": "https://mobility.foundation/mobility/",
+    "fallback_homepage": "https://myaelmendez.github.io/mobility/"
   }
 }

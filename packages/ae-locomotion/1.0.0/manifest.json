@@ -45,5 +45,7 @@
     "install.sh",
     "verify.sh",
     "NOTICE.md"
-  ]
+  ],
+  "homepage": "https://mobility.foundation/mobility/",
+  "fallback_homepage": "https://myaelmendez.github.io/mobility/"
 }

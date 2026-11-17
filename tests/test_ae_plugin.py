@@ -96,7 +96,7 @@ class AePluginTests(unittest.TestCase):
         result = out["result"]
         self.assertEqual(result["actor"], "hermes-ae")
         self.assertEqual(result["authority"], "HUMAN://ROOT")
-        self.assertEqual(result["version"], "3.7.0")
+        self.assertEqual(result["version"], "3.8.0")
         self.assertTrue(result["receipts"]["success"])
         self.assertTrue(self.ledger.exists())
         self.assertIn("hash", out["receipt"])
@@ -159,6 +159,10 @@ class AePluginTests(unittest.TestCase):
         self.assertEqual(out["result"]["agent"]["name"], "Asimov Agent")
         self.assertTrue(out["result"]["capabilities"]["viewport_dom"])
         self.assertTrue(out["result"]["capabilities"]["onnx_locomotion"])
+
+    def test_mobility_homepage_binding(self):
+        out = self._call(op="agent")
+        self.assertTrue(out["result"]["agent"]["homepage"].startswith("https://mobility.foundation/"))
 
     def test_verify_on_empty_ledger(self):
         out = self._call(op="verify")
