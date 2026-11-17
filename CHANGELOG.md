@@ -1,3 +1,9 @@
+## 3.4.1
+
+- Fixed `ffmpeg_demo`, `policy_locomotion`, and `policy_walk` routing: these are
+  bundled scripts and must not be registered as local funcs.
+- No policy or film changes; v3.4.0 artifacts remain current.
+
 ## 3.4.0
 
 - Replaced the mocap-guided gait with a real ONNX locomotion policy: Menlo

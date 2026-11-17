@@ -96,7 +96,7 @@ class AePluginTests(unittest.TestCase):
         result = out["result"]
         self.assertEqual(result["actor"], "hermes-ae")
         self.assertEqual(result["authority"], "HUMAN://ROOT")
-        self.assertEqual(result["version"], "3.4.0")
+        self.assertEqual(result["version"], "3.4.1")
         self.assertTrue(result["receipts"]["success"])
         self.assertTrue(self.ledger.exists())
         self.assertIn("hash", out["receipt"])
@@ -138,6 +138,12 @@ class AePluginTests(unittest.TestCase):
         self.assertEqual(out["result"]["harness"]["name"], "ffmpeg")
         self.assertIn("media", out["result"]["harness"]["aliases"])
         self.assertTrue(out["result"]["harness"]["probe"]["success"])
+
+    def test_script_ops_route_to_scripts(self):
+        out = self._call(op="ops")
+        self.assertIn("policy_locomotion", out["result"]["local_ops"])
+        self.assertNotIn("policy_locomotion", out["result"]["local_funcs"])
+        self.assertNotIn("ffmpeg_demo", out["result"]["local_funcs"])
 
     def test_verify_on_empty_ledger(self):
         out = self._call(op="verify")
