@@ -1,3 +1,9 @@
+## 3.7.0
+
+- Unified the robot identity as **Asimov Agent**: one `ae({"op":"agent"})` call
+  reports voice, body, harnesses, ONNX policy, DOM awareness, model hashes, and
+  ledger state under `HUMAN://ROOT`.
+
 ## 3.6.0
 
 - Added `ae({op:"viewport_dom"})`: read-only DOM awareness for the Asimov

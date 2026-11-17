@@ -1,4 +1,4 @@
-"""hermes-ae 3.6.0 — one self-contained, receipted MoH orchestrator.
+"""hermes-ae 3.7.0 — one self-contained, receipted MoH orchestrator.
 
 `ae` dispatches to the registered tools of all local plugins by loading their
 modules with a lightweight FakeCtx, then writes a single HUMAN://ROOT
@@ -90,6 +90,7 @@ LOCAL_FUNCS = {
     'harness': 'Inspect one named harness.',
     'run_harness': 'Run a light harness chain (no video pipelines).',
     'agent_body': 'Show the Asimov = hermes-agent build identity binding.',
+    'agent': 'Show the unified Asimov Agent identity and runtime state.',
     'ffmpeg': 'Probe the ffmpeg media harness runtime.',
 }
 
@@ -130,6 +131,41 @@ def _ffmpeg_harness(args):
             'ffprobe_version': (p.stdout or '').splitlines()[0] if p.stdout else None,
             'encoders': encoders,
             'receipt_action': 'VIDEO://RENDER'}
+
+def _asimov_agent(args):
+    """Unified Asimov Agent identity and runtime state."""
+    ident_path = ROOT / 'identity.json'
+    if not ident_path.exists():
+        return {'success': False, 'error': 'identity.json missing'}
+    ident = json.loads(ident_path.read_text())
+    agent = dict(ident.get('agent', {}))
+    chain = _verify_chain()
+    registry = json.loads(HARNESSES.read_text()) if HARNESSES.exists() else {'harnesses': []}
+    package = ROOT / 'packages' / 'ae-locomotion' / '1.0.0' / 'manifest.json'
+    pkg = json.loads(package.read_text()) if package.exists() else {}
+    phys = ROOT / 'model' / 'xml' / 'asimov_1_25dof_physics.xml'
+    policy = ROOT / 'model' / 'xml' / 'asimov_1_policy_physics.xml'
+    urdf = ROOT / 'model' / 'urdf' / 'asimov_1_25dof.urdf'
+    capabilities = {
+        'tts': (SCRIPTS / 'tiny_voca_voice.py').exists(),
+        'video': any((SCRIPTS / s).exists() for s in ('masterpiece_video.py', 'ffmpeg_harness_demo.py')),
+        'physics': (SCRIPTS / 'physics.py').exists(),
+        'onnx_locomotion': (SCRIPTS / 'policy_locomotion.py').exists() and bool(pkg),
+        'qpos_viewport': (ROOT / 'webgl' / 'qpos_viewer.html').exists(),
+        'viewport_dom': (SCRIPTS / 'viewport_dom.py').exists(),
+        'publish': (SCRIPTS / 'publish_docs.py').exists(),
+        'receipts': chain.get('success', False),
+    }
+    return {'success': True, 'authority': 'HUMAN://ROOT', 'agent': agent,
+            'voice': ident.get('bindings', {}).get('M2'),
+            'body': ident.get('actor'),
+            'harnesses': [h['name'] for h in registry.get('harnesses', [])],
+            'policy': {'name': pkg.get('policy', {}).get('name'), 'sha256': pkg.get('policy', {}).get('sha256'),
+                       'verified': pkg.get('verified')},
+            'model_sha256': {'physics': _sha_file(phys), 'policy_physics': _sha_file(policy), 'urdf': _sha_file(urdf)},
+            'capabilities': capabilities,
+            'ledger': {'success': chain.get('success', False), 'count': chain.get('count'), 'head': chain.get('head')},
+            'receipt_action': 'AGENT://ASIMOV'}
 
 def _local_func(op, args):
     try:
@@ -191,10 +227,12 @@ def _local_func(op, args):
                 vids[name] = {'sha256': _sha_file(f), 'bytes': f.stat().st_size if f.exists() else 0}
             chain = _verify_chain()
             ok = all(hashes.values()) and chain['success']
-            return {'success': ok, 'authority': 'HUMAN://ROOT', 'version': '3.6.0',
+            return {'success': ok, 'authority': 'HUMAN://ROOT', 'version': '3.7.0',
                     'model_sha256': hashes, 'videos': vids, 'receipts': chain}
         if op == 'verify':
             return _verify_chain()
+        if op == 'agent':
+            return _asimov_agent(args)
         if op == 'ffmpeg':
             return _ffmpeg_harness(args)
         if op == 'agent_body':
@@ -357,7 +395,7 @@ def register(ctx):
             dirs = sorted(p.name for p in PLUGINS.iterdir() if p.is_dir()) if PLUGINS.exists() else []
             chain = _verify_chain()
             result = {'success': True, 'actor': 'hermes-ae', 'authority': 'HUMAN://ROOT',
-                      'version': '3.6.0', 'plugins_on_disk': len(dirs),
+                      'version': '3.7.0', 'plugins_on_disk': len(dirs),
                       'shortcuts': sorted(SHORTCUTS), 'receipts': chain}
         elif op == 'receipts':
             limit = int(arg.get('limit') or 10)

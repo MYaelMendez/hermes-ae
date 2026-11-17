@@ -164,5 +164,13 @@
       "fallback": "append to a local plaintext journal with chain verification disabled; receipt records unverified mode",
       "description": "The unified, tamper-evident receipt ledger: a SHA-256 hash chain anchored at GENESIS under HUMAN://ROOT, persisted as ae-receipts.jsonl, that records every harness action."
     }
-  ]
+  ],
+  "agent": {
+    "name": "Asimov Agent",
+    "slug": "asimov-agent",
+    "authority": "HUMAN://ROOT",
+    "identity": "hermes-agent (M2) embodied in Asimov-1",
+    "runtime": "hermes-ae single-tool MoH orchestrator",
+    "inspect": "ae({\"op\":\"agent\"})"
+  }
 }

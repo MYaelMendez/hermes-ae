@@ -1,6 +1,6 @@
 {
   "authority": "HUMAN://ROOT",
-  "principle": "authority not transferable · execution visible",
+  "principle": "authority not transferable \u00b7 execution visible",
   "bindings": {
     "F2": {
       "name": "nous girl",
@@ -24,5 +24,36 @@
     "links": 26,
     "identity": "hermes-agent build body",
     "authority": "HUMAN://ROOT"
+  },
+  "agent": {
+    "name": "Asimov Agent",
+    "slug": "asimov-agent",
+    "authority": "HUMAN://ROOT",
+    "voice": "hermes-agent (M2)",
+    "body": "Asimov-1 (25 DOF)",
+    "runtime": "hermes-ae MoH orchestrator + official Asimov-1 MJCF/URDF + tiny-voca + MuJoCo + ONNX policy",
+    "receipt_action": "AGENT://ASIMOV",
+    "capabilities": [
+      "tts",
+      "video",
+      "vlc_control",
+      "physics",
+      "qpos_viewport",
+      "onnx_locomotion",
+      "viewport_dom",
+      "publish",
+      "receipts"
+    ],
+    "ops": [
+      "agent",
+      "agent_body",
+      "harnesses",
+      "harness",
+      "run_harness",
+      "policy_locomotion",
+      "policy_walk",
+      "viewport_dom",
+      "masterpiece"
+    ]
   }
 }

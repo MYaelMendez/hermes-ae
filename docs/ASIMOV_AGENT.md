@@ -49,3 +49,27 @@ telemetry and a unified `HUMAN://ROOT` receipt.
   ships manifests, not binary STL weights.
 - This is an architectural identity binding, not an institutional claim from
   Nous Research or Menlo Research.
+
+## Unified runtime
+
+Asimov Agent is the single runtime identity for everything above. Inspect it
+with:
+
+```json
+{"op": "agent"}
+```
+
+The response binds:
+
+- voice: `hermes-agent` (M2, tiny-voca)
+- body: official Asimov-1, 25 DOF
+- harnesses: the nine MoH envelopes
+- policy: `Menlo/asimov1-locomotion-0818` with its verified travel record
+- viewport: read-only CDP DOM awareness via `viewport_dom`
+- model hashes: physics MJCF, policy MJCF, and URDF
+- ledger: chain validity, count, and head receipt
+- receipt action: `AGENT://ASIMOV`
+
+This is the operating definition: **Asimov Agent is the hermes-agent build
+voice, embodied in Asimov-1, governed by OpenSourceWare receipts.**
+
