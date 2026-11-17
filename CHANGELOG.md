@@ -1,3 +1,9 @@
+## 3.5.0
+
+- Packaged the policy-driven gait harness as `æLOCOMOTION` / `ae-locomotion`
+  v1.0.0 with manifest, checksums, install/verify scripts, bundled ONNX policy,
+  MJCF variants, renderer pipeline, and proof record.
+
 ## 3.4.1
 
 - Fixed `ffmpeg_demo`, `policy_locomotion`, and `policy_walk` routing: these are

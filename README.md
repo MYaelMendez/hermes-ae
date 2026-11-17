@@ -100,3 +100,4 @@ Full clips and receipts are indexed in [docs/VIDEOS.md](docs/VIDEOS.md).
 - [The v3.0.0 masterpiece target](docs/MASTERPIECE.md) — the one-command, receipted capstone deliverable
 - [Asimov agent body](docs/ASIMOV_AGENT.md) — the visible hermes-agent build
 - [Policy-driven locomotion](docs/POLICY_LOCOMOTION.md) — the ONNX gait that replaced the mocap trace
+- [æLOCOMOTION package](docs/PACKAGING.md) — the policy-driven gait harness, packed

@@ -14,7 +14,7 @@ rm -rf "$TARGET"
 mkdir -p "$TARGET"
 
 # Copy only the plugin payload.
-for item in plugin.yaml __init__.py scripts skills model docs courses webgl assets harnesses.json identity.json videos.json receipts_snapshot.json; do
+for item in plugin.yaml __init__.py scripts skills model docs courses webgl assets harnesses.json identity.json packages videos.json receipts_snapshot.json; do
     cp -R "$SCRIPT_DIR/$item" "$TARGET/"
 done
 
