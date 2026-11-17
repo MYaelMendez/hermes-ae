@@ -77,6 +77,11 @@ Inspect it with:
 {"op": "run_harness", "chain": ["voice", "ffmpeg", "ledger"]}
 ```
 
+Run the proof clip with `ae({"op":"ffmpeg_demo"})`. It shows Asimov walking
+front-facing while `hermes-agent` narrates
+`FRAMES → ENCODE → PROBE → WITNESS → RECEIPT`, produced by the same ffmpeg
+harness it describes.
+
 The harness probe verifies ffmpeg/ffprobe versions and required encoders before
 declaring readiness. Video acceptance still fails closed on duration, frame
 count, codec, audio levels, bright pixels, sha256, and ledger linkage.

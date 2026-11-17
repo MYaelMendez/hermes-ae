@@ -1,3 +1,9 @@
+## 3.3.0
+
+- Added `ae({op:"ffmpeg_demo"})`: a 12-second 9:16 demo where Asimov, driven by
+  the hermes-agent build voice, explains the ffmpeg harness chain.
+- Parameterized the Asimov renderer for reusable harness identity clips.
+
 ## 3.2.0
 
 - Promoted ffmpeg to the canonical media harness, with `media` retained as an alias.

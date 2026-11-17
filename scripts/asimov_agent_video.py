@@ -21,6 +21,10 @@ TEXT = ('I am hermes-agent, the build voice of OpenSourceWare. '
         'This body is Asimov-1, twenty five degrees of freedom. '
         'Human root stays. I ask, I execute, I return a receipt. '
         'Authority is never transferred. Execution is visible.')
+TITLE = '>_æ: HERMES-AGENT // BUILD'
+SUBTITLE = 'BODY: ASIMOV-1 · 25 DOF · OFFICIAL MENLO CAD'
+ACTION = 'VIDEO://ASIMOV_HERMES_AGENT_BUILD'
+STAGE_LINE = ''
 
 f_title=ImageFont.truetype(FONT,28); f_sub=ImageFont.truetype(FONT,16)
 f_voice=ImageFont.truetype(FONT,19); f_cap=ImageFont.truetype(FONT,24); f_tiny=ImageFont.truetype(FONT,11)
@@ -156,8 +160,11 @@ def render(timeline,env,sr,robot):
         t=frame/FPS
         img=Image.new('RGB',(W,H),BG); d=ImageDraw.Draw(img)
         for y in range(0,H,4): d.line((0,y,W,y),fill=(4,18,15),width=1)
-        glow_text(img,(26,22),'>_æ: HERMES-AGENT // BUILD',f_title,CYAN,14)
-        d.text((28,60),'BODY: ASIMOV-1 · 25 DOF · OFFICIAL MENLO CAD',font=f_sub,fill=GREEN)
+        glow_text(img,(26,22),TITLE,f_title,CYAN,14)
+        d.text((28,60),SUBTITLE,font=f_sub,fill=GREEN)
+        if STAGE_LINE:
+            d.rounded_rectangle((26,92,W-26,124),radius=8,fill=(5,20,16),outline=CYAN)
+            d.text((40,100),STAGE_LINE,font=f_sub,fill=GREEN)
         # real CAD
         idx=min(len(trace['qpos'])-1,int((t/SECS)*(len(trace['qpos'])-1)))
         pts,base,com=fp(idx)
@@ -244,7 +251,7 @@ def main():
     pub=publish(out) if (args.get('publish',True) and q['success']) else {'skipped':True}
     sys.path.insert(0,str(REPO_ROOT)); import importlib.util
     spec=importlib.util.spec_from_file_location('ae',REPO_ROOT/'__init__.py'); ae=importlib.util.module_from_spec(spec); spec.loader.exec_module(ae)
-    rec=ae._receipt('VIDEO://ASIMOV_HERMES_AGENT_BUILD',{'authority':'HUMAN://ROOT','output':str(out),
+    rec=ae._receipt(ACTION,{'authority':'HUMAN://ROOT','output':str(out),
         'sha256':hashlib.sha256(out.read_bytes()).hexdigest(),'duration_s':SECS,'voice':'hermes-agent (M2)',
         'body':'asimov-1','qc':q,'publish':pub})
     shutil.rmtree(FRAMES,ignore_errors=True)

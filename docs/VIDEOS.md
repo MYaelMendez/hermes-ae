@@ -2,6 +2,14 @@
 
 Published artifacts from the `hermes-ae` studio.
 
+## ffmpeg Harness Demo — Asimov / hermes-agent
+
+- File: `ffmpeg-harness-demo-916.mp4`
+- Specs: 720x1280, 24 fps, 12.0 s, h264/aac
+- Physics: Asimov-1 on mocap-guided MuJoCo qpos; ffmpeg harness stages on screen
+- Receipt: `82fb2e143688cb3ee3412f18e08795c776b9acb0011b1a718bd35af42744c2f5`
+- [Download](https://raw.githubusercontent.com/MYaelMendez/MYaelMendez.github.io/gh-pages/ffmpeg-harness-demo-916.mp4)
+
 ## Asimov — hermes-agent Build Body
 
 - File: `asimov-agent-build-916.mp4`

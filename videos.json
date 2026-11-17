@@ -2,6 +2,17 @@
   "gallery": "https://raw.githubusercontent.com/MYaelMendez/MYaelMendez.github.io/gh-pages/videos.html",
   "videos": [
     {
+      "name": "ffmpeg-harness-demo-916.mp4",
+      "title": "ffmpeg Harness Demo \u2014 Asimov / hermes-agent",
+      "url": "https://raw.githubusercontent.com/MYaelMendez/MYaelMendez.github.io/gh-pages/ffmpeg-harness-demo-916.mp4",
+      "resolution": "720x1280",
+      "fps": 24,
+      "duration_s": 12.0,
+      "codec": "h264/aac",
+      "physics": "Asimov-1 on mocap-guided MuJoCo qpos; ffmpeg harness stages on screen",
+      "receipt": "82fb2e143688cb3ee3412f18e08795c776b9acb0011b1a718bd35af42744c2f5"
+    },
+    {
       "name": "asimov-agent-build-916.mp4",
       "title": "Asimov \u2014 hermes-agent Build Body",
       "url": "https://raw.githubusercontent.com/MYaelMendez/MYaelMendez.github.io/gh-pages/asimov-agent-build-916.mp4",

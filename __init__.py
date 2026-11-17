@@ -1,4 +1,4 @@
-"""hermes-ae 3.2.0 — one self-contained, receipted MoH orchestrator.
+"""hermes-ae 3.3.0 — one self-contained, receipted MoH orchestrator.
 
 `ae` dispatches to the registered tools of all local plugins by loading their
 modules with a lightweight FakeCtx, then writes a single HUMAN://ROOT
@@ -54,6 +54,7 @@ LOCAL_OPS = {
     'free_walk': ('free_walk_video.py', 1500),
     'masterpiece': ('masterpiece_video.py', 1800),
     'asimov_agent': ('asimov_agent_video.py', 1500),
+    'ffmpeg_demo': ('ffmpeg_harness_demo.py', 1500),
 }
 
 
@@ -87,6 +88,7 @@ LOCAL_FUNCS = {
     'run_harness': 'Run a light harness chain (no video pipelines).',
     'agent_body': 'Show the Asimov = hermes-agent build identity binding.',
     'ffmpeg': 'Probe the ffmpeg media harness runtime.',
+    'ffmpeg_demo': 'Render the Asimov-driven ffmpeg harness demo.',
 }
 
 
@@ -187,7 +189,7 @@ def _local_func(op, args):
                 vids[name] = {'sha256': _sha_file(f), 'bytes': f.stat().st_size if f.exists() else 0}
             chain = _verify_chain()
             ok = all(hashes.values()) and chain['success']
-            return {'success': ok, 'authority': 'HUMAN://ROOT', 'version': '3.2.0',
+            return {'success': ok, 'authority': 'HUMAN://ROOT', 'version': '3.3.0',
                     'model_sha256': hashes, 'videos': vids, 'receipts': chain}
         if op == 'verify':
             return _verify_chain()
@@ -353,7 +355,7 @@ def register(ctx):
             dirs = sorted(p.name for p in PLUGINS.iterdir() if p.is_dir()) if PLUGINS.exists() else []
             chain = _verify_chain()
             result = {'success': True, 'actor': 'hermes-ae', 'authority': 'HUMAN://ROOT',
-                      'version': '3.2.0', 'plugins_on_disk': len(dirs),
+                      'version': '3.3.0', 'plugins_on_disk': len(dirs),
                       'shortcuts': sorted(SHORTCUTS), 'receipts': chain}
         elif op == 'receipts':
             limit = int(arg.get('limit') or 10)
