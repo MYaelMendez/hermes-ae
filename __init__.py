@@ -1,4 +1,4 @@
-"""hermes-ae 2.3.1 — one self-contained, receipted tool for the robot studio.
+"""hermes-ae 2.4.0 — one self-contained, receipted tool for the robot studio.
 
 `ae` dispatches to the registered tools of all local plugins by loading their
 modules with a lightweight FakeCtx, then writes a single HUMAN://ROOT
@@ -70,7 +70,10 @@ def _run_local(script, args, timeout):
 
 LOCAL_FUNCS = {
     'speak': 'Generate speech with the bundled tiny-voca CLI.',
+    'tts_speak': 'Alias of speak — tiny-voca as a Hermes TTS primitive.',
     'voices': 'List bundled TTS voices.',
+    'tts_voices': 'Alias of voices — list tiny-voca voices.',
+    'tts_receipts': 'List tiny-voca speech receipts from the unified ledger.',
     'probe': 'Probe a media file with ffprobe.',
     'witness': 'List video/sha256 receipts from the unified ledger.',
     'gallery': 'Regenerate the video gallery from files on disk.',
@@ -101,7 +104,7 @@ def _sha_file(path):
 
 def _local_func(op, args):
     try:
-        if op == 'speak':
+        if op in ('speak', 'tts_speak'):
             text = args.get('text', '')
             if not text:
                 return {'success': False, 'error': 'text is required'}
@@ -110,7 +113,7 @@ def _local_func(op, args):
             r = _cmd([PY, str(SCRIPTS / 'tiny_voca_voice.py'), '--text', text,
                       '--voice', args.get('voice', 'M2'), '--output', out], timeout=300)
             return r if r.get('success') else {'success': False, 'error': r.get('error'), 'raw': r}
-        if op == 'voices':
+        if op in ('voices', 'tts_voices'):
             return {'success': True, 'voices': [
                 {'id': 'F2', 'name': 'female', 'language': 'en-US', 'sample_rate': 24000},
                 {'id': 'M2', 'name': 'male', 'language': 'en-US', 'sample_rate': 24000}]}
@@ -121,10 +124,12 @@ def _local_func(op, args):
             return _cmd(['ffprobe', '-v', 'error', '-show_entries',
                          'stream=codec_type,codec_name,width,height,r_frame_rate,nb_frames',
                          '-show_entries', 'format=duration,size', '-of', 'json', str(path)])
-        if op == 'witness':
+        if op in ('witness', 'tts_receipts'):
             lines = [json.loads(x) for x in LEDGER.read_text().splitlines() if x.strip()] if LEDGER.exists() else []
-            hits = [e for e in lines if 'VIDEO' in str(e.get('action', '')).upper()]
-            return {'success': True, 'count': len(hits), 'videos': hits[-int(args.get('limit') or 10):]}
+            needle = 'TTS' if op == 'tts_receipts' else 'VIDEO'
+            hits = [e for e in lines if needle in str(e.get('action', '')).upper()]
+            return {'success': True, 'count': len(hits),
+                    'receipts': hits[-int(args.get('limit') or 10):]}
         if op == 'gallery':
             if not GALLERY.exists():
                 return {'success': False, 'error': f'gallery repo missing: {GALLERY}'}
@@ -155,7 +160,7 @@ def _local_func(op, args):
                 vids[name] = {'sha256': _sha_file(f), 'bytes': f.stat().st_size if f.exists() else 0}
             chain = _verify_chain()
             ok = all(hashes.values()) and chain['success']
-            return {'success': ok, 'authority': 'HUMAN://ROOT', 'version': '2.3.1',
+            return {'success': ok, 'authority': 'HUMAN://ROOT', 'version': '2.4.0',
                     'model_sha256': hashes, 'videos': vids, 'receipts': chain}
         return {'success': False, 'error': f'unknown local op {op}'}
     except Exception as e:
@@ -271,7 +276,7 @@ def register(ctx):
             dirs = sorted(p.name for p in PLUGINS.iterdir() if p.is_dir()) if PLUGINS.exists() else []
             chain = _verify_chain()
             result = {'success': True, 'actor': 'hermes-ae', 'authority': 'HUMAN://ROOT',
-                      'version': '2.3.1', 'plugins_on_disk': len(dirs),
+                      'version': '2.4.0', 'plugins_on_disk': len(dirs),
                       'shortcuts': sorted(SHORTCUTS), 'receipts': chain}
         elif op == 'receipts':
             limit = int(arg.get('limit') or 10)

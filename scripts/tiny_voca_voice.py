@@ -1,12 +1,12 @@
 """tiny-voca local voice layer — self-hosted TTS for æ agents.
 
 ONNX Runtime path (no PyTorch needed). English only, voices F2/M2, 24 kHz.
-Weights: /opt/data/tiny-voca-weights (model.onnx SHA256 verified).
+Weights: $HERMES_AE_TTS_ROOT or /opt/data/tiny-voca-weights (model.onnx SHA256 verified).
 """
-import os, sys, wave, hashlib, json
+import os, sys, wave, hashlib, json, importlib.util
 from pathlib import Path
 
-ROOT = Path('/opt/data/tiny-voca-weights')
+ROOT = Path(os.environ.get('HERMES_AE_TTS_ROOT', '/opt/data/tiny-voca-weights'))
 os.environ.setdefault('DIZIONE_DATA', str(ROOT / 'phonemizer'))
 MODEL = ROOT / 'onnx' / 'model.onnx'
 CONFIG = ROOT / 'config.json'
@@ -116,6 +116,21 @@ def main():
         sys.exit(1)
     try:
         r = speak_text(text, a.output, a.voice, a.speed, a.pitch_shift, a.pitch_range)
+        if r.get('success'):
+            try:
+                plugin_root = Path(__file__).resolve().parent.parent
+                spec = importlib.util.spec_from_file_location('ae_receipt', plugin_root / '__init__.py')
+                ae = importlib.util.module_from_spec(spec)
+                spec.loader.exec_module(ae)
+                rec = ae._receipt('TTS://SPEAK', {
+                    'voice': a.voice,
+                    'sha256': r.get('sha256'),
+                    'duration_s': r.get('duration_s'),
+                    'output': a.output,
+                    'authority': 'HUMAN://ROOT'})
+                r['receipt'] = rec['hash']
+            except Exception:
+                pass
         print(json.dumps(r))
     except Exception as e:
         print(json.dumps({'success': False, 'error': str(e)})); sys.exit(1)

@@ -96,7 +96,7 @@ class AePluginTests(unittest.TestCase):
         result = out["result"]
         self.assertEqual(result["actor"], "hermes-ae")
         self.assertEqual(result["authority"], "HUMAN://ROOT")
-        self.assertEqual(result["version"], "2.3.1")
+        self.assertEqual(result["version"], "2.4.0")
         self.assertTrue(result["receipts"]["success"])
         self.assertTrue(self.ledger.exists())
         self.assertIn("hash", out["receipt"])
@@ -109,6 +109,16 @@ class AePluginTests(unittest.TestCase):
         self.assertIn("local_ops", out["result"])
         self.assertIn("studio_video", out["result"]["local_ops"])
         self.assertTrue(self.ledger.exists())
+
+    def test_tts_aliases_advertised(self):
+        out = self._call(op="ops")
+        for name in ("speak", "tts_speak", "voices", "tts_voices", "tts_receipts"):
+            self.assertIn(name, out["result"]["local_funcs"])
+
+    def test_voices_lists_f2_m2(self):
+        out = self._call(op="voices")
+        self.assertTrue(out["success"])
+        self.assertEqual([v["id"] for v in out["result"]["voices"]], ["F2", "M2"])
 
     def test_verify_on_empty_ledger(self):
         out = self._call(op="verify")

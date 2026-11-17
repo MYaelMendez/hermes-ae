@@ -1,3 +1,9 @@
+## 2.4.0
+
+- Promoted tiny-voca to a Hermes TTS primitive: native `tts.provider: tiny-voca` now points at the installed plugin CLI.
+- Added `tts_speak`, `tts_voices`, and `tts_receipts` aliases to the single `ae` tool.
+- Added `docs/TINY_VOCA.md` documenting the native provider, voice roles, CLI contract, and receipts.
+
 ## 2.3.1
 
 - Refreshed sanitized receipt snapshot to the full 45-entry ledger at release time.

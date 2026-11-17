@@ -1,7 +1,7 @@
 ---
 name: hermes-ae
 description: Receipted Asimov studio ops for physics and video.
-version: 2.3.1
+version: 2.4.0
 author: "Yael Méndez (@yaelmendez), Hermes Agent"
 license: MIT
 platforms: [linux]
@@ -52,6 +52,7 @@ other key is forwarded as an argument. Each call returns a JSON string with
 `success`, `op`, `result`, and a `receipt`.
 
 - Core ops need no external tooling: `status`, `receipts`, `verify`, `ops`, `call`.
+- TTS primitive: `speak`/`tts_speak`, `voices`/`tts_voices`, `tts_receipts`.
 - Bundled pipelines: `studio_video`, `free_walk` (heavy; use a long timeout).
 - Shortcuts (`speak`, `voices`, `render`, `probe`, `gallery`, `vlc`, `nodes`,
   `robot_say`, `studio`, `physics`, `face_states`, `chimera_speak`, and others)

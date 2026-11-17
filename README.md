@@ -95,3 +95,4 @@ Full clips and receipts are indexed in [docs/VIDEOS.md](docs/VIDEOS.md).
 ## Docs
 
 - [Open courses](docs/COURSES.md) — reusable two-voice lesson template
+- [tiny-voca primitive](docs/TINY_VOCA.md) — native Hermes TTS with F2/M2 voices
