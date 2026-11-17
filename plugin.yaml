@@ -1,5 +1,5 @@
 name: hermes-ae
-version: 3.9.0
+version: 3.9.1
 description: "One receipted tool for Asimov robot studio videos. Physics, visemes, TTS, rendering, VLC, and publishing behind ae."
 author: "Yael Méndez (@yaelmendez), Hermes Agent"
 provides_tools:

@@ -1,3 +1,8 @@
+## 3.9.1
+
+- Force-added the sovereign projection binary assets that the repo `.gitignore`
+  had excluded from v3.9.0.
+
 ## 3.9.0
 
 - Refactored the sovereign bundle into a governed `sovereign projection`
