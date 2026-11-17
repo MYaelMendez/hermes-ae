@@ -2,22 +2,6 @@
 
 Published artifacts from the `hermes-ae` studio.
 
-## OpenSourceWare — Two Voices
-
-- File: `opensourceware-two-voices-916.mp4`
-- Specs: 720x1280, 24 fps, 17.0 s, h264/aac
-- Physics: Two-voice explainer: F2 human/root and M2 agent/build
-- Receipt: `0d224eee8db14a9d5cab7adb6d8bbc27a0d1afd076b95afc3a624ed686174979`
-- [Download](https://raw.githubusercontent.com/MYaelMendez/MYaelMendez.github.io/gh-pages/opensourceware-two-voices-916.mp4)
-
-## Ambient Engineering — Manifesto
-
-- File: `ambient-engineering-916.mp4`
-- Specs: 720x1280, 24 fps, 9.0 s, h264/aac
-- Physics: Concept diagram: HUMAN://ROOT → æ → RECEIPT
-- Receipt: `c47068fadaa85289c2aca71e2415ba99fdd177fd0e10aa7bc2088b3aa6035589`
-- [Download](https://raw.githubusercontent.com/MYaelMendez/MYaelMendez.github.io/gh-pages/ambient-engineering-916.mp4)
-
 ## Asimov Free Walk — Studio v2.2
 
 - File: `asimov-free-walk-916.mp4`
