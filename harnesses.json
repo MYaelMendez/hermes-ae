@@ -25,21 +25,27 @@
       }
     },
     {
-      "name": "media",
+      "name": "ffmpeg",
       "authority": "HUMAN://ROOT",
-      "runtime": "ffmpeg-agentic",
+      "runtime": "ffmpeg 8.x + ffprobe (libx264/aac encoder profile)",
       "inputs": [
-        "frames",
-        "audio",
-        "codec_profile"
+        "frame_sequence",
+        "audio_tracks",
+        "codec_profile",
+        "qc_policy"
       ],
       "outputs": [
-        "mp4",
-        "qc_report"
+        "h264_aac_mp4",
+        "probe_report",
+        "volume_report",
+        "sha256"
       ],
       "receipt_action": "VIDEO://RENDER",
-      "fallback": "static ffmpeg H.264/AAC profile with no agentic repair; receipt records fixed-pipeline mode",
-      "description": "Agentically encodes rendered frames and narration into H.264/AAC 9:16 video and runs ffprobe/volumedetect QC gates before an artifact is accepted."
+      "fallback": "fixed libx264/aac pipeline without agentic repair; receipt records degraded mode",
+      "description": "Assembles deterministic PIL frames and tiny-voca narration into H.264/AAC 9:16 video, then gates acceptance on ffprobe, volumedetect, frame count, duration, bright pixels, sha256, and ledger linkage under HUMAN://ROOT.",
+      "aliases": [
+        "media"
+      ]
     },
     {
       "name": "control",

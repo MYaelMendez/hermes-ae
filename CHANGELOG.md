@@ -1,3 +1,9 @@
+## 3.2.0
+
+- Promoted ffmpeg to the canonical media harness, with `media` retained as an alias.
+- Added `ae({op:"ffmpeg"})` plus runtime/encoder probing in `harness` and `run_harness`.
+- ffmpeg is now a governed envelope: inputs, outputs, receipt action, fallback, and QC policy.
+
 ## 3.1.1
 
 - Fixed the `agent_body` unit-test assertion to read the wrapped `result` object.

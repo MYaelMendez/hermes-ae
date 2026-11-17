@@ -1,4 +1,4 @@
-"""hermes-ae 3.1.1 — one self-contained, receipted MoH orchestrator.
+"""hermes-ae 3.2.0 — one self-contained, receipted MoH orchestrator.
 
 `ae` dispatches to the registered tools of all local plugins by loading their
 modules with a lightweight FakeCtx, then writes a single HUMAN://ROOT
@@ -86,6 +86,7 @@ LOCAL_FUNCS = {
     'harness': 'Inspect one named harness.',
     'run_harness': 'Run a light harness chain (no video pipelines).',
     'agent_body': 'Show the Asimov = hermes-agent build identity binding.',
+    'ffmpeg': 'Probe the ffmpeg media harness runtime.',
 }
 
 
@@ -108,6 +109,23 @@ def _sha_file(path):
     except Exception:
         return None
 
+
+def _ffmpeg_harness(args):
+    """Governed ffmpeg harness probe: version, encoders, and runtime readiness."""
+    try:
+        v = subprocess.run(['ffmpeg','-hide_banner','-version'],capture_output=True,text=True,timeout=20)
+        p = subprocess.run(['ffprobe','-hide_banner','-version'],capture_output=True,text=True,timeout=20)
+        e = subprocess.run(['ffmpeg','-hide_banner','-encoders'],capture_output=True,text=True,timeout=20)
+    except Exception as exc:
+        return {'success': False, 'error': str(exc), 'authority': 'HUMAN://ROOT'}
+    enc = (e.stdout or e.stderr)
+    encoders = {'libx264': 'libx264' in enc, 'aac': ' aac ' in enc or 'aac ' in enc}
+    ok = v.returncode == 0 and p.returncode == 0 and all(encoders.values())
+    return {'success': ok, 'authority': 'HUMAN://ROOT',
+            'ffmpeg_version': (v.stdout or '').splitlines()[0] if v.stdout else None,
+            'ffprobe_version': (p.stdout or '').splitlines()[0] if p.stdout else None,
+            'encoders': encoders,
+            'receipt_action': 'VIDEO://RENDER'}
 
 def _local_func(op, args):
     try:
@@ -169,10 +187,12 @@ def _local_func(op, args):
                 vids[name] = {'sha256': _sha_file(f), 'bytes': f.stat().st_size if f.exists() else 0}
             chain = _verify_chain()
             ok = all(hashes.values()) and chain['success']
-            return {'success': ok, 'authority': 'HUMAN://ROOT', 'version': '3.1.1',
+            return {'success': ok, 'authority': 'HUMAN://ROOT', 'version': '3.2.0',
                     'model_sha256': hashes, 'videos': vids, 'receipts': chain}
         if op == 'verify':
             return _verify_chain()
+        if op == 'ffmpeg':
+            return _ffmpeg_harness(args)
         if op == 'agent_body':
             path = ROOT / 'identity.json'
             if not path.exists():
@@ -183,6 +203,7 @@ def _local_func(op, args):
             ident['success'] = bool(ident.get('bindings', {}).get('M2', {}).get('body') == 'asimov-1')
             return ident
         if op in ('harnesses', 'harness', 'run_harness'):
+            aliases = {'media': 'ffmpeg'}
             if not HARNESSES.exists():
                 return {'success': False, 'error': f'registry missing: {HARNESSES}'}
             registry = json.loads(HARNESSES.read_text())
@@ -191,13 +212,13 @@ def _local_func(op, args):
             if op == 'harnesses':
                 return {'success': True, 'count': len(items), 'harnesses': items,
                         'authority': 'HUMAN://ROOT'}
-            name = args.get('name')
+            name = args.get('name'); name = aliases.get(name, name)
             if op == 'harness':
                 if not name or name not in by_name:
                     return {'success': False, 'error': f'unknown harness {name!r}',
                             'available': sorted(by_name)}
                 entry = dict(by_name[name])
-                probe = {'voice': 'voices', 'physics': 'physics', 'ledger': 'verify'}.get(name)
+                probe = {'voice': 'voices', 'physics': 'physics', 'ledger': 'verify', 'ffmpeg': 'ffmpeg'}.get(name)
                 if probe:
                     entry['probe'] = _local_func(probe, {'steps': 10})
                 return {'success': True, 'harness': entry, 'authority': 'HUMAN://ROOT'}
@@ -206,8 +227,9 @@ def _local_func(op, args):
                 return {'success': False, 'error': 'chain or name is required',
                         'available': sorted(by_name)}
             results = []
-            probe_map = {'voice': 'voices', 'physics': 'physics', 'ledger': 'verify'}
+            probe_map = {'voice': 'voices', 'physics': 'physics', 'ledger': 'verify', 'ffmpeg': 'ffmpeg'}
             for hname in chain:
+                hname = aliases.get(hname, hname)
                 if hname not in by_name:
                     results.append({'harness': hname, 'success': False, 'error': 'unknown'})
                     continue
@@ -331,7 +353,7 @@ def register(ctx):
             dirs = sorted(p.name for p in PLUGINS.iterdir() if p.is_dir()) if PLUGINS.exists() else []
             chain = _verify_chain()
             result = {'success': True, 'actor': 'hermes-ae', 'authority': 'HUMAN://ROOT',
-                      'version': '3.1.1', 'plugins_on_disk': len(dirs),
+                      'version': '3.2.0', 'plugins_on_disk': len(dirs),
                       'shortcuts': sorted(SHORTCUTS), 'receipts': chain}
         elif op == 'receipts':
             limit = int(arg.get('limit') or 10)

@@ -35,7 +35,7 @@ opensourceware rather than merely open-source code.
 | Harness | Runtime envelope | Inputs → outputs | Receipt action |
 |---|---|---|---|
 | `voice` | tiny-voca ONNX (nous-girl F2 / hermes-agent M2, 24 kHz) | text, voice, speed → wav, visemes | `TTS://SPEAK` |
-| `media` | ffmpeg-agentic | frames, audio, profile → mp4, QC report | `VIDEO://RENDER` |
+| `ffmpeg` (alias `media`) | ffmpeg + ffprobe, libx264/aac | frame sequence, audio, profile, QC policy → mp4, probe and volume reports, sha256 | `VIDEO://RENDER` |
 | `control` | vlc-mesh | media URI, command → playback state | `VLC://CONTROL` |
 | `physics` | MuJoCo 4.0.1 (nu=25) | model, qpos, controls → trajectory, qpos series | `PHYSICS://STEP` |
 | `viewport` | Three.js / WebGL qpos viewer | qpos series, meshes → frames, camera | `VIEWPORT://RENDER` |
@@ -48,6 +48,39 @@ The machine-readable source of truth is `harnesses.json` at the repository
 root. Each entry there carries the full `name`, `authority`, `runtime`,
 `inputs`, `outputs`, `receipt_action`, `fallback`, and `description` fields; this
 table is the human-facing summary.
+
+## ffmpeg harness contract
+
+ffmpeg is no longer a loose utility. It is the `media` harness promoted to a
+governed envelope with the same authority chain as every other harness:
+
+```text
+HUMAN://ROOT → ae → ffmpeg harness → frames + audio → H.264/AAC artifact → receipt
+```
+
+| Field | Value |
+|---|---|
+| Name | `ffmpeg` |
+| Alias | `media` |
+| Authority | `HUMAN://ROOT` |
+| Runtime | ffmpeg + ffprobe, libx264/aac profile |
+| Inputs | frame sequence, audio tracks, codec profile, QC policy |
+| Outputs | mp4, probe report, volume report, sha256 |
+| Receipt action | `VIDEO://RENDER` |
+| Fallback | fixed libx264/aac pipeline without agentic repair; degraded mode recorded in receipt |
+
+Inspect it with:
+
+```json
+{"op": "harness", "name": "ffmpeg"}
+{"op": "ffmpeg"}
+{"op": "run_harness", "chain": ["voice", "ffmpeg", "ledger"]}
+```
+
+The harness probe verifies ffmpeg/ffprobe versions and required encoders before
+declaring readiness. Video acceptance still fails closed on duration, frame
+count, codec, audio levels, bright pixels, sha256, and ledger linkage.
+
 
 ## Contract of a harness
 
