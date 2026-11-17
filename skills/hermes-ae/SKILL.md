@@ -115,5 +115,30 @@ them, and `terminal` to run local checks. Do not invoke bundled pipelines from
   Completion: all tests pass with no network access or heavy scripts invoked.
 - Chain check: `ae {"op":"verify"}` returns `result.success:true` and a `head`
   equal to the last receipt hash returned by `ae {"op":"receipts"}`.
-- Smoke check: `ae {"op":"status"}` returns `result.version:"2.2.0"` and
+- Smoke check: `ae {"op":"status"}` returns `result.version:"3.1.1"` and
   `result.actor:"hermes-ae"`.
+
+## Lessons from the v3.1 build
+
+- The product is the authority chain, not the model: `HUMAN://ROOT → æ → RECEIPT`.
+  Every new capability must strengthen that chain or it is decoration.
+- A harness is a governed capability envelope; a plugin is only packaging.
+  Consolidate surfaces before adding features. One `ae` tool beat eighteen plugins.
+- Every published artifact needs one canonical source of truth: gallery from live
+  MP4s, one hash-chained ledger, one identity file, one repo, one tag.
+- Deterministic PIL-frame painting plus ffmpeg is the reliable production video
+  path. WebGL is a preview/control surface; browser capture is not reliable.
+- QC must fail closed on duration, frame count, codec, audio levels, bright
+  pixels, sha256, and chain validity. Adjust thresholds to the aesthetic, not
+  to make a failing artifact pass.
+- Real artifacts beat claims: official Asimov CAD, official MJCF, tiny-voca
+  voices, qpos telemetry, and honest caveats about mocap-guided locomotion.
+- Identity binding: `nous girl` (F2) holds the root frame; `hermes-agent` (M2)
+  builds; Asimov-1 is the build body. Human authority is never transferred.
+- Verify through the wrapper, not just the handler: FakeCtx signatures, nested
+  `result` objects, and local-func registries caused three patch releases.
+- Patch releases are cheaper than force-moving tags. Keep the masterpiece
+  artifact stable and fix code in a new tag.
+- User operating mode: execute with tools, report receipts, do not hand back
+  instructions-only help.
+
