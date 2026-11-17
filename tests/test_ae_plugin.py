@@ -1,0 +1,159 @@
+"""Offline unit tests for the hermes-ae plugin.
+
+Loads the repo-root ``__init__.py`` with importlib against a temporary
+``HERMES_HOME``/ledger, then drives the registered ``ae`` tool. Only stdlib is
+used: no network calls and no heavy bundled scripts are ever executed.
+"""
+import importlib.util
+import json
+import os
+import sys
+import tempfile
+import unittest
+from pathlib import Path
+
+REPO_ROOT = Path(__file__).resolve().parent.parent
+INIT_FILE = REPO_ROOT / "__init__.py"
+
+_ENV_KEYS = (
+    "HERMES_HOME",
+    "HERMES_AE_LEDGER",
+    "HERMES_AE_PLUGINS",
+    "HERMES_AE_PYTHON",
+)
+
+
+class FakeCtx:
+    """Minimal registration context that records registered tools."""
+
+    def __init__(self):
+        self.tools = {}
+        self.commands = {}
+        self.hooks = {}
+
+    def register_tool(self, name, toolset, handler, schema):
+        self.tools[name] = (toolset, handler, schema)
+
+    def register_command(self, name, handler, description, args_hint):
+        self.commands[name] = (handler, description, args_hint)
+
+    def register_hook(self, name, handler):
+        self.hooks[name] = handler
+
+
+class AePluginTests(unittest.TestCase):
+    def setUp(self):
+        self._saved_env = {key: os.environ.get(key) for key in _ENV_KEYS}
+        self._tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self._tmp.cleanup)
+
+        home = Path(self._tmp.name)
+        os.environ["HERMES_HOME"] = str(home)
+        os.environ["HERMES_AE_LEDGER"] = str(home / "ae-receipts.jsonl")
+        os.environ["HERMES_AE_PLUGINS"] = str(home / "plugins")
+        # Guard against any accidental subprocess using a stale interpreter.
+        os.environ["HERMES_AE_PYTHON"] = sys.executable
+        self.ledger = Path(os.environ["HERMES_AE_LEDGER"])
+
+        self.module = self._load_module()
+        self.ctx = FakeCtx()
+        self.module.register(self.ctx)
+        self.handler = self.ctx.tools["ae"][1]
+
+    def tearDown(self):
+        for key, value in self._saved_env.items():
+            if value is None:
+                os.environ.pop(key, None)
+            else:
+                os.environ[key] = value
+
+    def _load_module(self):
+        name = "hermes_ae_test_%d" % id(self)
+        spec = importlib.util.spec_from_file_location(name, INIT_FILE)
+        assert spec is not None and spec.loader is not None
+        loader = spec.loader
+        module = importlib.util.module_from_spec(spec)
+        sys.modules[name] = module
+        self.addCleanup(sys.modules.pop, name, None)
+        loader.exec_module(module)
+        return module
+
+    def _call(self, **args):
+        return json.loads(self.handler(args))
+
+    def test_registers_exactly_one_tool_named_ae(self):
+        self.assertEqual(list(self.ctx.tools), ["ae"])
+        toolset, handler, schema = self.ctx.tools["ae"]
+        self.assertEqual(toolset, "hermes-ae")
+        self.assertTrue(callable(handler))
+        self.assertIsInstance(schema, dict)
+        self.assertIn("op", schema.get("properties", {}))
+
+    def test_status_works_with_temp_ledger(self):
+        out = self._call(op="status")
+        self.assertTrue(out["success"])
+        self.assertEqual(out["op"], "status")
+        result = out["result"]
+        self.assertEqual(result["actor"], "hermes-ae")
+        self.assertEqual(result["authority"], "HUMAN://ROOT")
+        self.assertEqual(result["version"], "2.2.0")
+        self.assertTrue(result["receipts"]["success"])
+        self.assertTrue(self.ledger.exists())
+        self.assertIn("hash", out["receipt"])
+
+    def test_ops_works_with_temp_ledger(self):
+        out = self._call(op="ops")
+        self.assertTrue(out["success"])
+        self.assertEqual(out["op"], "ops")
+        self.assertIn("shortcuts", out["result"])
+        self.assertIn("local_ops", out["result"])
+        self.assertIn("studio_video", out["result"]["local_ops"])
+        self.assertTrue(self.ledger.exists())
+
+    def test_verify_on_empty_ledger(self):
+        out = self._call(op="verify")
+        self.assertTrue(out["success"])
+        self.assertTrue(out["result"]["success"])
+        self.assertEqual(out["result"]["count"], 0)
+        self.assertEqual(out["result"]["head"], "GENESIS")
+
+    def test_unknown_op_fails_gracefully(self):
+        out = self._call(op="definitely_not_an_op")
+        self.assertFalse(out["success"])
+        self.assertEqual(out["op"], "definitely_not_an_op")
+        self.assertFalse(out["result"]["success"])
+        self.assertIn("unknown op", out["result"]["error"])
+        self.assertIn("available", out["result"])
+        self.assertIn("hash", out["receipt"])
+
+    def test_receipt_chain_verifies_after_operations(self):
+        for op in ("status", "ops"):
+            out = self._call(op=op)
+            self.assertTrue(out["success"], "%s: %s" % (op, out))
+            self.assertIn("hash", out["receipt"])
+
+        out = self._call(op="verify")
+        self.assertTrue(out["success"])
+        self.assertTrue(out["result"]["success"])
+        self.assertEqual(out["result"]["count"], 2)
+
+        lines = [x for x in self.ledger.read_text(encoding="utf-8").splitlines() if x.strip()]
+        self.assertEqual(len(lines), 3)
+        self.assertEqual(json.loads(lines[-1])["prev"], json.loads(lines[-2])["hash"])
+
+    def test_verify_detects_tampering(self):
+        self._call(op="status")
+        self._call(op="ops")
+        lines = self.ledger.read_text(encoding="utf-8").splitlines()
+        entry = json.loads(lines[0])
+        entry["detail"] = {"ok": False}
+        lines[0] = json.dumps(entry)
+        self.ledger.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+        out = self._call(op="verify")
+        self.assertFalse(out["result"]["success"])
+        self.assertEqual(out["result"]["broken_at"], 0)
+
+
+if __name__ == "__main__":
+    unittest.main()
