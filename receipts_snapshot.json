@@ -1,12 +1,5 @@
 [
   {
-    "ts": "2026-11-17T21:08:23.844809Z",
-    "action": "AE://FACE",
-    "authority": "HUMAN://ROOT",
-    "prev": "8833bb8162d498d4a1957bf9be7631077c399b0930656f1db5f2a078d0faf2ae",
-    "hash": "a6ebae9f7639add6c3730bc3d0c59663654fa4a05b385cb4bd87d2caa71496eb"
-  },
-  {
     "ts": "2026-11-17T21:08:23.975266Z",
     "action": "FACE://ATTACH",
     "authority": "HUMAN://ROOT",
@@ -418,5 +411,12 @@
     "authority": "HUMAN://ROOT",
     "prev": "ee84657d34afae800fe352bdf1747d339f6c8eef17fde9f8d224a5c1a73668bb",
     "hash": "a51a3fbf5626a74242da8e0734b4cb8c36b55fcacc2ee82aa01311cd3d8e2243"
+  },
+  {
+    "ts": "2026-11-17T23:25:55.467542Z",
+    "action": "VIDEO://SOVEREIGN_NAMESPACE",
+    "authority": "HUMAN://ROOT",
+    "prev": "a51a3fbf5626a74242da8e0734b4cb8c36b55fcacc2ee82aa01311cd3d8e2243",
+    "hash": "e3cfda242b1a08332fcd61b0ba6e95c5bf50de57c47f4ade3118cba7019c9812"
   }
 ]
