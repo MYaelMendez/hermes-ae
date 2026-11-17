@@ -1,4 +1,4 @@
-"""hermes-ae 2.3.0 — one self-contained, receipted tool for the robot studio.
+"""hermes-ae 2.3.1 — one self-contained, receipted tool for the robot studio.
 
 `ae` dispatches to the registered tools of all local plugins by loading their
 modules with a lightweight FakeCtx, then writes a single HUMAN://ROOT
@@ -155,7 +155,7 @@ def _local_func(op, args):
                 vids[name] = {'sha256': _sha_file(f), 'bytes': f.stat().st_size if f.exists() else 0}
             chain = _verify_chain()
             ok = all(hashes.values()) and chain['success']
-            return {'success': ok, 'authority': 'HUMAN://ROOT', 'version': '2.3.0',
+            return {'success': ok, 'authority': 'HUMAN://ROOT', 'version': '2.3.1',
                     'model_sha256': hashes, 'videos': vids, 'receipts': chain}
         return {'success': False, 'error': f'unknown local op {op}'}
     except Exception as e:
@@ -271,7 +271,7 @@ def register(ctx):
             dirs = sorted(p.name for p in PLUGINS.iterdir() if p.is_dir()) if PLUGINS.exists() else []
             chain = _verify_chain()
             result = {'success': True, 'actor': 'hermes-ae', 'authority': 'HUMAN://ROOT',
-                      'version': '2.3.0', 'plugins_on_disk': len(dirs),
+                      'version': '2.3.1', 'plugins_on_disk': len(dirs),
                       'shortcuts': sorted(SHORTCUTS), 'receipts': chain}
         elif op == 'receipts':
             limit = int(arg.get('limit') or 10)

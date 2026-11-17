@@ -84,3 +84,11 @@ The two current captures are `asimov-studio-v2-916.mp4` (v2.1) and
 
 `HUMAN://ROOT` denotes human authority over agent actions; it is an attribution
 marker used by the receipt ledger, not a software license.
+
+## Preview
+
+![Asimov free walk](assets/free-walk-preview.gif)
+
+A 9-second mocap-guided MuJoCo walk with dizione visemes and tiny-voca narration.
+Full clips and receipts are indexed in [docs/VIDEOS.md](docs/VIDEOS.md).
+

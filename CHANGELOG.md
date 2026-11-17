@@ -1,3 +1,10 @@
+## 2.3.1
+
+- Refreshed sanitized receipt snapshot to the full 45-entry ledger at release time.
+- Added a 1.1 MB looping GIF preview of the free-base walk.
+- Added a self-contained WebGL qpos viewer with frame scrubbing, play/pause, camera presets, and live base/COM telemetry.
+- Added scripts/export_webgl.py to regenerate the viewer from the URDF and runtime trace.
+
 ## 2.3.0
 
 - Made core ops self-contained: `speak`, `voices`, `probe`, `witness`, `gallery`, `physics`, and `studio_sync` no longer require legacy plugins.

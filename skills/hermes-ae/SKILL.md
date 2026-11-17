@@ -1,7 +1,7 @@
 ---
 name: hermes-ae
-description: Self-contained receipted Asimov studio, physics, TTS, and video ops.
-version: 2.3.0
+description: Receipted Asimov studio ops for physics and video.
+version: 2.3.1
 author: "Yael Méndez (@yaelmendez), Hermes Agent"
 license: MIT
 platforms: [linux]
