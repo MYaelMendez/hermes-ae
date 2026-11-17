@@ -1,3 +1,12 @@
+## 3.12.0
+
+- Added the first **Asimov USD digital twin**: `ae({op:"twin"})` builds and
+  verifies `packages/asimov-twin/1.0.0/asimov-avatar.usda` from official
+  URDF/MJCF, 26 mesh references, and 216 qpos frames.
+- Bound the twin into `identity.json` with `AVATAR://USD_BIND`.
+- Added `scripts/asimov_twin.py` and `docs/ASIMOV_TWIN.md`. This is a robot twin,
+  not an ACE skinned human avatar.
+
 ## 3.11.0
 
 - Made the 1:1 Asimov face a **removable presence tablet**: `ae({op:"face"})`

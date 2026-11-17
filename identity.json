@@ -31,6 +31,15 @@
     "authority": "HUMAN://ROOT",
     "voice": "hermes-agent (M2)",
     "face": "optional 1:1 tablet presence module; detached mode uses tiny-voca voice, Pi500 teleop override",
+    "twin": {
+      "name": "asimov-avatar",
+      "version": "1.0.0",
+      "format": "USD ASCII",
+      "stage": "packages/asimov-twin/1.0.0/asimov-avatar.usda",
+      "manifest": "packages/asimov-twin/1.0.0/manifest.json",
+      "authority": "HUMAN://ROOT",
+      "receipt_action": "AVATAR://USD_BIND"
+    },
     "body": "Asimov-1 (25 DOF)",
     "runtime": "hermes-ae MoH orchestrator + official Asimov-1 MJCF/URDF + tiny-voca + MuJoCo + ONNX policy",
     "receipt_action": "AGENT://ASIMOV",
@@ -43,6 +52,7 @@
       "onnx_locomotion",
       "viewport_dom",
       "removable_face",
+      "digital_twin",
       "voice_fallback",
       "pi500_teleop",
       "publish",
@@ -58,6 +68,7 @@
       "policy_walk",
       "viewport_dom",
       "face",
+      "twin",
       "masterpiece"
     ],
     "homepage": "https://mobility.foundation/mobility/",

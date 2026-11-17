@@ -103,5 +103,6 @@ Full clips and receipts are indexed in [docs/VIDEOS.md](docs/VIDEOS.md).
 - [æLOCOMOTION package](docs/PACKAGING.md) — the policy-driven gait harness, packed
 - [Viewport DOM awareness](docs/VIEWPORT_DOM.md) — read-only CDP projection for the Asimov robot
 - [Removable face](docs/REMOVABLE_FACE.md) — optional 1:1 tablet, tiny-voca fallback, and Pi500 teleop
+- [Asimov USD twin](docs/ASIMOV_TWIN.md) — the official robot as a USD digital twin
 - [mobility.foundation](docs/MOBILITY_FOUNDATION.md) — canonical public home for Asimov Agent mobility
 - [Sovereign projection](docs/SOVEREIGN_PROJECTION.md) — first-principles bundle refactor
