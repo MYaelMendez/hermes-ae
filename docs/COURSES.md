@@ -2,8 +2,8 @@
 
 Open courses use the OpenSourceWare two-voice template:
 
-- **F2** = root voice — asks, challenges, and holds authority.
-- **M2** = build voice — explains, demonstrates, and summarizes.
+- **F2 / nous girl** = root voice — asks, challenges, and holds authority.
+- **M2 / hermes-agent** = build voice — explains, demonstrates, and summarizes.
 
 A lesson is a JSON file under `courses/`. Copy `courses/template.json`, set
 `id`, `title`, `principle`, and the `segments` list, then run:

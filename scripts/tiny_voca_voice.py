@@ -11,6 +11,14 @@ os.environ.setdefault('DIZIONE_DATA', str(ROOT / 'phonemizer'))
 MODEL = ROOT / 'onnx' / 'model.onnx'
 CONFIG = ROOT / 'config.json'
 VOICES = {'F2': 0, 'M2': 1}
+VOICE_ALIASES = {
+    'f2': 'F2', 'nous girl': 'F2', 'nous-girl': 'F2', 'nous_girl': 'F2',
+    'm2': 'M2', 'hermes-agent': 'M2', 'hermes agent': 'M2', 'hermes_agent': 'M2',
+}
+
+
+def canonical_voice(value):
+    return VOICE_ALIASES.get(str(value).strip().lower())
 SR = 24000
 
 try:
@@ -56,8 +64,9 @@ def split_sentences(text, limit=300):
 
 def synthesize(text, voice='F2', speed=1.0, pitch_shift=0.0, pitch_range=1.0):
     """text -> float32 numpy waveform at 24 kHz (one utterance, <=512 tokens)."""
+    voice = canonical_voice(voice)
     if voice not in VOICES:
-        raise ValueError(f'voice must be F2 or M2, got {voice!r}')
+        raise ValueError(f'voice must be F2/nous-girl or M2/hermes-agent, got {voice!r}')
     phones = dizione.phonemize(text)
     if not phones or not getattr(phones, 'ids', None):
         raise ValueError('nothing in the text could be read: tiny-voca only reads English for now')
@@ -101,7 +110,7 @@ def main():
     p.add_argument('--text', default=None)
     p.add_argument('--text-file', default=None,
                    help='Read text from UTF-8 file (Hermes TTS provider convention).')
-    p.add_argument('--voice', default='M2', choices=['F2', 'M2'])
+    p.add_argument('--voice', default='M2', choices=sorted(VOICES) + sorted(VOICE_ALIASES))
     p.add_argument('--output', default='/opt/data/tiny-voca-out.wav')
     p.add_argument('--speed', type=float, default=1.0)
     p.add_argument('--pitch-shift', type=float, default=0.0)
@@ -123,7 +132,7 @@ def main():
                 ae = importlib.util.module_from_spec(spec)
                 spec.loader.exec_module(ae)
                 rec = ae._receipt('TTS://SPEAK', {
-                    'voice': a.voice,
+                    'voice': canonical_voice(a.voice) or a.voice,
                     'sha256': r.get('sha256'),
                     'duration_s': r.get('duration_s'),
                     'output': a.output,

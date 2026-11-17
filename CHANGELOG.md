@@ -1,3 +1,9 @@
+## 2.5.0
+
+- Named the two tiny-voca voices: F2 is `nous girl`, M2 is `hermes-agent`.
+- Added CLI voice aliases (`nous-girl`, `nous girl`, `hermes-agent`, etc.) and exposed the names through `ae voices`.
+- Updated the open-course template and tiny-voca docs to use the new identities.
+
 ## 2.4.0
 
 - Promoted tiny-voca to a Hermes TTS primitive: native `tts.provider: tiny-voca` now points at the installed plugin CLI.

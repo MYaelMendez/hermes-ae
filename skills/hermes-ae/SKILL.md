@@ -1,7 +1,7 @@
 ---
 name: hermes-ae
 description: Receipted Asimov studio ops for physics and video.
-version: 2.4.0
+version: 2.5.0
 author: "Yael Méndez (@yaelmendez), Hermes Agent"
 license: MIT
 platforms: [linux]
@@ -71,7 +71,7 @@ them, and `terminal` to run local checks. Do not invoke bundled pipelines from
 - `ae {"op":"call","plugin":"...","tool":"...","arg":"..."}` — invoke a local plugin tool.
 - `ae {"op":"studio_video","publish":false}` — studio pipeline, no publish.
 - `ae {"op":"free_walk","publish":false,"authorization":"user"}` — free-walk pipeline.
-- `ae {"op":"speak","text":"...","voice":"M2"}` — TTS shortcut.
+- `ae {"op":"speak","text":"...","voice":"hermes-agent"}` — TTS shortcut; `nous-girl` selects F2.
 - `ae {"op":"render","script":"...","output":"..."}` — ffmpeg render shortcut.
 
 ## Procedure

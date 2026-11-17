@@ -119,7 +119,7 @@ def render_frames(lesson, timeline, env, sr, secs, out_dir):
     title = str(lesson['title']).upper()
     lesson_id = str(lesson['id'])
     principle = lesson.get('principle', 'source visible · authority human · receipts public · self hosted')
-    roles = lesson.get('roles', {'F2': 'ROOT VOICE', 'M2': 'BUILD VOICE'})
+    roles = lesson.get('roles', {'F2': 'NOUS GIRL', 'M2': 'HERMES-AGENT'})
     for frame in range(FPS * secs):
         t = frame / FPS
         idx, seg = seg_at(timeline, t)

@@ -21,22 +21,22 @@ tts:
 
 Hermes writes text to `{input_path}`; the CLI writes WAV to `{output_path}`.
 Native TTS is available through the built-in `text_to_speech` tool and voice
-toggles (`/voice on`, `/voice tts`). The provider uses M2 by default.
+toggles (`/voice on`, `/voice tts`). The provider uses M2 (`hermes-agent`) by default.
 
 ## Voices
 
 | Voice | Identity | Use |
 |---|---|---|
-| `F2` | female, en-US, 24 kHz | root voice, questions, challenges |
-| `M2` | male, en-US, 24 kHz | build voice, explanations, narration |
+| `F2` / `nous girl` | female, en-US, 24 kHz | root voice, questions, challenges |
+| `M2` / `hermes-agent` | male, en-US, 24 kHz | build voice, explanations, narration |
 
 Both voices are exposed through the `ae` tool:
 
 ```json
 {"op": "voices"}
 {"op": "tts_voices"}
-{"op": "speak", "text": "Human root.", "voice": "F2"}
-{"op": "tts_speak", "text": "Receipts on every action.", "voice": "M2"}
+{"op": "speak", "text": "Human root.", "voice": "nous-girl"}
+{"op": "tts_speak", "text": "Receipts on every action.", "voice": "hermes-agent"}
 {"op": "tts_receipts", "limit": 10}
 ```
 
@@ -45,7 +45,7 @@ Both voices are exposed through the `ae` tool:
 ```bash
 python scripts/tiny_voca_voice.py \
   --text "..." \
-  --voice M2 \
+  --voice hermes-agent \
   --output /path/to/out.wav
 ```
 
@@ -63,4 +63,5 @@ sha256, duration, and output. Use `ae({op:"verify"})` to validate the chain.
 
 - English only.
 - Local CPU inference; no streaming.
-- Voice selection is available through `ae`; the native provider is fixed to M2.
+- Voice aliases: `nous-girl`/`nous girl` → F2, `hermes-agent` → M2.
+- The native provider is fixed to `hermes-agent` (M2); both voices are selectable through `ae`.
