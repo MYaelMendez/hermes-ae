@@ -56,6 +56,8 @@
       "masterpiece"
     ],
     "homepage": "https://mobility.foundation/mobility/",
-    "fallback_homepage": "https://myaelmendez.github.io/mobility/"
+    "fallback_homepage": "https://myaelmendez.github.io/mobility/",
+    "viewport": "https://myaelmendez.github.io/asimov-viewport/",
+    "viewport_raw": "https://raw.githubusercontent.com/MYaelMendez/MYaelMendez.github.io/gh-pages/asimov-viewport/index.html"
   }
 }

@@ -96,7 +96,7 @@ class AePluginTests(unittest.TestCase):
         result = out["result"]
         self.assertEqual(result["actor"], "hermes-ae")
         self.assertEqual(result["authority"], "HUMAN://ROOT")
-        self.assertEqual(result["version"], "3.9.1")
+        self.assertEqual(result["version"], "3.10.0")
         self.assertTrue(result["receipts"]["success"])
         self.assertTrue(self.ledger.exists())
         self.assertIn("hash", out["receipt"])
@@ -169,6 +169,10 @@ class AePluginTests(unittest.TestCase):
         self.assertTrue(out["success"])
         self.assertEqual(out["result"]["manifest"]["authority"], "HUMAN://ROOT")
         self.assertIn("ffmpeg", out["result"]["manifest"]["composition"])
+
+    def test_agent_viewport_binding(self):
+        out = self._call(op="agent")
+        self.assertTrue(out["result"]["agent"]["viewport"].endswith("/asimov-viewport/"))
 
     def test_verify_on_empty_ledger(self):
         out = self._call(op="verify")

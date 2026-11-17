@@ -73,3 +73,10 @@ The response binds:
 This is the operating definition: **Asimov Agent is the hermes-agent build
 voice, embodied in Asimov-1, governed by OpenSourceWare receipts.**
 
+## Viewport
+
+The public surface is https://myaelmendez.github.io/asimov-viewport/.
+It combines the qpos CAD viewer, read-only DOM awareness, source-to-screen
+film, capability showreel, and receipt chain. `ae({"op":"agent"})` reports the
+binding as `agent.viewport`.
+

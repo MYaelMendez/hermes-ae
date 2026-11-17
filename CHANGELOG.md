@@ -1,3 +1,9 @@
+## 3.10.0
+
+- Bound the published Asimov Viewport into Asimov Agent identity: qpos CAD
+  viewer, DOM readout, source-to-screen film, capability showreel, and receipts
+  on one surface.
+
 ## 3.9.1
 
 - Force-added the sovereign projection binary assets that the repo `.gitignore`
