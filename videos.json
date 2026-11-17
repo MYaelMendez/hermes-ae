@@ -2,6 +2,17 @@
   "gallery": "https://raw.githubusercontent.com/MYaelMendez/MYaelMendez.github.io/gh-pages/videos.html",
   "videos": [
     {
+      "name": "opensourceware-two-voices-916.mp4",
+      "title": "OpenSourceWare \u2014 Two Voices",
+      "url": "https://raw.githubusercontent.com/MYaelMendez/MYaelMendez.github.io/gh-pages/opensourceware-two-voices-916.mp4",
+      "resolution": "720x1280",
+      "fps": 24,
+      "duration_s": 17.0,
+      "codec": "h264/aac",
+      "physics": "Two-voice explainer: F2 human/root and M2 agent/build",
+      "receipt": "PENDING"
+    },
+    {
       "name": "ambient-engineering-916.mp4",
       "title": "Ambient Engineering \u2014 Manifesto",
       "url": "https://raw.githubusercontent.com/MYaelMendez/MYaelMendez.github.io/gh-pages/ambient-engineering-916.mp4",

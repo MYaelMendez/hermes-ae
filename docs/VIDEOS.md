@@ -2,6 +2,14 @@
 
 Published artifacts from the `hermes-ae` studio.
 
+## OpenSourceWare — Two Voices
+
+- File: `opensourceware-two-voices-916.mp4`
+- Specs: 720x1280, 24 fps, 17.0 s, h264/aac
+- Physics: Two-voice explainer: F2 human/root and M2 agent/build
+- Receipt: `PENDING`
+- [Download](https://raw.githubusercontent.com/MYaelMendez/MYaelMendez.github.io/gh-pages/opensourceware-two-voices-916.mp4)
+
 ## Ambient Engineering — Manifesto
 
 - File: `ambient-engineering-916.mp4`
