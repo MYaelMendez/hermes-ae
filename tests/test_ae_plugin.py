@@ -96,7 +96,7 @@ class AePluginTests(unittest.TestCase):
         result = out["result"]
         self.assertEqual(result["actor"], "hermes-ae")
         self.assertEqual(result["authority"], "HUMAN://ROOT")
-        self.assertEqual(result["version"], "3.1.0")
+        self.assertEqual(result["version"], "3.1.1")
         self.assertTrue(result["receipts"]["success"])
         self.assertTrue(self.ledger.exists())
         self.assertIn("hash", out["receipt"])
@@ -129,8 +129,8 @@ class AePluginTests(unittest.TestCase):
     def test_agent_body_binding(self):
         out = self._call(op="agent_body")
         self.assertTrue(out["success"])
-        self.assertEqual(out["bindings"]["M2"]["body"], "asimov-1")
-        self.assertEqual(out["bindings"]["M2"]["name"], "hermes-agent")
+        self.assertEqual(out["result"]["bindings"]["M2"]["body"], "asimov-1")
+        self.assertEqual(out["result"]["bindings"]["M2"]["name"], "hermes-agent")
 
     def test_verify_on_empty_ledger(self):
         out = self._call(op="verify")

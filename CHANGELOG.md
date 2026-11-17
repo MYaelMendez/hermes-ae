@@ -1,3 +1,8 @@
+## 3.1.1
+
+- Fixed the `agent_body` unit-test assertion to read the wrapped `result` object.
+- No identity or film changes; v3.1.0 artifacts remain current.
+
 ## 3.1.0
 
 - Bound Asimov-1 as the visible body of the `hermes-agent` build voice.
