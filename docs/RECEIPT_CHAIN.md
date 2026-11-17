@@ -4,7 +4,6 @@ Sanitized snapshot: 60 entries. Full ledger is `HUMAN://ROOT` hash-chained.
 
 | Time | Action | Authority | Hash |
 |---|---|---|---|
-| 2026-11-17T22:31:50.183842Z | `AE://DAOBRAIN` | HUMAN://ROOT | `d86bcb090fa31c53…` |
 | 2026-11-17T22:31:50.315286Z | `POLICY://EVALUATE` | HUMAN://ROOT | `a9ac151a62fb5dff…` |
 | 2026-11-17T22:31:50.316104Z | `DAO://DECISION` | HUMAN://ROOT | `70bfbd8daaf5af11…` |
 | 2026-11-17T22:31:50.324699Z | `AE://DAOBRAIN` | HUMAN://ROOT | `eb75bcbf13f2f9e7…` |
@@ -44,3 +43,4 @@ Sanitized snapshot: 60 entries. Full ledger is `HUMAN://ROOT` hash-chained.
 | 2026-11-17T23:00:58.000989Z | `AE://VERBS` | HUMAN://ROOT | `d79b43bf5156d007…` |
 | 2026-11-17T23:01:25.218340Z | `VERBS://BIND` | HUMAN://ROOT | `7286fa49eea5768d…` |
 | 2026-11-17T23:01:25.218747Z | `REPO://RELEASE_HERMES_AE_3150` | HUMAN://ROOT | `a7e4847113df304a…` |
+| 2026-11-17T23:04:27.483995Z | `PUBLISH://AE_ROBOT_VERBS` | HUMAN://ROOT | `ee84657d34afae80…` |
