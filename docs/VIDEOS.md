@@ -2,6 +2,14 @@
 
 Published artifacts from the `hermes-ae` studio.
 
+## Asimov Policy Walk — ONNX Locomotion
+
+- File: `asimov-policy-walk-916.mp4`
+- Specs: 720x1280, 24 fps, 12.0 s, h264/aac
+- Physics: Menlo ONNX policy, 78 obs to 23 joint targets at 50 Hz, MuJoCo 4.0.1, +4.1868 m
+- Receipt: `a87949b685a9d60117a8e5a4fb11b22f918649274ed1b1e375b4ad386f5f9968`
+- [Download](https://raw.githubusercontent.com/MYaelMendez/MYaelMendez.github.io/gh-pages/asimov-policy-walk-916.mp4)
+
 ## ffmpeg Harness Demo — Asimov / hermes-agent
 
 - File: `ffmpeg-harness-demo-916.mp4`

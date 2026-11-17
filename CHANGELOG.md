@@ -1,3 +1,12 @@
+## 3.4.0
+
+- Replaced the mocap-guided gait with a real ONNX locomotion policy: Menlo
+  `asimov1-locomotion-0818`, 78 observations to 23 joint targets at 50 Hz.
+- Added `policy_locomotion` and `policy_walk` ops, a physics-only policy MJCF,
+  a following-camera renderer, and the published `asimov-policy-walk-916.mp4`.
+- Verified 12 s, 600 policy ticks, 2400 MuJoCo steps, +4.1868 m base travel,
+  no fall, and a receipted chain.
+
 ## 3.3.0
 
 - Added `ae({op:"ffmpeg_demo"})`: a 12-second 9:16 demo where Asimov, driven by

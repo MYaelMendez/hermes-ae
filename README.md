@@ -99,3 +99,4 @@ Full clips and receipts are indexed in [docs/VIDEOS.md](docs/VIDEOS.md).
 - [Mixture of Harnesses](docs/HARNESSES.md) — plugin vs. harness and the nine governed envelopes
 - [The v3.0.0 masterpiece target](docs/MASTERPIECE.md) — the one-command, receipted capstone deliverable
 - [Asimov agent body](docs/ASIMOV_AGENT.md) — the visible hermes-agent build
+- [Policy-driven locomotion](docs/POLICY_LOCOMOTION.md) — the ONNX gait that replaced the mocap trace

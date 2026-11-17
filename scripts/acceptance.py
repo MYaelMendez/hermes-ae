@@ -46,10 +46,10 @@ def main():
         assert sorted(ctx.tools) == ["ae"], ctx.tools
         ae = ctx.tools["ae"][0]
         status = json.loads(ae({"op": "status"}))
-        assert status["success"] and status["result"]["version"] == "3.3.0"
+        assert status["success"] and status["result"]["version"] == "3.4.0"
         ops = json.loads(ae({"op": "ops"}))
         expected = {"speak", "tts_speak", "voices", "tts_voices", "tts_receipts", "probe", "witness", "gallery", "physics",
-                    "studio_sync", "studio_video", "free_walk", "masterpiece", "harnesses", "agent_body", "ffmpeg_demo"}
+                    "studio_sync", "studio_video", "free_walk", "masterpiece", "harnesses", "agent_body", "ffmpeg_demo", "policy_locomotion"}
         assert expected.issubset(set(ops["result"]["local_funcs"]) | set(ops["result"]["local_ops"]))
         assert json.loads(ae({"op": "verify"}))["success"]
         tests = subprocess.run([sys.executable, "-m", "unittest", "discover",

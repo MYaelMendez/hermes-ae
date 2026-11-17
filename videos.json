@@ -2,6 +2,17 @@
   "gallery": "https://raw.githubusercontent.com/MYaelMendez/MYaelMendez.github.io/gh-pages/videos.html",
   "videos": [
     {
+      "name": "asimov-policy-walk-916.mp4",
+      "title": "Asimov Policy Walk \u2014 ONNX Locomotion",
+      "url": "https://raw.githubusercontent.com/MYaelMendez/MYaelMendez.github.io/gh-pages/asimov-policy-walk-916.mp4",
+      "resolution": "720x1280",
+      "fps": 24,
+      "duration_s": 12.0,
+      "codec": "h264/aac",
+      "physics": "Menlo ONNX policy, 78 obs to 23 joint targets at 50 Hz, MuJoCo 4.0.1, +4.1868 m",
+      "receipt": "a87949b685a9d60117a8e5a4fb11b22f918649274ed1b1e375b4ad386f5f9968"
+    },
+    {
       "name": "ffmpeg-harness-demo-916.mp4",
       "title": "ffmpeg Harness Demo \u2014 Asimov / hermes-agent",
       "url": "https://raw.githubusercontent.com/MYaelMendez/MYaelMendez.github.io/gh-pages/ffmpeg-harness-demo-916.mp4",

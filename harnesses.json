@@ -109,9 +109,10 @@
       ],
       "receipt_action": "ROBOT://POSE",
       "fallback": "frozen rest pose with no locomotion; receipt records that the robot model was unavailable",
-      "description": "Drives the 25-DOF hermes-asimov Asimov-1 humanoid, from fixed-base physics capture to mocap-guided free walk solved by MuJoCo.",
+      "description": "Drives the 25-DOF hermes-asimov Asimov-1 humanoid, from fixed-base physics capture to mocap-guided free walk solved by MuJoCo. Policy-driven gait is available through the ONNX locomotion harness.",
       "identity": "hermes-agent build body",
-      "actor": "asimov-1"
+      "actor": "asimov-1",
+      "policy": "Menlo/asimov1-locomotion-0818 ONNX (78 obs \u2192 23 actions, 50 Hz)"
     },
     {
       "name": "publish",

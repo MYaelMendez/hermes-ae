@@ -1,24 +1,26 @@
-"""Asimov Studio v2.2 renderer: mocap-guided free-base physics trace.
+"""Asimov renderer: policy-driven or mocap-guided free-base physics trace.
 
 Consumes physics_free_trace.json (nq=32 including base) and visemes.json.
 No prescribed zoom: forward motion is the simulated base translation solved by
 MuJoCo weld constraints. Camera is fixed; the robot actually moves across it.
 """
-from ae_paths import ANIM, MESHES, BUNDLED_URDF, BUNDLED_XML, ensure_runtime
+from ae_paths import ANIM, MESHES, BUNDLED_MODEL, BUNDLED_XML, ensure_runtime
 ensure_runtime()
 
-import json, math, struct
+import json, math, os, struct
 from pathlib import Path
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
 MESH = MESHES
-URDF = json.load(open(BUNDLED_URDF / 'urdf.json'))
-TRACE = json.load(open(ANIM / 'physics_free_trace.json'))
+URDF = json.load(open(BUNDLED_MODEL / 'urdf.json'))
+TRACE = json.load(open(os.environ.get('HERMES_AE_TRACE', ANIM / 'physics_free_trace.json')))
 VISEMES = json.load(open(ANIM / 'free_visemes.json'))
-OUT = ANIM / 'free_walk_frames'
-W, H, FPS, SECS = 720, 1280, 24, 9
+OUT = Path(os.environ.get('HERMES_AE_FRAMES', ANIM / 'free_walk_frames'))
+W, H, FPS = 720, 1280, 24
+SECS = int(round(float(TRACE.get('duration_s', 9))))
 YAW = math.radians(78)
+FOLLOW = os.environ.get('HERMES_AE_CAMERA_FOLLOW', '') == '1'
 FONT = '/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf'
 
 names = TRACE['joint_names']
@@ -109,7 +111,10 @@ def caption_at(t):
 samples_idx=[0,54,108,162,215]
 allp=[]
 for i in samples_idx:
-    p,_=world_points(i,{'open':0.0}); allp.append(p)
+    p,_=world_points(i,{'open':0.0})
+    if FOLLOW:
+        p=p.copy(); p[:,0] -= base[min(i,len(base)-1),0]
+    allp.append(p)
 A=np.vstack(allp)
 xmin,xmax=A[:,0].min(),A[:,0].max(); ymin,ymax=A[:,1].min(),A[:,1].max()
 zmin,zmax=A[:,2].min(),A[:,2].max()
@@ -126,7 +131,11 @@ OUT.mkdir(parents=True,exist_ok=True)
 for frame in range(FPS*SECS):
     t=frame/FPS; v=viseme_at(t)
     pts,head=world_points(min(frame,len(qpos)-1),v)
-    px=np.clip(((pts[:,0]-cx)*scale+W/2).astype(int),0,W-1)
+    bx=base[min(frame,len(base)-1),0]
+    proj=pts.copy(); proj_head=head.copy()
+    if FOLLOW:
+        proj[:,0]-=bx; proj_head[:,0]-=bx
+    px=np.clip(((proj[:,0]-cx)*scale+W/2).astype(int),0,W-1)
     py=np.clip((H/2-(pts[:,1]-cy)*scale).astype(int),0,H-1)
     depth=np.clip((pts[:,2]-zmin)/max(zmax-zmin,1e-6),0,1)
     buf=np.empty((H,W,3),dtype=np.uint8); buf[:]=(3,10,7)
@@ -136,10 +145,10 @@ for frame in range(FPS*SECS):
     fy=int(floor)
     if 0<=fy<H: buf[fy,:]=(0,80,50)
     img=Image.fromarray(buf); dr=ImageDraw.Draw(img)
-    dr.text((16,14),'>_æ: ASIMOV-1 · STUDIO v2.2 · FREE BASE',font=font_big,fill=(0,255,159))
-    dr.text((16,42),'MuJoCo weld + ground contact · dizione visemes · tiny-voca M2',font=font_small,fill=(0,190,150))
+    dr.text((16,14),'>_æ: ASIMOV-1 · POLICY-DRIVEN · ONNX',font=font_big,fill=(0,255,159))
+    dr.text((16,42),'Menlo ONNX locomotion · 78 obs / 23 actions · MuJoCo 4.0.1',font=font_small,fill=(0,190,150))
     # viseme mouth
-    hx=((head[:,0]-cx)*scale+W/2); hy=(H/2-(head[:,1]-cy)*scale)
+    hx=((proj_head[:,0]-cx)*scale+W/2); hy=(H/2-(proj_head[:,1]-cy)*scale)
     mx=int(np.clip(hx.mean(),0,W-1)); my=int(np.clip(np.percentile(hy,72),0,H-1))
     mw=int(8+62*v['width']*v['open']); mh=max(2,int(3+10*v['open']))
     if v['open']>0.03:
@@ -153,13 +162,21 @@ for frame in range(FPS*SECS):
         dr.text((52,H-82),cap,font=font_small,fill=(0,255,175))
     # physics telemetry from simulated trajectory
     bx=base[min(frame,len(base)-1),0]; cm=com[min(frame,len(com)-1),0]
+    if FOLLOW:
+        ry=H-126
+        dr.line((30,ry,W-30,ry),fill=(0,90,60),width=2)
+        for k in range(-4,5):
+            tx=int(W/2 + (k*0.5 - (bx%1.0))*200)
+            if 30<tx<W-30:
+                dr.line((tx,ry-8,tx,ry+8),fill=(0,200,140),width=2)
+        dr.text((30,ry-26),f'TRAVEL {bx:+.3f} m · ONNX POLICY 50 Hz',font=font_tiny,fill=(0,255,180))
     aq=qpos[min(frame,len(qpos)-1),7:]-refs
     active=int(np.sum(np.abs(aq)>0.01))
-    dr.text((W-200,18),f'nq=32 nu={TRACE["nu"]}',font=font_tiny,fill=(0,200,150))
+    dr.text((W-200,18),f'nq={TRACE["nq"]} nu={TRACE["nu"]}',font=font_tiny,fill=(0,200,150))
     dr.text((W-200,32),f'BASE X {bx:+.3f} m',font=font_tiny,fill=(0,200,150))
     dr.text((W-200,46),f'COM X {cm:+.3f} m',font=font_tiny,fill=(0,200,150))
-    dr.text((W-200,60),f'ACTIVE {active}/25',font=font_tiny,fill=(0,200,150))
-    dr.text((16,H-34),f'HUMAN://ROOT · t={t:04.1f}s · mocap-guided physics',font=font_small,fill=(0,220,160))
+    dr.text((W-200,60),f'ACTIVE {active}/{len(refs)}',font=font_tiny,fill=(0,200,150))
+    dr.text((16,H-34),f'HUMAN://ROOT · t={t:04.1f}s · policy-driven ONNX locomotion',font=font_small,fill=(0,220,160))
     pw=int((W-36)*min(1.0,t/SECS)); dr.rectangle((18,H-14,W-18,H-10),outline=(0,80,55))
     if pw: dr.rectangle((18,H-14,18+pw,H-10),fill=(0,255,159))
     img.save(OUT/f'{frame:05d}.png')
