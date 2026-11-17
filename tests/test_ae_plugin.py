@@ -96,7 +96,7 @@ class AePluginTests(unittest.TestCase):
         result = out["result"]
         self.assertEqual(result["actor"], "hermes-ae")
         self.assertEqual(result["authority"], "HUMAN://ROOT")
-        self.assertEqual(result["version"], "2.2.0")
+        self.assertEqual(result["version"], "2.3.0")
         self.assertTrue(result["receipts"]["success"])
         self.assertTrue(self.ledger.exists())
         self.assertIn("hash", out["receipt"])

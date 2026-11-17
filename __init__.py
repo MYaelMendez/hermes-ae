@@ -1,10 +1,10 @@
-"""hermes-ae 2.2.0 — one receipted tool for the Asimov robot studio.
+"""hermes-ae 2.3.0 — one self-contained, receipted tool for the robot studio.
 
 `ae` dispatches to the registered tools of all local plugins by loading their
 modules with a lightweight FakeCtx, then writes a single HUMAN://ROOT
 hash-chained receipt for every action. No heavy imports at registration.
 """
-import json, hashlib, importlib.util, subprocess, os
+import json, hashlib, importlib.util, subprocess, os, shutil
 from pathlib import Path
 from datetime import datetime, timezone
 
@@ -14,6 +14,8 @@ HERMES_HOME = Path(os.environ.get('HERMES_HOME', Path.home() / '.hermes'))
 PY = os.environ.get('HERMES_AE_PYTHON', '/usr/local/bin/python3')
 PLUGINS = Path(os.environ.get('HERMES_AE_PLUGINS', HERMES_HOME / 'plugins'))
 LEDGER = Path(os.environ.get('HERMES_AE_LEDGER', HERMES_HOME / 'ae-receipts.jsonl'))
+ANIM = Path(os.environ.get('HERMES_AE_ANIM', HERMES_HOME / 'ae' / 'asimov-anim'))
+GALLERY = Path(os.environ.get('HERMES_AE_GALLERY', HERMES_HOME / 'ae' / 'gallery'))
 
 # op -> (plugin, tool). Use op="call" with plugin/tool for anything else.
 SHORTCUTS = {
@@ -62,6 +64,100 @@ def _run_local(script, args, timeout):
         if p.returncode != 0:
             return {'success': False, 'error': (p.stderr or p.stdout)[-1000:]}
         return json.loads(p.stdout.strip().splitlines()[-1])
+    except Exception as e:
+        return {'success': False, 'error': f'{type(e).__name__}: {e}'}
+
+
+LOCAL_FUNCS = {
+    'speak': 'Generate speech with the bundled tiny-voca CLI.',
+    'voices': 'List bundled TTS voices.',
+    'probe': 'Probe a media file with ffprobe.',
+    'witness': 'List video/sha256 receipts from the unified ledger.',
+    'gallery': 'Regenerate the video gallery from files on disk.',
+    'physics': 'Step the synced MuJoCo model (supports legacy=true).',
+    'studio_sync': 'Verify bundled model, runtime, and receipt hashes.',
+}
+
+
+def _cmd(cmd, timeout=300):
+    p = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout)
+    if p.returncode != 0:
+        return {'success': False, 'error': (p.stderr or p.stdout or 'command failed')[-1000:]}
+    try:
+        return json.loads(p.stdout.strip())
+    except Exception:
+        try:
+            return json.loads(p.stdout.strip().splitlines()[-1])
+        except Exception:
+            return {'success': False, 'error': 'non-JSON output', 'raw': p.stdout[-400:]}
+
+
+def _sha_file(path):
+    try:
+        return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+    except Exception:
+        return None
+
+
+def _local_func(op, args):
+    try:
+        if op == 'speak':
+            text = args.get('text', '')
+            if not text:
+                return {'success': False, 'error': 'text is required'}
+            out = args.get('output', str(ANIM / 'ae-speech.wav'))
+            ANIM.mkdir(parents=True, exist_ok=True)
+            r = _cmd([PY, str(SCRIPTS / 'tiny_voca_voice.py'), '--text', text,
+                      '--voice', args.get('voice', 'M2'), '--output', out], timeout=300)
+            return r if r.get('success') else {'success': False, 'error': r.get('error'), 'raw': r}
+        if op == 'voices':
+            return {'success': True, 'voices': [
+                {'id': 'F2', 'name': 'female', 'language': 'en-US', 'sample_rate': 24000},
+                {'id': 'M2', 'name': 'male', 'language': 'en-US', 'sample_rate': 24000}]}
+        if op == 'probe':
+            path = args.get('output') or args.get('path')
+            if not path or not Path(path).exists():
+                return {'success': False, 'error': 'existing output/path is required'}
+            return _cmd(['ffprobe', '-v', 'error', '-show_entries',
+                         'stream=codec_type,codec_name,width,height,r_frame_rate,nb_frames',
+                         '-show_entries', 'format=duration,size', '-of', 'json', str(path)])
+        if op == 'witness':
+            lines = [json.loads(x) for x in LEDGER.read_text().splitlines() if x.strip()] if LEDGER.exists() else []
+            hits = [e for e in lines if 'VIDEO' in str(e.get('action', '')).upper()]
+            return {'success': True, 'count': len(hits), 'videos': hits[-int(args.get('limit') or 10):]}
+        if op == 'gallery':
+            if not GALLERY.exists():
+                return {'success': False, 'error': f'gallery repo missing: {GALLERY}'}
+            env = dict(os.environ, HERMES_AE_GALLERY=str(GALLERY))
+            p = subprocess.run([PY, str(SCRIPTS / 'generate_gallery.py')], capture_output=True,
+                               text=True, timeout=180, env=env)
+            if p.returncode != 0:
+                return {'success': False, 'error': (p.stderr or p.stdout)[-1000:]}
+            return json.loads(p.stdout.strip().splitlines()[-1])
+        if op == 'physics':
+            cmd = [PY, str(SCRIPTS / 'physics.py'), str(args.get('steps') or 500)]
+            if args.get('legacy'):
+                cmd.append('--legacy')
+            return _cmd(cmd, timeout=180)
+        if op == 'studio_sync':
+            model = ROOT / 'model'
+            paths = {
+                'original': model / 'xml' / 'asimov_1_25dof.xml',
+                'actuated': model / 'xml' / 'asimov_1_25dof_actuated.xml',
+                'physics': model / 'xml' / 'asimov_1_25dof_physics.xml',
+                'mocap': model / 'xml' / 'asimov_mocap_physics.xml',
+                'urdf': model / 'urdf' / 'asimov_1_25dof.urdf',
+            }
+            hashes = {k: _sha_file(v) for k, v in paths.items()}
+            vids = {}
+            for name in ('asimov-studio-v2-916.mp4', 'asimov-free-walk-916.mp4'):
+                f = ANIM / name
+                vids[name] = {'sha256': _sha_file(f), 'bytes': f.stat().st_size if f.exists() else 0}
+            chain = _verify_chain()
+            ok = all(hashes.values()) and chain['success']
+            return {'success': ok, 'authority': 'HUMAN://ROOT', 'version': '2.3.0',
+                    'model_sha256': hashes, 'videos': vids, 'receipts': chain}
+        return {'success': False, 'error': f'unknown local op {op}'}
     except Exception as e:
         return {'success': False, 'error': f'{type(e).__name__}: {e}'}
 
@@ -175,7 +271,7 @@ def register(ctx):
             dirs = sorted(p.name for p in PLUGINS.iterdir() if p.is_dir()) if PLUGINS.exists() else []
             chain = _verify_chain()
             result = {'success': True, 'actor': 'hermes-ae', 'authority': 'HUMAN://ROOT',
-                      'version': '2.2.0', 'plugins_on_disk': len(dirs),
+                      'version': '2.3.0', 'plugins_on_disk': len(dirs),
                       'shortcuts': sorted(SHORTCUTS), 'receipts': chain}
         elif op == 'receipts':
             limit = int(arg.get('limit') or 10)
@@ -186,6 +282,7 @@ def register(ctx):
             result = _verify_chain()
         elif op == 'ops':
             result = {'success': True, 'shortcuts': sorted(SHORTCUTS), 'local_ops': sorted(LOCAL_OPS),
+                      'local_funcs': sorted(LOCAL_FUNCS),
                       'note': 'use op=free_walk or studio_video for bundled pipelines; op=call reaches local legacy plugins'}
         elif op == 'call':
             plugin, tool = arg.pop('plugin', None), arg.pop('tool', None)
@@ -193,6 +290,8 @@ def register(ctx):
                 result = {'success': False, 'error': 'plugin and tool are required for op=call'}
             else:
                 result = _call(plugin, tool, arg)
+        elif op in LOCAL_FUNCS:
+            result = _local_func(op, arg)
         elif op in LOCAL_OPS:
             script, timeout = LOCAL_OPS[op]
             result = _run_local(script, arg, timeout)
@@ -201,7 +300,7 @@ def register(ctx):
             result = _call(plugin, tool, arg)
         else:
             result = {'success': False, 'error': f'unknown op {op!r}',
-                      'available': ['status', 'receipts', 'verify', 'ops', 'call'] + sorted(LOCAL_OPS) + sorted(SHORTCUTS)}
+                      'available': ['status', 'receipts', 'verify', 'ops', 'call'] + sorted(LOCAL_FUNCS) + sorted(LOCAL_OPS) + sorted(SHORTCUTS)}
 
         try:
             ok = bool(result.get('success', True))
@@ -225,5 +324,6 @@ def register(ctx):
             'node': {'type': 'string'}, 'action': {'type': 'string'},
             'seconds': {'type': 'integer'}, 'captions': {'type': 'boolean'},
             'physics': {'type': 'boolean'}, 'publish': {'type': 'boolean'},
+            'path': {'type': 'string'}, 'legacy': {'type': 'boolean'},
         }, 'required': []},
     )

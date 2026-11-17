@@ -3,10 +3,11 @@
 Single source of truth: files on disk. No stale refs, no hand-maintained list.
 Run: python3 generate_gallery.py
 """
+import os
 from pathlib import Path
 import html, json
 
-ROOT = Path(__file__).parent
+ROOT = Path(os.environ.get('HERMES_AE_GALLERY', Path(__file__).parent))
 OUT = ROOT / 'videos.html'
 BASE = 'https://raw.githubusercontent.com/MYaelMendez/MYaelMendez.github.io/gh-pages/'
 

@@ -1,3 +1,9 @@
+## 2.3.0
+
+- Made core ops self-contained: `speak`, `voices`, `probe`, `witness`, `gallery`, `physics`, and `studio_sync` no longer require legacy plugins.
+- Kept `op=call` as an optional bridge to locally installed legacy plugins.
+- Added fresh-clone acceptance harness, CI workflow, video index, and sanitized receipt-chain snapshot.
+
 # Changelog
 
 All notable changes to `hermes-ae` are documented here. Version numbers follow

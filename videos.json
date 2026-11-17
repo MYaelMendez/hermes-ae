@@ -1,0 +1,27 @@
+{
+  "gallery": "https://raw.githubusercontent.com/MYaelMendez/MYaelMendez.github.io/gh-pages/videos.html",
+  "videos": [
+    {
+      "name": "asimov-free-walk-916.mp4",
+      "title": "Asimov Free Walk — Studio v2.2",
+      "url": "https://raw.githubusercontent.com/MYaelMendez/MYaelMendez.github.io/gh-pages/asimov-free-walk-916.mp4",
+      "resolution": "720x1280",
+      "fps": 24,
+      "duration_s": 9.0,
+      "codec": "h264/aac",
+      "physics": "MuJoCo mocap-guided floating base + ground contact",
+      "receipt": "194f91b1927a3eef4eb1e3b68bc220975ba88cf458ef47cb822a6dd44e665dd0"
+    },
+    {
+      "name": "asimov-studio-v2-916.mp4",
+      "title": "Asimov Studio v2.1 — Physics + Visemes",
+      "url": "https://raw.githubusercontent.com/MYaelMendez/MYaelMendez.github.io/gh-pages/asimov-studio-v2-916.mp4",
+      "resolution": "720x1280",
+      "fps": 24,
+      "duration_s": 9.0,
+      "codec": "h264/aac",
+      "physics": "MuJoCo 25-actuator fixed-base capture",
+      "receipt": "4ec71d875b4471101261a3ce7d8f00266f7f18dc523f2590ae89a6ff092d14fa"
+    }
+  ]
+}
