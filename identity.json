@@ -42,7 +42,7 @@
     },
     "policy": {
       "name": "æ Policy",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "ae-policy.json",
       "authority": "HUMAN://ROOT",
       "receipt_action": "POLICY://EVALUATE"
@@ -54,6 +54,13 @@
       "surface": "1:1 Asimov face tablet",
       "authority": "HUMAN://ROOT",
       "receipt_action": "DAO://DECISION"
+    },
+    "verbs": {
+      "name": "æ Robot Verbs",
+      "version": "1.0.0",
+      "engine": "scripts/ae_verbs.py",
+      "authority": "HUMAN://ROOT",
+      "receipt_action": "SDK://VERB"
     },
     "body": "Asimov-1 (25 DOF)",
     "runtime": "hermes-ae MoH orchestrator + official Asimov-1 MJCF/URDF + tiny-voca + MuJoCo + ONNX policy",
@@ -70,6 +77,7 @@
       "digital_twin",
       "ae_policy",
       "dao_brain",
+      "robot_verbs",
       "voice_fallback",
       "pi500_teleop",
       "publish",
@@ -88,6 +96,7 @@
       "twin",
       "policy",
       "daobrain",
+      "verbs",
       "masterpiece"
     ],
     "homepage": "https://mobility.foundation/mobility/",

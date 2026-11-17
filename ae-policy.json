@@ -1,7 +1,7 @@
 {
   "schema": "hermes-ae/ae-policy/v1",
   "name": "æ Policy",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "glyph": "æ",
   "authority": "HUMAN://ROOT",
   "principle": "authority not transferable · execution visible",
@@ -95,7 +95,21 @@
     "publish": "require_approval",
     "upload": "require_approval",
     "post": "require_approval",
-    "external_write": "require_approval"
+    "external_write": "require_approval",
+    "status": "allow",
+    "state": "allow",
+    "get_state": "allow",
+    "check": "allow",
+    "photo": "allow",
+    "capture_clip": "allow",
+    "record_audio": "allow",
+    "play_pcm": "allow",
+    "stand": "require_approval_or_deadman",
+    "damp": "require_approval_or_deadman",
+    "balance": "require_approval_or_deadman",
+    "set_velocity": "require_approval_or_deadman",
+    "trajectory": "require_approval_or_deadman",
+    "set_joints": "require_approval_or_deadman"
   },
   "privileged_actions": [
     "teleop",
@@ -110,7 +124,13 @@
     "publish",
     "upload",
     "post",
-    "external_write"
+    "external_write",
+    "stand",
+    "damp",
+    "balance",
+    "set_velocity",
+    "trajectory",
+    "set_joints"
   ],
   "read_only_actions": [
     "read",
@@ -119,7 +139,15 @@
     "inspect",
     "verify",
     "speak",
-    "voice"
+    "voice",
+    "status",
+    "state",
+    "get_state",
+    "check",
+    "photo",
+    "capture_clip",
+    "record_audio",
+    "play_pcm"
   ],
   "bindings": {
     "hermes-ae": {

@@ -1,3 +1,11 @@
+## 3.15.0
+
+- Added **æ Robot Verbs**: `ae({op:"verbs"})` lists, plans, and optionally
+  executes governed wrappers over official Menlo SDK verbs.
+- Motion verbs require human approval or an armed deadman; live execution is
+  opt-in with `HERMES_AE_SDK_LIVE=1`; every decision is receipted.
+- Extended `ae-policy.json` to v1.1.0 with the official verb names.
+
 ## 3.14.0
 
 - Added the **DAO Brain** to power the 1:1 Asimov face tablet.

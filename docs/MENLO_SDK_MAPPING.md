@@ -66,7 +66,9 @@ Important: the SDK already reports facts and leaves safety in firmware/Edge and 
 
 ## Next build
 
-Add `ae({op:"sdk"})` with `status`, `state`, `stand`, `balance`, `walk`, `damp`, and `speak`, each dispatching through the official `menlo` import and gated by æ Policy.
+Implemented as `ae({op:"verbs"})`: `status`, `state`, `stand`, `balance`,
+`walk` via `set_velocity`, `damp`, `play_pcm`, and the other official verbs,
+all behind æ Policy and `SDK://VERB` receipts.
 
 ## Sources
 

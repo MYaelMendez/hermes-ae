@@ -1,6 +1,6 @@
 [project]
 name = "hermes-ae"
-version = "3.14.0"
+version = "3.15.0"
 description = "One receipted tool for Asimov robot studio videos. Physics, visemes, TTS, rendering, VLC, and publishing behind ae."
 requires-python = ">=3.11"
 authors = [

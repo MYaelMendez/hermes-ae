@@ -1,7 +1,7 @@
 ---
 name: hermes-ae
 description: Receipted Asimov studio ops for physics and video.
-version: "3.14.0"
+version: "3.15.0"
 author: "Yael Méndez (@yaelmendez), Hermes Agent"
 license: MIT
 platforms: [linux]
