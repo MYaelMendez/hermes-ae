@@ -1,3 +1,8 @@
+## 3.0.1
+
+- Fixed `run_harness` so it validates `chain` instead of requiring a single `name`.
+- No film or docs changes; v3.0.0 masterpiece artifacts remain current.
+
 ## 3.0.0
 
 - Introduced the Mixture of Harnesses (MoH) registry and `harnesses`, `harness`, `run_harness`, and `masterpiece` ops on the single `ae` tool.
