@@ -96,7 +96,7 @@ class AePluginTests(unittest.TestCase):
         result = out["result"]
         self.assertEqual(result["actor"], "hermes-ae")
         self.assertEqual(result["authority"], "HUMAN://ROOT")
-        self.assertEqual(result["version"], "2.5.0")
+        self.assertEqual(result["version"], "3.0.0")
         self.assertTrue(result["receipts"]["success"])
         self.assertTrue(self.ledger.exists())
         self.assertIn("hash", out["receipt"])
@@ -119,6 +119,12 @@ class AePluginTests(unittest.TestCase):
         out = self._call(op="voices")
         self.assertTrue(out["success"])
         self.assertEqual([v["id"] for v in out["result"]["voices"]], ["F2", "M2"])
+
+    def test_harness_registry(self):
+        out = self._call(op="harnesses")
+        self.assertTrue(out["success"])
+        self.assertEqual(out["result"]["count"], 9)
+        self.assertIn("physics", out["result"]["harnesses"][3]["name"] if isinstance(out["result"]["harnesses"][3], dict) else "physics")
 
     def test_verify_on_empty_ledger(self):
         out = self._call(op="verify")

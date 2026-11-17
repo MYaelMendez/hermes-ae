@@ -2,6 +2,17 @@
   "gallery": "https://raw.githubusercontent.com/MYaelMendez/MYaelMendez.github.io/gh-pages/videos.html",
   "videos": [
     {
+      "name": "moh-masterpiece-916.mp4",
+      "title": "MoH Masterpiece \u2014 The Mixture of Harnesses",
+      "url": "https://raw.githubusercontent.com/MYaelMendez/MYaelMendez.github.io/gh-pages/moh-masterpiece-916.mp4",
+      "resolution": "720x1280",
+      "fps": 24,
+      "duration_s": 30.0,
+      "codec": "h264/aac",
+      "physics": "Five-scene MoH film with real Asimov CAD qpos walk and two named voices",
+      "receipt": "569a5772e204c1f2d16fc027d198dfbe9bb861643234827caa37cdfed68a46c7"
+    },
+    {
       "name": "osw-102-916.mp4",
       "title": "Meet the Voices \u2014 nous girl \u00d7 hermes-agent",
       "url": "https://raw.githubusercontent.com/MYaelMendez/MYaelMendez.github.io/gh-pages/osw-102-916.mp4",

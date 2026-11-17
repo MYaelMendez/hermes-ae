@@ -1,4 +1,4 @@
-"""hermes-ae 2.5.0 — one self-contained, receipted tool for the robot studio.
+"""hermes-ae 3.0.0 — one self-contained, receipted MoH orchestrator.
 
 `ae` dispatches to the registered tools of all local plugins by loading their
 modules with a lightweight FakeCtx, then writes a single HUMAN://ROOT
@@ -10,6 +10,7 @@ from datetime import datetime, timezone
 
 ROOT = Path(__file__).resolve().parent
 SCRIPTS = ROOT / 'scripts'
+HARNESSES = ROOT / 'harnesses.json'
 HERMES_HOME = Path(os.environ.get('HERMES_HOME', Path.home() / '.hermes'))
 PY = os.environ.get('HERMES_AE_PYTHON', '/usr/local/bin/python3')
 PLUGINS = Path(os.environ.get('HERMES_AE_PLUGINS', HERMES_HOME / 'plugins'))
@@ -51,6 +52,7 @@ _cache = {}
 LOCAL_OPS = {
     'studio_video': ('studio_video.py', 1500),
     'free_walk': ('free_walk_video.py', 1500),
+    'masterpiece': ('masterpiece_video.py', 1800),
 }
 
 
@@ -79,6 +81,9 @@ LOCAL_FUNCS = {
     'gallery': 'Regenerate the video gallery from files on disk.',
     'physics': 'Step the synced MuJoCo model (supports legacy=true).',
     'studio_sync': 'Verify bundled model, runtime, and receipt hashes.',
+    'harnesses': 'List the Mixture of Harnesses registry.',
+    'harness': 'Inspect one named harness.',
+    'run_harness': 'Run a light harness chain (no video pipelines).',
 }
 
 
@@ -162,8 +167,40 @@ def _local_func(op, args):
                 vids[name] = {'sha256': _sha_file(f), 'bytes': f.stat().st_size if f.exists() else 0}
             chain = _verify_chain()
             ok = all(hashes.values()) and chain['success']
-            return {'success': ok, 'authority': 'HUMAN://ROOT', 'version': '2.5.0',
+            return {'success': ok, 'authority': 'HUMAN://ROOT', 'version': '3.0.0',
                     'model_sha256': hashes, 'videos': vids, 'receipts': chain}
+        if op in ('harnesses', 'harness', 'run_harness'):
+            if not HARNESSES.exists():
+                return {'success': False, 'error': f'registry missing: {HARNESSES}'}
+            registry = json.loads(HARNESSES.read_text())
+            items = registry['harnesses'] if isinstance(registry, dict) else registry
+            by_name = {h['name']: h for h in items}
+            if op == 'harnesses':
+                return {'success': True, 'count': len(items), 'harnesses': items,
+                        'authority': 'HUMAN://ROOT'}
+            name = args.get('name')
+            if not name or name not in by_name:
+                return {'success': False, 'error': f'unknown harness {name!r}',
+                        'available': sorted(by_name)}
+            if op == 'harness':
+                entry = dict(by_name[name])
+                probe = {'voice': 'voices', 'physics': 'physics', 'ledger': 'verify'}.get(name)
+                if probe:
+                    entry['probe'] = _local_func(probe, {'steps': 10})
+                return {'success': True, 'harness': entry, 'authority': 'HUMAN://ROOT'}
+            chain = args.get('chain') or [name]
+            results = []
+            probe_map = {'voice': 'voices', 'physics': 'physics', 'ledger': 'verify'}
+            for hname in chain:
+                if hname not in by_name:
+                    results.append({'harness': hname, 'success': False, 'error': 'unknown'})
+                    continue
+                pop = probe_map.get(hname)
+                results.append({'harness': hname,
+                                'result': _local_func(pop, {'steps': 10}) if pop else
+                                {'success': True, 'manifest': by_name[hname]}})
+            return {'success': all(r.get('success', r.get('result', {}).get('success', False)) for r in results),
+                    'chain': results, 'authority': 'HUMAN://ROOT'}
         return {'success': False, 'error': f'unknown local op {op}'}
     except Exception as e:
         return {'success': False, 'error': f'{type(e).__name__}: {e}'}
@@ -278,7 +315,7 @@ def register(ctx):
             dirs = sorted(p.name for p in PLUGINS.iterdir() if p.is_dir()) if PLUGINS.exists() else []
             chain = _verify_chain()
             result = {'success': True, 'actor': 'hermes-ae', 'authority': 'HUMAN://ROOT',
-                      'version': '2.5.0', 'plugins_on_disk': len(dirs),
+                      'version': '3.0.0', 'plugins_on_disk': len(dirs),
                       'shortcuts': sorted(SHORTCUTS), 'receipts': chain}
         elif op == 'receipts':
             limit = int(arg.get('limit') or 10)
@@ -332,5 +369,6 @@ def register(ctx):
             'seconds': {'type': 'integer'}, 'captions': {'type': 'boolean'},
             'physics': {'type': 'boolean'}, 'publish': {'type': 'boolean'},
             'path': {'type': 'string'}, 'legacy': {'type': 'boolean'},
+            'name': {'type': 'string'}, 'chain': {'type': 'array'},
         }, 'required': []},
     )

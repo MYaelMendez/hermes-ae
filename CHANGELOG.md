@@ -1,3 +1,8 @@
+## 3.0.0
+
+- Introduced the Mixture of Harnesses (MoH) registry and `harnesses`, `harness`, `run_harness`, and `masterpiece` ops on the single `ae` tool.
+- Added the v3.0.0 masterpiece pipeline: 30-second two-voice hero film, harness ontology course, hero page, and release proof.
+
 ## 2.5.0
 
 - Named the two tiny-voca voices: F2 is `nous girl`, M2 is `hermes-agent`.

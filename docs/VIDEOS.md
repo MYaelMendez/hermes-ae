@@ -2,6 +2,14 @@
 
 Published artifacts from the `hermes-ae` studio.
 
+## MoH Masterpiece — The Mixture of Harnesses
+
+- File: `moh-masterpiece-916.mp4`
+- Specs: 720x1280, 24 fps, 30.0 s, h264/aac
+- Physics: Five-scene MoH film with real Asimov CAD qpos walk and two named voices
+- Receipt: `569a5772e204c1f2d16fc027d198dfbe9bb861643234827caa37cdfed68a46c7`
+- [Download](https://raw.githubusercontent.com/MYaelMendez/MYaelMendez.github.io/gh-pages/moh-masterpiece-916.mp4)
+
 ## Meet the Voices — nous girl × hermes-agent
 
 - File: `osw-102-916.mp4`
