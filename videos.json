@@ -2,6 +2,17 @@
   "gallery": "https://raw.githubusercontent.com/MYaelMendez/MYaelMendez.github.io/gh-pages/videos.html",
   "videos": [
     {
+      "name": "osw-102-916.mp4",
+      "title": "Meet the Voices \u2014 nous girl \u00d7 hermes-agent",
+      "url": "https://raw.githubusercontent.com/MYaelMendez/MYaelMendez.github.io/gh-pages/osw-102-916.mp4",
+      "resolution": "720x1280",
+      "fps": 24,
+      "duration_s": 12.0,
+      "codec": "h264/aac",
+      "physics": "Two-voice open course: F2 nous girl and M2 hermes-agent",
+      "receipt": "940b28c670b8062efc0db89b3ff4306f2323da77062846b91104083fa1e46391"
+    },
+    {
       "name": "asimov-free-walk-916.mp4",
       "title": "Asimov Free Walk \u2014 Studio v2.2",
       "url": "https://raw.githubusercontent.com/MYaelMendez/MYaelMendez.github.io/gh-pages/asimov-free-walk-916.mp4",

@@ -418,5 +418,173 @@
     "authority": "HUMAN://ROOT",
     "prev": "7fda379308a32a5a88aef4644469cc1ffde5beee3a2a526970dcb6b8a0207d8d",
     "hash": "f6c73a29fc51c2b7500e2f5e490b865793413226a0de10c8407d3852a1505549"
+  },
+  {
+    "ts": "2026-11-17T04:17:15.899648Z",
+    "action": "TTS://SPEAK",
+    "authority": "HUMAN://ROOT",
+    "prev": "f6c73a29fc51c2b7500e2f5e490b865793413226a0de10c8407d3852a1505549",
+    "hash": "420073a4b98657fecb641bf5ac1c55ed3e73dc9180f912399e0d36f32da05619"
+  },
+  {
+    "ts": "2026-11-17T04:17:26.136104Z",
+    "action": "REPO://RELEASE_HERMES_AE_250",
+    "authority": "HUMAN://ROOT",
+    "prev": "420073a4b98657fecb641bf5ac1c55ed3e73dc9180f912399e0d36f32da05619",
+    "hash": "f4055bad8dc7841c6263001e836cc9bda4003ecfe819f9c6c92e6b3ef67d5e62"
+  },
+  {
+    "ts": "2026-11-17T04:20:19.544035Z",
+    "action": "TTS://SPEAK",
+    "authority": "HUMAN://ROOT",
+    "prev": "f4055bad8dc7841c6263001e836cc9bda4003ecfe819f9c6c92e6b3ef67d5e62",
+    "hash": "b817528fe84277da5a6f2c603a53fed18bac5faadbd0fb032b26edeee35947c3"
+  },
+  {
+    "ts": "2026-11-17T04:20:21.134230Z",
+    "action": "TTS://SPEAK",
+    "authority": "HUMAN://ROOT",
+    "prev": "b817528fe84277da5a6f2c603a53fed18bac5faadbd0fb032b26edeee35947c3",
+    "hash": "9017efea7523298dc6ac2d321f74940435300e01e2e73467846a05bc20c38e2f"
+  },
+  {
+    "ts": "2026-11-17T04:20:22.695442Z",
+    "action": "TTS://SPEAK",
+    "authority": "HUMAN://ROOT",
+    "prev": "9017efea7523298dc6ac2d321f74940435300e01e2e73467846a05bc20c38e2f",
+    "hash": "a4306770b3830df47ac0799490a520b6937e0abacdbd7de8bf129ed465d9780b"
+  },
+  {
+    "ts": "2026-11-17T04:20:24.216649Z",
+    "action": "TTS://SPEAK",
+    "authority": "HUMAN://ROOT",
+    "prev": "a4306770b3830df47ac0799490a520b6937e0abacdbd7de8bf129ed465d9780b",
+    "hash": "41d566126e230a8094f91fd54ab37ddb71b4923bcb53aee3e7708669b7d643a5"
+  },
+  {
+    "ts": "2026-11-17T04:20:25.712153Z",
+    "action": "TTS://SPEAK",
+    "authority": "HUMAN://ROOT",
+    "prev": "41d566126e230a8094f91fd54ab37ddb71b4923bcb53aee3e7708669b7d643a5",
+    "hash": "ba3cfabc039fbbf002bd99cde07d36a44608c979202d8b783c8246a2b021b8a7"
+  },
+  {
+    "ts": "2026-11-17T04:20:27.299084Z",
+    "action": "TTS://SPEAK",
+    "authority": "HUMAN://ROOT",
+    "prev": "ba3cfabc039fbbf002bd99cde07d36a44608c979202d8b783c8246a2b021b8a7",
+    "hash": "66dbf5dcec7887f889e60fcdcd39a9579048ebeee313bc70c1c894e6632e066b"
+  },
+  {
+    "ts": "2026-11-17T04:21:03.885704Z",
+    "action": "COURSE://OSW-102",
+    "authority": "HUMAN://ROOT",
+    "prev": "66dbf5dcec7887f889e60fcdcd39a9579048ebeee313bc70c1c894e6632e066b",
+    "hash": "5210e7b3305273ebfff41f142f41b6c251f2826056059b4909a31fff810828cc"
+  },
+  {
+    "ts": "2026-11-17T04:21:19.701353Z",
+    "action": "TTS://SPEAK",
+    "authority": "HUMAN://ROOT",
+    "prev": "5210e7b3305273ebfff41f142f41b6c251f2826056059b4909a31fff810828cc",
+    "hash": "dd6bc7121342b5504e394cf8963b2d3a2779eed61d92ab9495e584a2c2f7ede6"
+  },
+  {
+    "ts": "2026-11-17T04:21:21.234140Z",
+    "action": "TTS://SPEAK",
+    "authority": "HUMAN://ROOT",
+    "prev": "dd6bc7121342b5504e394cf8963b2d3a2779eed61d92ab9495e584a2c2f7ede6",
+    "hash": "e709cbdf0281bad8525fd61e9f68e11b7cc334361a252634c6be94837aeda6c0"
+  },
+  {
+    "ts": "2026-11-17T04:21:22.721635Z",
+    "action": "TTS://SPEAK",
+    "authority": "HUMAN://ROOT",
+    "prev": "e709cbdf0281bad8525fd61e9f68e11b7cc334361a252634c6be94837aeda6c0",
+    "hash": "d68569c87d1f83171592db9b2652d316b9ca512575cc2504f60f6047db6d5e67"
+  },
+  {
+    "ts": "2026-11-17T04:21:24.254601Z",
+    "action": "TTS://SPEAK",
+    "authority": "HUMAN://ROOT",
+    "prev": "d68569c87d1f83171592db9b2652d316b9ca512575cc2504f60f6047db6d5e67",
+    "hash": "56b675af3970999d3c030a4447dfb79cd79b9509f8d86f9269a8bc4df880e401"
+  },
+  {
+    "ts": "2026-11-17T04:21:25.828041Z",
+    "action": "TTS://SPEAK",
+    "authority": "HUMAN://ROOT",
+    "prev": "56b675af3970999d3c030a4447dfb79cd79b9509f8d86f9269a8bc4df880e401",
+    "hash": "8332dbac6accceab0fa5395dc703d4cc0ecd5e6fc7f233be20112624b445cd83"
+  },
+  {
+    "ts": "2026-11-17T04:21:27.325422Z",
+    "action": "TTS://SPEAK",
+    "authority": "HUMAN://ROOT",
+    "prev": "8332dbac6accceab0fa5395dc703d4cc0ecd5e6fc7f233be20112624b445cd83",
+    "hash": "4016d60451bd84b46c3f8d490c18daaa09c1f46f03977ed080682b66c24abf54"
+  },
+  {
+    "ts": "2026-11-17T04:22:03.353934Z",
+    "action": "COURSE://OSW-102",
+    "authority": "HUMAN://ROOT",
+    "prev": "4016d60451bd84b46c3f8d490c18daaa09c1f46f03977ed080682b66c24abf54",
+    "hash": "3e5bb5298525b48261954e8378e8d2656966d6c4419e5b1e92414bfb77d74024"
+  },
+  {
+    "ts": "2026-11-17T04:22:17.299642Z",
+    "action": "TTS://SPEAK",
+    "authority": "HUMAN://ROOT",
+    "prev": "3e5bb5298525b48261954e8378e8d2656966d6c4419e5b1e92414bfb77d74024",
+    "hash": "088118153458547d23665cb392a4a0050f4153a332233cf10567b7107e50daa2"
+  },
+  {
+    "ts": "2026-11-17T04:22:18.897671Z",
+    "action": "TTS://SPEAK",
+    "authority": "HUMAN://ROOT",
+    "prev": "088118153458547d23665cb392a4a0050f4153a332233cf10567b7107e50daa2",
+    "hash": "231cb90072e5fe35281693d61e9b68371eb1d67fb646934c725ac17ea48ef8a8"
+  },
+  {
+    "ts": "2026-11-17T04:22:20.467453Z",
+    "action": "TTS://SPEAK",
+    "authority": "HUMAN://ROOT",
+    "prev": "231cb90072e5fe35281693d61e9b68371eb1d67fb646934c725ac17ea48ef8a8",
+    "hash": "81fab2ff8f31e2d3f7652ac601632b1af48f6574cd8a6606af4bf0ad4bdde84e"
+  },
+  {
+    "ts": "2026-11-17T04:22:21.954555Z",
+    "action": "TTS://SPEAK",
+    "authority": "HUMAN://ROOT",
+    "prev": "81fab2ff8f31e2d3f7652ac601632b1af48f6574cd8a6606af4bf0ad4bdde84e",
+    "hash": "037fe1e2f5971405f4f7df53c820a0760e8fa5fa558d83b2f69acee1ad0469f3"
+  },
+  {
+    "ts": "2026-11-17T04:22:23.394793Z",
+    "action": "TTS://SPEAK",
+    "authority": "HUMAN://ROOT",
+    "prev": "037fe1e2f5971405f4f7df53c820a0760e8fa5fa558d83b2f69acee1ad0469f3",
+    "hash": "a146f4a87caa75495eebeb54d6f14f0d0a5fca535fa67d6be4090796d81b3948"
+  },
+  {
+    "ts": "2026-11-17T04:22:25.004856Z",
+    "action": "TTS://SPEAK",
+    "authority": "HUMAN://ROOT",
+    "prev": "a146f4a87caa75495eebeb54d6f14f0d0a5fca535fa67d6be4090796d81b3948",
+    "hash": "5dfa9c77d4cd43e21bd28638685ea51b454694f50e428932ea24a449c57875ad"
+  },
+  {
+    "ts": "2026-11-17T04:23:00.918408Z",
+    "action": "COURSE://OSW-102",
+    "authority": "HUMAN://ROOT",
+    "prev": "5dfa9c77d4cd43e21bd28638685ea51b454694f50e428932ea24a449c57875ad",
+    "hash": "2f99353a6135a28b4c4a171043b6a0ab482c9d5e3e2a471888fde76b8fdb0d22"
+  },
+  {
+    "ts": "2026-11-17T04:23:38.487020Z",
+    "action": "VIDEO://OSW_102_MEET_THE_VOICES",
+    "authority": "HUMAN://ROOT",
+    "prev": "2f99353a6135a28b4c4a171043b6a0ab482c9d5e3e2a471888fde76b8fdb0d22",
+    "hash": "940b28c670b8062efc0db89b3ff4306f2323da77062846b91104083fa1e46391"
   }
 ]

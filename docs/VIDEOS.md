@@ -2,6 +2,14 @@
 
 Published artifacts from the `hermes-ae` studio.
 
+## Meet the Voices — nous girl × hermes-agent
+
+- File: `osw-102-916.mp4`
+- Specs: 720x1280, 24 fps, 12.0 s, h264/aac
+- Physics: Two-voice open course: F2 nous girl and M2 hermes-agent
+- Receipt: `940b28c670b8062efc0db89b3ff4306f2323da77062846b91104083fa1e46391`
+- [Download](https://raw.githubusercontent.com/MYaelMendez/MYaelMendez.github.io/gh-pages/osw-102-916.mp4)
+
 ## Asimov Free Walk — Studio v2.2
 
 - File: `asimov-free-walk-916.mp4`

@@ -218,7 +218,7 @@ def main():
     out = Path(args.output) if args.output else work / f"{lesson['id']}-916.mp4"
     out.parent.mkdir(parents=True, exist_ok=True)
     run(['ffmpeg','-y','-framerate',str(FPS),'-i',str(frames/'%05d.png'),
-         '-i',str(wav),'-c:v','libx264','-pix_fmt','yuv420p','-movflags','+faststart',
+         '-i',str(wav),'-af','volume=0.9','-c:v','libx264','-pix_fmt','yuv420p','-movflags','+faststart',
          '-crf','20','-c:a','aac','-b:a','128k','-t',str(secs),str(out)], timeout=900)
     q = qc(out, frames)
     sys_path = str(REPO_ROOT)
