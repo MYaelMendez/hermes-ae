@@ -92,3 +92,6 @@ marker used by the receipt ledger, not a software license.
 A 9-second mocap-guided MuJoCo walk with dizione visemes and tiny-voca narration.
 Full clips and receipts are indexed in [docs/VIDEOS.md](docs/VIDEOS.md).
 
+## Docs
+
+- [Open courses](docs/COURSES.md) — reusable two-voice lesson template
