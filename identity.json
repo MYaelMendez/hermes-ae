@@ -40,6 +40,13 @@
       "authority": "HUMAN://ROOT",
       "receipt_action": "AVATAR://USD_BIND"
     },
+    "policy": {
+      "name": "æ Policy",
+      "version": "1.0.0",
+      "path": "ae-policy.json",
+      "authority": "HUMAN://ROOT",
+      "receipt_action": "POLICY://EVALUATE"
+    },
     "body": "Asimov-1 (25 DOF)",
     "runtime": "hermes-ae MoH orchestrator + official Asimov-1 MJCF/URDF + tiny-voca + MuJoCo + ONNX policy",
     "receipt_action": "AGENT://ASIMOV",
@@ -53,6 +60,7 @@
       "viewport_dom",
       "removable_face",
       "digital_twin",
+      "ae_policy",
       "voice_fallback",
       "pi500_teleop",
       "publish",
@@ -69,6 +77,7 @@
       "viewport_dom",
       "face",
       "twin",
+      "policy",
       "masterpiece"
     ],
     "homepage": "https://mobility.foundation/mobility/",

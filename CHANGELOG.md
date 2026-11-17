@@ -1,3 +1,11 @@
+## 3.13.0
+
+- Added **æ Policy**: a machine-readable OpenSourceWare authority policy for
+  robots and agents in the Internet of Agents.
+- Added `ae({op:"policy"})` with `show`, `verify`, and `evaluate`; every
+  decision writes a `POLICY://EVALUATE` receipt and fails closed.
+- Bound the policy into `identity.json` and added `docs/AE_POLICY.md`.
+
 ## 3.12.0
 
 - Added the first **Asimov USD digital twin**: `ae({op:"twin"})` builds and
