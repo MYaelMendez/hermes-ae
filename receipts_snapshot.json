@@ -1489,5 +1489,110 @@
     "authority": "HUMAN://ROOT",
     "prev": "4e0f2cb43bd11c62464f540f20e689bc82a9f6399f173c8a5e7ca3bc35f88407",
     "hash": "f96670b2d529eb3439a86bf7f9e6c7d01b9b90b89cd15e61845373f84d915258"
+  },
+  {
+    "ts": "2026-11-17T17:23:38.926903Z",
+    "action": "AE://STATUS",
+    "authority": "HUMAN://ROOT",
+    "prev": "f96670b2d529eb3439a86bf7f9e6c7d01b9b90b89cd15e61845373f84d915258",
+    "hash": "d7d3ce4b4aa2410b10ffad139fd77f34fe4c596c4621eea1d2be128a7eddf44c"
+  },
+  {
+    "ts": "2026-11-17T17:23:38.927443Z",
+    "action": "AE://PROJECTION",
+    "authority": "HUMAN://ROOT",
+    "prev": "d7d3ce4b4aa2410b10ffad139fd77f34fe4c596c4621eea1d2be128a7eddf44c",
+    "hash": "c59dde0623193a173262d76aa3caccf573c2d3e7c8496ea3e3ff0a66bc7db0db"
+  },
+  {
+    "ts": "2026-11-17T17:23:38.930032Z",
+    "action": "AE://AGENT",
+    "authority": "HUMAN://ROOT",
+    "prev": "c59dde0623193a173262d76aa3caccf573c2d3e7c8496ea3e3ff0a66bc7db0db",
+    "hash": "58468343e5f166b066e3201f9564b16fa57b67e2b70c8bf6b87e1d1e43221455"
+  },
+  {
+    "ts": "2026-11-17T17:23:39.097118Z",
+    "action": "REPO://RELEASE_HERMES_AE_390",
+    "authority": "HUMAN://ROOT",
+    "prev": "58468343e5f166b066e3201f9564b16fa57b67e2b70c8bf6b87e1d1e43221455",
+    "hash": "118d8808463d60cf02f2d109d001ccd25929dcd9ce9aadaabab158ad4aa23915"
+  },
+  {
+    "ts": "2026-11-17T17:24:36.979328Z",
+    "action": "AE://STATUS",
+    "authority": "HUMAN://ROOT",
+    "prev": "118d8808463d60cf02f2d109d001ccd25929dcd9ce9aadaabab158ad4aa23915",
+    "hash": "e31fc3851cb8eae5624b9a89067189d3d9a5ba3a4efa41c993ce69c3b5f9640c"
+  },
+  {
+    "ts": "2026-11-17T17:24:36.979819Z",
+    "action": "AE://PROJECTION",
+    "authority": "HUMAN://ROOT",
+    "prev": "e31fc3851cb8eae5624b9a89067189d3d9a5ba3a4efa41c993ce69c3b5f9640c",
+    "hash": "6ba29489ab56107c06925ada80b023efb8e310ad9eac222cab922ab222e19b50"
+  },
+  {
+    "ts": "2026-11-17T17:24:36.982449Z",
+    "action": "AE://AGENT",
+    "authority": "HUMAN://ROOT",
+    "prev": "6ba29489ab56107c06925ada80b023efb8e310ad9eac222cab922ab222e19b50",
+    "hash": "f3f3cca049b47351008e12d29968eb3e9c7489819afb7766fa8c1726d1d7db0c"
+  },
+  {
+    "ts": "2026-11-17T17:24:37.139306Z",
+    "action": "REPO://RELEASE_HERMES_AE_391",
+    "authority": "HUMAN://ROOT",
+    "prev": "f3f3cca049b47351008e12d29968eb3e9c7489819afb7766fa8c1726d1d7db0c",
+    "hash": "49a582d875298b45b70ef2ab4bfb6aff4205a9c93792f2f10a054682c17d3d26"
+  },
+  {
+    "ts": "2026-11-17T17:28:44.440439Z",
+    "action": "AE://AGENT",
+    "authority": "HUMAN://ROOT",
+    "prev": "49a582d875298b45b70ef2ab4bfb6aff4205a9c93792f2f10a054682c17d3d26",
+    "hash": "43ece81d3597cfdb957666e5c53b85d6322e23899bd87ba5c59c257940f4b06a"
+  },
+  {
+    "ts": "2026-11-17T17:28:44.440835Z",
+    "action": "AE://PROJECTION",
+    "authority": "HUMAN://ROOT",
+    "prev": "43ece81d3597cfdb957666e5c53b85d6322e23899bd87ba5c59c257940f4b06a",
+    "hash": "28bbb8bcaea799f78acc7f225aca6a5daa50c6487e5017989f3ea7304367d3e1"
+  },
+  {
+    "ts": "2026-11-17T17:28:44.441090Z",
+    "action": "AE://HARNESS",
+    "authority": "HUMAN://ROOT",
+    "prev": "28bbb8bcaea799f78acc7f225aca6a5daa50c6487e5017989f3ea7304367d3e1",
+    "hash": "e5a305ac9f96cf873e174b6e1328c30ce4b0b07cb3cc500c6e12256108848685"
+  },
+  {
+    "ts": "2026-11-17T17:28:44.441271Z",
+    "action": "AE://OPS",
+    "authority": "HUMAN://ROOT",
+    "prev": "e5a305ac9f96cf873e174b6e1328c30ce4b0b07cb3cc500c6e12256108848685",
+    "hash": "db8f96f9586e4c76232203d3f3291348c00fc05548111312fe4d258cbf1bd7eb"
+  },
+  {
+    "ts": "2026-11-17T17:28:44.443503Z",
+    "action": "AE://VERIFY",
+    "authority": "HUMAN://ROOT",
+    "prev": "db8f96f9586e4c76232203d3f3291348c00fc05548111312fe4d258cbf1bd7eb",
+    "hash": "13ae290debdaf21a8184ee04def8e4f869dce9f56220ba2e4180f971eaee09f8"
+  },
+  {
+    "ts": "2026-11-17T17:31:06.616886Z",
+    "action": "VIDEO://ASIMOV_AGENT_CAPABILITIES",
+    "authority": "HUMAN://ROOT",
+    "prev": "13ae290debdaf21a8184ee04def8e4f869dce9f56220ba2e4180f971eaee09f8",
+    "hash": "4885451a88a38de003574f7a1259903532e4d9937ee307bfce9bd01eabd9734e"
+  },
+  {
+    "ts": "2026-11-17T17:36:11.012415Z",
+    "action": "ARTIFACT://MENLO_ASIMOV_FFMPEG",
+    "authority": "HUMAN://ROOT",
+    "prev": "4885451a88a38de003574f7a1259903532e4d9937ee307bfce9bd01eabd9734e",
+    "hash": "bc3af22969741a8a575f69864579706f035b245ed333d4017d3d0d4f2284138f"
   }
 ]
