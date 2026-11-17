@@ -1,12 +1,5 @@
 [
   {
-    "ts": "2026-11-17T17:09:22.100120Z",
-    "action": "PUBLISH://SOVEREIGN_BUNDLE",
-    "authority": "HUMAN://ROOT",
-    "prev": "63cb6fd8d241fa05b986e14f76407b5ca0b79162f3d18656fac9b36152183e36",
-    "hash": "417795acf3f899df843dc0a20346c873e9e42aeb6317e063493b94a368cd396a"
-  },
-  {
     "ts": "2026-11-17T17:14:55.731857Z",
     "action": "VIDEO://SOVEREIGN_RESOURCES_DEMO",
     "authority": "HUMAN://ROOT",
@@ -418,5 +411,12 @@
     "authority": "HUMAN://ROOT",
     "prev": "d8e8c0cf407b89df00bf2609ae48334802fddccccff49db91e832c9a5a18de3b",
     "hash": "5ee8e85bd1b33b22a1c44b1ed3a255d8b07b7d73dcf531959d456ed3cc11af88"
+  },
+  {
+    "ts": "2026-11-17T22:23:23.738891Z",
+    "action": "PUBLISH://AE_POLICY",
+    "authority": "HUMAN://ROOT",
+    "prev": "5ee8e85bd1b33b22a1c44b1ed3a255d8b07b7d73dcf531959d456ed3cc11af88",
+    "hash": "df4eaa4214d855e500367f23dac370be8264380d4e80f1a9dd397ffae3d98e1a"
   }
 ]
