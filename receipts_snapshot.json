@@ -1,89 +1,5 @@
 [
   {
-    "ts": "2026-11-17T17:28:44.440439Z",
-    "action": "AE://AGENT",
-    "authority": "HUMAN://ROOT",
-    "prev": "49a582d875298b45b70ef2ab4bfb6aff4205a9c93792f2f10a054682c17d3d26",
-    "hash": "43ece81d3597cfdb957666e5c53b85d6322e23899bd87ba5c59c257940f4b06a"
-  },
-  {
-    "ts": "2026-11-17T17:28:44.440835Z",
-    "action": "AE://PROJECTION",
-    "authority": "HUMAN://ROOT",
-    "prev": "43ece81d3597cfdb957666e5c53b85d6322e23899bd87ba5c59c257940f4b06a",
-    "hash": "28bbb8bcaea799f78acc7f225aca6a5daa50c6487e5017989f3ea7304367d3e1"
-  },
-  {
-    "ts": "2026-11-17T17:28:44.441090Z",
-    "action": "AE://HARNESS",
-    "authority": "HUMAN://ROOT",
-    "prev": "28bbb8bcaea799f78acc7f225aca6a5daa50c6487e5017989f3ea7304367d3e1",
-    "hash": "e5a305ac9f96cf873e174b6e1328c30ce4b0b07cb3cc500c6e12256108848685"
-  },
-  {
-    "ts": "2026-11-17T17:28:44.441271Z",
-    "action": "AE://OPS",
-    "authority": "HUMAN://ROOT",
-    "prev": "e5a305ac9f96cf873e174b6e1328c30ce4b0b07cb3cc500c6e12256108848685",
-    "hash": "db8f96f9586e4c76232203d3f3291348c00fc05548111312fe4d258cbf1bd7eb"
-  },
-  {
-    "ts": "2026-11-17T17:28:44.443503Z",
-    "action": "AE://VERIFY",
-    "authority": "HUMAN://ROOT",
-    "prev": "db8f96f9586e4c76232203d3f3291348c00fc05548111312fe4d258cbf1bd7eb",
-    "hash": "13ae290debdaf21a8184ee04def8e4f869dce9f56220ba2e4180f971eaee09f8"
-  },
-  {
-    "ts": "2026-11-17T17:31:06.616886Z",
-    "action": "VIDEO://ASIMOV_AGENT_CAPABILITIES",
-    "authority": "HUMAN://ROOT",
-    "prev": "13ae290debdaf21a8184ee04def8e4f869dce9f56220ba2e4180f971eaee09f8",
-    "hash": "4885451a88a38de003574f7a1259903532e4d9937ee307bfce9bd01eabd9734e"
-  },
-  {
-    "ts": "2026-11-17T17:36:11.012415Z",
-    "action": "ARTIFACT://MENLO_ASIMOV_FFMPEG",
-    "authority": "HUMAN://ROOT",
-    "prev": "4885451a88a38de003574f7a1259903532e4d9937ee307bfce9bd01eabd9734e",
-    "hash": "bc3af22969741a8a575f69864579706f035b245ed333d4017d3d0d4f2284138f"
-  },
-  {
-    "ts": "2026-11-17T17:44:29.156479Z",
-    "action": "AE://AGENT",
-    "authority": "HUMAN://ROOT",
-    "prev": "bc3af22969741a8a575f69864579706f035b245ed333d4017d3d0d4f2284138f",
-    "hash": "8c2314e8c1e0c7bf91fefdb5bd36fff9c91d2d00c5c3b054c955a0563e0c7eb1"
-  },
-  {
-    "ts": "2026-11-17T17:44:29.326118Z",
-    "action": "REPO://RELEASE_HERMES_AE_3100",
-    "authority": "HUMAN://ROOT",
-    "prev": "8c2314e8c1e0c7bf91fefdb5bd36fff9c91d2d00c5c3b054c955a0563e0c7eb1",
-    "hash": "21db9005f806c923a6c7a2df3d894de30507da0477005c7ad26a1f57289053ec"
-  },
-  {
-    "ts": "2026-11-17T17:52:39.898133Z",
-    "action": "PAGE://ASIMOV_VIEWPORT_SELF_CONTAINED",
-    "authority": "HUMAN://ROOT",
-    "prev": "21db9005f806c923a6c7a2df3d894de30507da0477005c7ad26a1f57289053ec",
-    "hash": "733c843fdde83e6c4235b50bf8526784fcee3439639db25b2cc84969cabbb0f6"
-  },
-  {
-    "ts": "2026-11-17T18:29:46.970575Z",
-    "action": "REPO://TINY_VOCA_FIRST_CLASS",
-    "authority": "HUMAN://ROOT",
-    "prev": "733c843fdde83e6c4235b50bf8526784fcee3439639db25b2cc84969cabbb0f6",
-    "hash": "6a3cdd8d4ff4844cd94b7e36b2678c5f04cd4a2fa410b4d47a607b7187d8c81b"
-  },
-  {
-    "ts": "2026-11-17T18:38:05.494330Z",
-    "action": "REPO://PUBLISH_TINY_VOCA",
-    "authority": "HUMAN://ROOT",
-    "prev": "6a3cdd8d4ff4844cd94b7e36b2678c5f04cd4a2fa410b4d47a607b7187d8c81b",
-    "hash": "4af3e31d0ee21ec3513d1c6da8adc3104c4b898e20426e75c69c3b475bf9d3eb"
-  },
-  {
     "ts": "2026-11-17T18:40:18.569093Z",
     "action": "INSTALL://TINY_VOCA_FIRST_CLASS",
     "authority": "HUMAN://ROOT",
@@ -418,5 +334,89 @@
     "authority": "HUMAN://ROOT",
     "prev": "38d75e491da0ba9fd6ec038437f12c96b627a6208f506414753531ea130b9500",
     "hash": "88678f1f9b378c389feecb91e0d4b33b60da92b5e8e19b5e611e96d13a11b742"
+  },
+  {
+    "ts": "2026-11-17T22:35:15.629168Z",
+    "action": "POLICY://EVALUATE",
+    "authority": "HUMAN://ROOT",
+    "prev": "88678f1f9b378c389feecb91e0d4b33b60da92b5e8e19b5e611e96d13a11b742",
+    "hash": "4dfc618733a22b82e9d875d25c99e113edcae05697946ab0676c707e49b753e7"
+  },
+  {
+    "ts": "2026-11-17T22:35:15.630047Z",
+    "action": "DAO://DECISION",
+    "authority": "HUMAN://ROOT",
+    "prev": "4dfc618733a22b82e9d875d25c99e113edcae05697946ab0676c707e49b753e7",
+    "hash": "889ad3368351f43e5942e74a025366390c10c25001adfff3d9e2567a9893556b"
+  },
+  {
+    "ts": "2026-11-17T22:35:15.773795Z",
+    "action": "POLICY://EVALUATE",
+    "authority": "HUMAN://ROOT",
+    "prev": "889ad3368351f43e5942e74a025366390c10c25001adfff3d9e2567a9893556b",
+    "hash": "eb111d8a541690d1b14c755128e907ac1fd921a9582c81c6286273f16de65c53"
+  },
+  {
+    "ts": "2026-11-17T22:35:15.774695Z",
+    "action": "DAO://DECISION",
+    "authority": "HUMAN://ROOT",
+    "prev": "eb111d8a541690d1b14c755128e907ac1fd921a9582c81c6286273f16de65c53",
+    "hash": "82c49f97c973fa6dcaa5da7b0d96e592e4ddaeb4fa6eea718ef024960bd9bacc"
+  },
+  {
+    "ts": "2026-11-17T22:35:15.915711Z",
+    "action": "POLICY://EVALUATE",
+    "authority": "HUMAN://ROOT",
+    "prev": "82c49f97c973fa6dcaa5da7b0d96e592e4ddaeb4fa6eea718ef024960bd9bacc",
+    "hash": "22d00a0e745af44287bf3c48a0ad90ba72315d799562576e17fcc59551f0edee"
+  },
+  {
+    "ts": "2026-11-17T22:35:15.916631Z",
+    "action": "DAO://DECISION",
+    "authority": "HUMAN://ROOT",
+    "prev": "22d00a0e745af44287bf3c48a0ad90ba72315d799562576e17fcc59551f0edee",
+    "hash": "1cd6d4832084c401ea1d7acaa1839d35191951b3af79fc9c01fb30827763a428"
+  },
+  {
+    "ts": "2026-11-17T22:35:16.058660Z",
+    "action": "POLICY://EVALUATE",
+    "authority": "HUMAN://ROOT",
+    "prev": "1cd6d4832084c401ea1d7acaa1839d35191951b3af79fc9c01fb30827763a428",
+    "hash": "dee97163ce812482adab4871ad62366c2ff9c62c1695a4277cb59a19597bc19d"
+  },
+  {
+    "ts": "2026-11-17T22:35:16.059479Z",
+    "action": "DAO://DECISION",
+    "authority": "HUMAN://ROOT",
+    "prev": "dee97163ce812482adab4871ad62366c2ff9c62c1695a4277cb59a19597bc19d",
+    "hash": "9ccc87e19e58b5f801789833b9fb594a9a94e568319fc5f1a1b78f1f8dbab412"
+  },
+  {
+    "ts": "2026-11-17T22:35:16.200984Z",
+    "action": "POLICY://EVALUATE",
+    "authority": "HUMAN://ROOT",
+    "prev": "9ccc87e19e58b5f801789833b9fb594a9a94e568319fc5f1a1b78f1f8dbab412",
+    "hash": "219cedd510ecbe601a17a1933ef30c9383bd897680b1fac88b4235b98323e206"
+  },
+  {
+    "ts": "2026-11-17T22:35:16.201829Z",
+    "action": "DAO://DECISION",
+    "authority": "HUMAN://ROOT",
+    "prev": "219cedd510ecbe601a17a1933ef30c9383bd897680b1fac88b4235b98323e206",
+    "hash": "200cbe54200549de36ffb5704d2ae22073392f5ed24fd5fb828c38d352a54081"
+  },
+  {
+    "ts": "2026-11-17T22:35:16.344646Z",
+    "action": "DAO://STATE",
+    "authority": "HUMAN://ROOT",
+    "prev": "200cbe54200549de36ffb5704d2ae22073392f5ed24fd5fb828c38d352a54081",
+    "hash": "56067be4a872f5973d729d452b86e05930e0a54d5299906cd950d05a41871e91"
+  },
+  {
+    "ts": "2026-11-17T22:46:00.202164Z",
+    "action": "VIDEO://DAO_BRAIN_FACE_TABLET",
+    "authority": "HUMAN://ROOT",
+    "prev": "56067be4a872f5973d729d452b86e05930e0a54d5299906cd950d05a41871e91",
+    "hash": "4119fa4bdc58f398531bef673b57dcd7856e041c3d1d0e47287ba1a3739fc301"
   }
 ]
