@@ -4,7 +4,6 @@ Sanitized snapshot: 60 entries. Full ledger is `HUMAN://ROOT` hash-chained.
 
 | Time | Action | Authority | Hash |
 |---|---|---|---|
-| 2026-11-17T21:08:45.338797Z | `FACE://TELEOP` | HUMAN://ROOT | `28e4a7b2aadfced1…` |
 | 2026-11-17T21:08:45.496178Z | `FACE://TELEOP` | HUMAN://ROOT | `81a69eceb44ff937…` |
 | 2026-11-17T21:08:45.641550Z | `FACE://TELEOP` | HUMAN://ROOT | `6e8775ad5e987a09…` |
 | 2026-11-17T21:08:45.789094Z | `FACE://TELEOP` | HUMAN://ROOT | `5cfb4942508b30e9…` |
@@ -44,3 +43,4 @@ Sanitized snapshot: 60 entries. Full ledger is `HUMAN://ROOT` hash-chained.
 | 2026-11-17T22:35:16.201829Z | `DAO://DECISION` | HUMAN://ROOT | `200cbe54200549de…` |
 | 2026-11-17T22:35:16.344646Z | `DAO://STATE` | HUMAN://ROOT | `56067be4a872f597…` |
 | 2026-11-17T22:46:00.202164Z | `VIDEO://DAO_BRAIN_FACE_TABLET` | HUMAN://ROOT | `4119fa4bdc58f398…` |
+| 2026-11-17T22:50:24.185433Z | `IMAGE://ASIMOV_TELEPROMPTER_MOBILE` | HUMAN://ROOT | `e6d877d0223c9c07…` |

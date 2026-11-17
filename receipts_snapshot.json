@@ -1,12 +1,5 @@
 [
   {
-    "ts": "2026-11-17T18:40:18.569093Z",
-    "action": "INSTALL://TINY_VOCA_FIRST_CLASS",
-    "authority": "HUMAN://ROOT",
-    "prev": "4af3e31d0ee21ec3513d1c6da8adc3104c4b898e20426e75c69c3b475bf9d3eb",
-    "hash": "0832cf25607fab75b3035ed0fc6fee1bf226254a56dd5ff3eb210a69dc656631"
-  },
-  {
     "ts": "2026-11-17T20:11:33.424261Z",
     "action": "VIDEO://ASIMOV_ROBOT_FACE_DEMO",
     "authority": "HUMAN://ROOT",
@@ -418,5 +411,12 @@
     "authority": "HUMAN://ROOT",
     "prev": "56067be4a872f5973d729d452b86e05930e0a54d5299906cd950d05a41871e91",
     "hash": "4119fa4bdc58f398531bef673b57dcd7856e041c3d1d0e47287ba1a3739fc301"
+  },
+  {
+    "ts": "2026-11-17T22:50:24.185433Z",
+    "action": "IMAGE://ASIMOV_TELEPROMPTER_MOBILE",
+    "authority": "HUMAN://ROOT",
+    "prev": "4119fa4bdc58f398531bef673b57dcd7856e041c3d1d0e47287ba1a3739fc301",
+    "hash": "e6d877d0223c9c07d6e7ac8d59ba38b0d409054a2b75565b9558d1d011a41f3a"
   }
 ]
