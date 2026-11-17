@@ -106,5 +106,6 @@ Full clips and receipts are indexed in [docs/VIDEOS.md](docs/VIDEOS.md).
 - [Asimov USD twin](docs/ASIMOV_TWIN.md) — the official robot as a USD digital twin
 - [æ Policy](docs/AE_POLICY.md) — the machine-readable authority policy for the Internet of Agents
 - [DAO Brain](docs/DAO_BRAIN.md) — policy-gated governance for the 1:1 Asimov face tablet
+- [Menlo SDK mapping](docs/MENLO_SDK_MAPPING.md) — how OpenSourceWare sits above the official SDK
 - [mobility.foundation](docs/MOBILITY_FOUNDATION.md) — canonical public home for Asimov Agent mobility
 - [Sovereign projection](docs/SOVEREIGN_PROJECTION.md) — first-principles bundle refactor

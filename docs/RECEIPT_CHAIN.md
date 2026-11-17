@@ -4,7 +4,6 @@ Sanitized snapshot: 60 entries. Full ledger is `HUMAN://ROOT` hash-chained.
 
 | Time | Action | Authority | Hash |
 |---|---|---|---|
-| 2026-11-17T21:08:45.496178Z | `FACE://TELEOP` | HUMAN://ROOT | `81a69eceb44ff937…` |
 | 2026-11-17T21:08:45.641550Z | `FACE://TELEOP` | HUMAN://ROOT | `6e8775ad5e987a09…` |
 | 2026-11-17T21:08:45.789094Z | `FACE://TELEOP` | HUMAN://ROOT | `5cfb4942508b30e9…` |
 | 2026-11-17T21:09:35.006567Z | `REPO://RELEASE_HERMES_AE_3110` | HUMAN://ROOT | `ecc3c5c88778ae0e…` |
@@ -44,3 +43,4 @@ Sanitized snapshot: 60 entries. Full ledger is `HUMAN://ROOT` hash-chained.
 | 2026-11-17T22:35:16.344646Z | `DAO://STATE` | HUMAN://ROOT | `56067be4a872f597…` |
 | 2026-11-17T22:46:00.202164Z | `VIDEO://DAO_BRAIN_FACE_TABLET` | HUMAN://ROOT | `4119fa4bdc58f398…` |
 | 2026-11-17T22:50:24.185433Z | `IMAGE://ASIMOV_TELEPROMPTER_MOBILE` | HUMAN://ROOT | `e6d877d0223c9c07…` |
+| 2026-11-17T22:55:36.749120Z | `DOC://MENLO_SDK_MAPPING` | HUMAN://ROOT | `c852a50cda4ca8e5…` |

@@ -1,12 +1,5 @@
 [
   {
-    "ts": "2026-11-17T20:11:33.424261Z",
-    "action": "VIDEO://ASIMOV_ROBOT_FACE_DEMO",
-    "authority": "HUMAN://ROOT",
-    "prev": "0832cf25607fab75b3035ed0fc6fee1bf226254a56dd5ff3eb210a69dc656631",
-    "hash": "18afbe5a02366b36f8f3d749080f15fab3c7e840c9bdda2a22acc3fd90f80b02"
-  },
-  {
     "ts": "2026-11-17T20:27:55.220799Z",
     "action": "VIDEO://ASIMOV_FACE_HOLOMESH",
     "authority": "HUMAN://ROOT",
@@ -418,5 +411,12 @@
     "authority": "HUMAN://ROOT",
     "prev": "4119fa4bdc58f398531bef673b57dcd7856e041c3d1d0e47287ba1a3739fc301",
     "hash": "e6d877d0223c9c07d6e7ac8d59ba38b0d409054a2b75565b9558d1d011a41f3a"
+  },
+  {
+    "ts": "2026-11-17T22:55:36.749120Z",
+    "action": "DOC://MENLO_SDK_MAPPING",
+    "authority": "HUMAN://ROOT",
+    "prev": "e6d877d0223c9c07d6e7ac8d59ba38b0d409054a2b75565b9558d1d011a41f3a",
+    "hash": "c852a50cda4ca8e5d6d9493ebb1a3e388bfb38a3388de0237c0cd08560b99af8"
   }
 ]
