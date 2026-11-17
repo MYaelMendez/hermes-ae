@@ -1,3 +1,11 @@
+## 3.14.0
+
+- Added the **DAO Brain** to power the 1:1 Asimov face tablet.
+- `ae({op:"daobrain"})` evaluates proposals through æ Policy, maps decisions
+  to face states, optionally speaks replies through tiny-voca, and writes
+  `DAO://DECISION` receipts.
+- Bound the DAO Brain into `identity.json`; added `docs/DAO_BRAIN.md`.
+
 ## 3.13.0
 
 - Added **æ Policy**: a machine-readable OpenSourceWare authority policy for

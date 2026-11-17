@@ -86,6 +86,7 @@ def _receipt(action, detail):
 def _status():
     state = _load()
     return {'success': True, 'authority': 'HUMAN://ROOT', 'state': state,
+            'dao_brain': state.get('dao_brain'),
             'voices': ['F2', 'M2'], 'keys': {k: list(v) for k, v in KEYMAP.items()},
             'tts_available': TTS.exists(), 'audio_path': str(AUDIO),
             'ledger': str(LEDGER), 'head': _last_hash()}

@@ -47,6 +47,14 @@
       "authority": "HUMAN://ROOT",
       "receipt_action": "POLICY://EVALUATE"
     },
+    "dao_brain": {
+      "name": "DAO Brain",
+      "version": "1.0.0",
+      "engine": "scripts/daobrain.py",
+      "surface": "1:1 Asimov face tablet",
+      "authority": "HUMAN://ROOT",
+      "receipt_action": "DAO://DECISION"
+    },
     "body": "Asimov-1 (25 DOF)",
     "runtime": "hermes-ae MoH orchestrator + official Asimov-1 MJCF/URDF + tiny-voca + MuJoCo + ONNX policy",
     "receipt_action": "AGENT://ASIMOV",
@@ -61,6 +69,7 @@
       "removable_face",
       "digital_twin",
       "ae_policy",
+      "dao_brain",
       "voice_fallback",
       "pi500_teleop",
       "publish",
@@ -78,6 +87,7 @@
       "face",
       "twin",
       "policy",
+      "daobrain",
       "masterpiece"
     ],
     "homepage": "https://mobility.foundation/mobility/",

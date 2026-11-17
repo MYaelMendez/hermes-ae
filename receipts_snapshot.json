@@ -1,96 +1,5 @@
 [
   {
-    "ts": "2026-11-17T17:14:55.731857Z",
-    "action": "VIDEO://SOVEREIGN_RESOURCES_DEMO",
-    "authority": "HUMAN://ROOT",
-    "prev": "417795acf3f899df843dc0a20346c873e9e42aeb6317e063493b94a368cd396a",
-    "hash": "0d2460ebd9097a55245d6e0359e658a317bed889a3c117a903e93c4b5ab1757b"
-  },
-  {
-    "ts": "2026-11-17T17:19:15.072301Z",
-    "action": "PROJECTION://VERIFY",
-    "authority": "HUMAN://ROOT",
-    "prev": "0d2460ebd9097a55245d6e0359e658a317bed889a3c117a903e93c4b5ab1757b",
-    "hash": "d492512cef63fba93b80e49ae748a9cf9bce6ec4cffc0787ff39b9d227c2dade"
-  },
-  {
-    "ts": "2026-11-17T17:19:36.576239Z",
-    "action": "PROJECTION://RENDER",
-    "authority": "HUMAN://ROOT",
-    "prev": "d492512cef63fba93b80e49ae748a9cf9bce6ec4cffc0787ff39b9d227c2dade",
-    "hash": "5b9b45088180e674e4a848a2d458e455860bb7355f14a900890eecf80097bde3"
-  },
-  {
-    "ts": "2026-11-17T17:19:48.022510Z",
-    "action": "PROJECTION://VERIFY",
-    "authority": "HUMAN://ROOT",
-    "prev": "5b9b45088180e674e4a848a2d458e455860bb7355f14a900890eecf80097bde3",
-    "hash": "7c031feb2b66be04e543d7268939db978d1212e817c8639cc0c472232a92531d"
-  },
-  {
-    "ts": "2026-11-17T17:20:18.378012Z",
-    "action": "PROJECTION://RENDER",
-    "authority": "HUMAN://ROOT",
-    "prev": "7c031feb2b66be04e543d7268939db978d1212e817c8639cc0c472232a92531d",
-    "hash": "4e0f2cb43bd11c62464f540f20e689bc82a9f6399f173c8a5e7ca3bc35f88407"
-  },
-  {
-    "ts": "2026-11-17T17:23:33.312311Z",
-    "action": "PROJECTION://VERIFY",
-    "authority": "HUMAN://ROOT",
-    "prev": "4e0f2cb43bd11c62464f540f20e689bc82a9f6399f173c8a5e7ca3bc35f88407",
-    "hash": "f96670b2d529eb3439a86bf7f9e6c7d01b9b90b89cd15e61845373f84d915258"
-  },
-  {
-    "ts": "2026-11-17T17:23:38.926903Z",
-    "action": "AE://STATUS",
-    "authority": "HUMAN://ROOT",
-    "prev": "f96670b2d529eb3439a86bf7f9e6c7d01b9b90b89cd15e61845373f84d915258",
-    "hash": "d7d3ce4b4aa2410b10ffad139fd77f34fe4c596c4621eea1d2be128a7eddf44c"
-  },
-  {
-    "ts": "2026-11-17T17:23:38.927443Z",
-    "action": "AE://PROJECTION",
-    "authority": "HUMAN://ROOT",
-    "prev": "d7d3ce4b4aa2410b10ffad139fd77f34fe4c596c4621eea1d2be128a7eddf44c",
-    "hash": "c59dde0623193a173262d76aa3caccf573c2d3e7c8496ea3e3ff0a66bc7db0db"
-  },
-  {
-    "ts": "2026-11-17T17:23:38.930032Z",
-    "action": "AE://AGENT",
-    "authority": "HUMAN://ROOT",
-    "prev": "c59dde0623193a173262d76aa3caccf573c2d3e7c8496ea3e3ff0a66bc7db0db",
-    "hash": "58468343e5f166b066e3201f9564b16fa57b67e2b70c8bf6b87e1d1e43221455"
-  },
-  {
-    "ts": "2026-11-17T17:23:39.097118Z",
-    "action": "REPO://RELEASE_HERMES_AE_390",
-    "authority": "HUMAN://ROOT",
-    "prev": "58468343e5f166b066e3201f9564b16fa57b67e2b70c8bf6b87e1d1e43221455",
-    "hash": "118d8808463d60cf02f2d109d001ccd25929dcd9ce9aadaabab158ad4aa23915"
-  },
-  {
-    "ts": "2026-11-17T17:24:36.979328Z",
-    "action": "AE://STATUS",
-    "authority": "HUMAN://ROOT",
-    "prev": "118d8808463d60cf02f2d109d001ccd25929dcd9ce9aadaabab158ad4aa23915",
-    "hash": "e31fc3851cb8eae5624b9a89067189d3d9a5ba3a4efa41c993ce69c3b5f9640c"
-  },
-  {
-    "ts": "2026-11-17T17:24:36.979819Z",
-    "action": "AE://PROJECTION",
-    "authority": "HUMAN://ROOT",
-    "prev": "e31fc3851cb8eae5624b9a89067189d3d9a5ba3a4efa41c993ce69c3b5f9640c",
-    "hash": "6ba29489ab56107c06925ada80b023efb8e310ad9eac222cab922ab222e19b50"
-  },
-  {
-    "ts": "2026-11-17T17:24:36.982449Z",
-    "action": "AE://AGENT",
-    "authority": "HUMAN://ROOT",
-    "prev": "6ba29489ab56107c06925ada80b023efb8e310ad9eac222cab922ab222e19b50",
-    "hash": "f3f3cca049b47351008e12d29968eb3e9c7489819afb7766fa8c1726d1d7db0c"
-  },
-  {
     "ts": "2026-11-17T17:24:37.139306Z",
     "action": "REPO://RELEASE_HERMES_AE_391",
     "authority": "HUMAN://ROOT",
@@ -418,5 +327,96 @@
     "authority": "HUMAN://ROOT",
     "prev": "5ee8e85bd1b33b22a1c44b1ed3a255d8b07b7d73dcf531959d456ed3cc11af88",
     "hash": "df4eaa4214d855e500367f23dac370be8264380d4e80f1a9dd397ffae3d98e1a"
+  },
+  {
+    "ts": "2026-11-17T22:31:50.033216Z",
+    "action": "AE://STATUS",
+    "authority": "HUMAN://ROOT",
+    "prev": "df4eaa4214d855e500367f23dac370be8264380d4e80f1a9dd397ffae3d98e1a",
+    "hash": "8b9790c6c212421b04bff986ac28489cdf632622bd39d9147a45f95189d826bd"
+  },
+  {
+    "ts": "2026-11-17T22:31:50.183842Z",
+    "action": "AE://DAOBRAIN",
+    "authority": "HUMAN://ROOT",
+    "prev": "8b9790c6c212421b04bff986ac28489cdf632622bd39d9147a45f95189d826bd",
+    "hash": "d86bcb090fa31c536971027b308262585ead8afc4b1b14903f3660fc84d6b6d1"
+  },
+  {
+    "ts": "2026-11-17T22:31:50.315286Z",
+    "action": "POLICY://EVALUATE",
+    "authority": "HUMAN://ROOT",
+    "prev": "d86bcb090fa31c536971027b308262585ead8afc4b1b14903f3660fc84d6b6d1",
+    "hash": "a9ac151a62fb5dff3d805b150230289df84c0de85dfacbcc6f8ae44fbf7fa50d"
+  },
+  {
+    "ts": "2026-11-17T22:31:50.316104Z",
+    "action": "DAO://DECISION",
+    "authority": "HUMAN://ROOT",
+    "prev": "a9ac151a62fb5dff3d805b150230289df84c0de85dfacbcc6f8ae44fbf7fa50d",
+    "hash": "70bfbd8daaf5af11fdb7bb1d23abf472fccd68caba306027b61391396559f868"
+  },
+  {
+    "ts": "2026-11-17T22:31:50.324699Z",
+    "action": "AE://DAOBRAIN",
+    "authority": "HUMAN://ROOT",
+    "prev": "70bfbd8daaf5af11fdb7bb1d23abf472fccd68caba306027b61391396559f868",
+    "hash": "eb75bcbf13f2f9e7013d482949efd617760ccf1b92c514432a9ca345e826176c"
+  },
+  {
+    "ts": "2026-11-17T22:31:50.462571Z",
+    "action": "POLICY://EVALUATE",
+    "authority": "HUMAN://ROOT",
+    "prev": "eb75bcbf13f2f9e7013d482949efd617760ccf1b92c514432a9ca345e826176c",
+    "hash": "46a48107576dc1847cd1bcb46af47daaf2c7b25967ed7592d6493f03a27e2189"
+  },
+  {
+    "ts": "2026-11-17T22:31:50.463470Z",
+    "action": "DAO://DECISION",
+    "authority": "HUMAN://ROOT",
+    "prev": "46a48107576dc1847cd1bcb46af47daaf2c7b25967ed7592d6493f03a27e2189",
+    "hash": "5693a2e7f11e29de6230bff14a2185eb74b529dc5022f588e32f40b034c26184"
+  },
+  {
+    "ts": "2026-11-17T22:31:50.471099Z",
+    "action": "AE://DAOBRAIN",
+    "authority": "HUMAN://ROOT",
+    "prev": "5693a2e7f11e29de6230bff14a2185eb74b529dc5022f588e32f40b034c26184",
+    "hash": "299c86275435e65e4fe4cb2cc585c2304b38a57b28f074bc6857e23246a14360"
+  },
+  {
+    "ts": "2026-11-17T22:31:50.609003Z",
+    "action": "AE://FACE",
+    "authority": "HUMAN://ROOT",
+    "prev": "299c86275435e65e4fe4cb2cc585c2304b38a57b28f074bc6857e23246a14360",
+    "hash": "463ef9380a3adef57d9edd3ac2c465daa40c12b7e936716a70d47110f38fe1cc"
+  },
+  {
+    "ts": "2026-11-17T22:31:50.745871Z",
+    "action": "DAO://STATE",
+    "authority": "HUMAN://ROOT",
+    "prev": "463ef9380a3adef57d9edd3ac2c465daa40c12b7e936716a70d47110f38fe1cc",
+    "hash": "3a049d1b9a6f8b2021ef184c9d0b8e703a63d59d49e8d4be130b6210d802a6dc"
+  },
+  {
+    "ts": "2026-11-17T22:31:50.753864Z",
+    "action": "AE://DAOBRAIN",
+    "authority": "HUMAN://ROOT",
+    "prev": "3a049d1b9a6f8b2021ef184c9d0b8e703a63d59d49e8d4be130b6210d802a6dc",
+    "hash": "cdebb336249850cbd4d9d11d304815980cf76b1c3d6ff0a6d5d52b6f4b84f126"
+  },
+  {
+    "ts": "2026-11-17T22:33:22.367609Z",
+    "action": "DAO://BIND",
+    "authority": "HUMAN://ROOT",
+    "prev": "cdebb336249850cbd4d9d11d304815980cf76b1c3d6ff0a6d5d52b6f4b84f126",
+    "hash": "12dc3ba6b47567c047510d594f466dc8a4bc7fb72ab1ff154697b64f6256377c"
+  },
+  {
+    "ts": "2026-11-17T22:33:22.368035Z",
+    "action": "REPO://RELEASE_HERMES_AE_3140",
+    "authority": "HUMAN://ROOT",
+    "prev": "12dc3ba6b47567c047510d594f466dc8a4bc7fb72ab1ff154697b64f6256377c",
+    "hash": "38d75e491da0ba9fd6ec038437f12c96b627a6208f506414753531ea130b9500"
   }
 ]
