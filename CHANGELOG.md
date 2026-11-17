@@ -1,3 +1,10 @@
+## 3.9.0
+
+- Refactored the sovereign bundle into a governed `sovereign projection`
+  package: authority first, deterministic replay, hashed pinned inputs,
+  fail-closed QC, one receipt chain, and no extra harness.
+- Added `ae({op:"projection"})` and `ae({op:"projection_render"})`.
+
 ## 3.8.0
 
 - Bound `mobility.foundation/mobility/` as the canonical public homepage for

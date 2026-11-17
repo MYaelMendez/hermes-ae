@@ -103,3 +103,4 @@ Full clips and receipts are indexed in [docs/VIDEOS.md](docs/VIDEOS.md).
 - [æLOCOMOTION package](docs/PACKAGING.md) — the policy-driven gait harness, packed
 - [Viewport DOM awareness](docs/VIEWPORT_DOM.md) — read-only CDP projection for the Asimov robot
 - [mobility.foundation](docs/MOBILITY_FOUNDATION.md) — canonical public home for Asimov Agent mobility
+- [Sovereign projection](docs/SOVEREIGN_PROJECTION.md) — first-principles bundle refactor

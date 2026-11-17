@@ -1,4 +1,4 @@
-"""hermes-ae 3.8.0 — one self-contained, receipted MoH orchestrator.
+"""hermes-ae 3.9.0 — one self-contained, receipted MoH orchestrator.
 
 `ae` dispatches to the registered tools of all local plugins by loading their
 modules with a lightweight FakeCtx, then writes a single HUMAN://ROOT
@@ -58,6 +58,7 @@ LOCAL_OPS = {
     'policy_locomotion': ('policy_locomotion.py', 1500),
     'policy_walk': ('policy_walk_video.py', 1500),
     'viewport_dom': ('viewport_dom.py', 120),
+    'projection_render': ('sovereign_projection.py', 1500),
 }
 
 
@@ -91,6 +92,7 @@ LOCAL_FUNCS = {
     'run_harness': 'Run a light harness chain (no video pipelines).',
     'agent_body': 'Show the Asimov = hermes-agent build identity binding.',
     'agent': 'Show the unified Asimov Agent identity and runtime state.',
+    'projection': 'Inspect the sovereign projection package.',
     'ffmpeg': 'Probe the ffmpeg media harness runtime.',
 }
 
@@ -167,6 +169,17 @@ def _asimov_agent(args):
             'ledger': {'success': chain.get('success', False), 'count': chain.get('count'), 'head': chain.get('head')},
             'receipt_action': 'AGENT://ASIMOV'}
 
+def _projection(args):
+    """Inspect the sovereign projection package and its first principles."""
+    pkg = ROOT / 'packages' / 'sovereign-projection' / '1.0.0'
+    if not pkg.exists():
+        return {'success': False, 'error': 'projection package missing'}
+    manifest = json.loads((pkg / 'manifest.json').read_text())
+    assets = pkg / 'assets'
+    return {'success': True, 'authority': 'HUMAN://ROOT', 'manifest': manifest,
+            'assets': sorted(p.name for p in assets.iterdir()) if assets.exists() else [],
+            'receipt_action': 'PROJECTION://'}
+
 def _local_func(op, args):
     try:
         if op in ('speak', 'tts_speak'):
@@ -227,12 +240,14 @@ def _local_func(op, args):
                 vids[name] = {'sha256': _sha_file(f), 'bytes': f.stat().st_size if f.exists() else 0}
             chain = _verify_chain()
             ok = all(hashes.values()) and chain['success']
-            return {'success': ok, 'authority': 'HUMAN://ROOT', 'version': '3.8.0',
+            return {'success': ok, 'authority': 'HUMAN://ROOT', 'version': '3.9.0',
                     'model_sha256': hashes, 'videos': vids, 'receipts': chain}
         if op == 'verify':
             return _verify_chain()
         if op == 'agent':
             return _asimov_agent(args)
+        if op == 'projection':
+            return _projection(args)
         if op == 'ffmpeg':
             return _ffmpeg_harness(args)
         if op == 'agent_body':
@@ -395,7 +410,7 @@ def register(ctx):
             dirs = sorted(p.name for p in PLUGINS.iterdir() if p.is_dir()) if PLUGINS.exists() else []
             chain = _verify_chain()
             result = {'success': True, 'actor': 'hermes-ae', 'authority': 'HUMAN://ROOT',
-                      'version': '3.8.0', 'plugins_on_disk': len(dirs),
+                      'version': '3.9.0', 'plugins_on_disk': len(dirs),
                       'shortcuts': sorted(SHORTCUTS), 'receipts': chain}
         elif op == 'receipts':
             limit = int(arg.get('limit') or 10)
