@@ -1,3 +1,10 @@
+## 3.6.0
+
+- Added `ae({op:"viewport_dom"})`: read-only DOM awareness for the Asimov
+  viewport harness via Chrome DevTools Protocol, with a projected snapshot and
+  a `VIEWPORT://DOM_AWARENESS` receipt.
+- No page mutation, no screenshot, no full-DOM dump.
+
 ## 3.5.0
 
 - Packaged the policy-driven gait harness as `æLOCOMOTION` / `ae-locomotion`

@@ -101,3 +101,4 @@ Full clips and receipts are indexed in [docs/VIDEOS.md](docs/VIDEOS.md).
 - [Asimov agent body](docs/ASIMOV_AGENT.md) — the visible hermes-agent build
 - [Policy-driven locomotion](docs/POLICY_LOCOMOTION.md) — the ONNX gait that replaced the mocap trace
 - [æLOCOMOTION package](docs/PACKAGING.md) — the policy-driven gait harness, packed
+- [Viewport DOM awareness](docs/VIEWPORT_DOM.md) — read-only CDP projection for the Asimov robot

@@ -1,12 +1,9 @@
 # Receipt Chain
 
-Sanitized snapshot: 190 entries. Full ledger is `HUMAN://ROOT` hash-chained.
+Sanitized snapshot: 193 entries. Full ledger is `HUMAN://ROOT` hash-chained.
 
 | Time | Action | Authority | Hash |
 |---|---|---|---|
-| 2026-11-17T05:08:00.309921Z | `AE://HARNESSES` | HUMAN://ROOT | `974c20ed77f013af…` |
-| 2026-11-17T05:08:00.340880Z | `AE://HARNESS` | HUMAN://ROOT | `55ed2cd866d51df3…` |
-| 2026-11-17T05:08:00.367952Z | `AE://FFMPEG` | HUMAN://ROOT | `f8e2812056d5d906…` |
 | 2026-11-17T05:08:00.397387Z | `AE://RUN_HARNESS` | HUMAN://ROOT | `603e5b3c3442b571…` |
 | 2026-11-17T05:08:45.199018Z | `AE://STATUS` | HUMAN://ROOT | `2fbc7aca0a5939d2…` |
 | 2026-11-17T05:08:45.199482Z | `AE://HARNESSES` | HUMAN://ROOT | `67bdc13272c2546f…` |
@@ -44,3 +41,6 @@ Sanitized snapshot: 190 entries. Full ledger is `HUMAN://ROOT` hash-chained.
 | 2026-11-17T05:35:56.642248Z | `AE://HARNESS` | HUMAN://ROOT | `efff6722a585bca8…` |
 | 2026-11-17T05:35:56.800173Z | `REPO://RELEASE_HERMES_AE_341` | HUMAN://ROOT | `026860087cff5a02…` |
 | 2026-11-17T05:44:30.951680Z | `POLICY://LOCOMOTION` | HUMAN://ROOT | `e6b11d38eed717af…` |
+| 2026-11-17T05:47:12.841067Z | `REPO://RELEASE_AE_LOCOMOTION_100` | HUMAN://ROOT | `3cbdbedb8d99e9c2…` |
+| 2026-11-17T05:48:30.117631Z | `VIEWPORT://DOM_AWARENESS` | HUMAN://ROOT | `d0d8c68c0831f4e9…` |
+| 2026-11-17T05:48:59.187292Z | `VIEWPORT://DOM_AWARENESS` | HUMAN://ROOT | `05689e50c64998cb…` |

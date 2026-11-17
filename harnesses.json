@@ -93,7 +93,8 @@
       ],
       "receipt_action": "VIEWPORT://RENDER",
       "fallback": "Pillow 2D compositor with perspective projection disabled; receipt records flat-render mode",
-      "description": "Renders the MuJoCo qpos stream as a 9:16 Three.js/WebGL viewport of the Asimov-1 body for capture and review."
+      "description": "Renders the MuJoCo qpos stream as a 9:16 Three.js/WebGL viewport of the Asimov-1 body for capture and review. Adds read-only DOM awareness for the hermes-agent Asimov robot.",
+      "dom": "read-only CDP projection of a live viewport: viewport, landmarks, controls, headings, data-slots, focus, selection"
     },
     {
       "name": "robot",
