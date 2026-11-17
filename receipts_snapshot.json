@@ -1,12 +1,5 @@
 [
   {
-    "ts": "2026-11-17T21:08:23.836996Z",
-    "action": "FACE://TELEOP",
-    "authority": "HUMAN://ROOT",
-    "prev": "645023868060ddd6a6c5392a9b05122835ef07933db031bd0cc9fa77f423136a",
-    "hash": "8833bb8162d498d4a1957bf9be7631077c399b0930656f1db5f2a078d0faf2ae"
-  },
-  {
     "ts": "2026-11-17T21:08:23.844809Z",
     "action": "AE://FACE",
     "authority": "HUMAN://ROOT",
@@ -418,5 +411,12 @@
     "authority": "HUMAN://ROOT",
     "prev": "a7e4847113df304a410bc86f38aefddbad23b789211cce0d37be39bb728ef374",
     "hash": "ee84657d34afae800fe352bdf1747d339f6c8eef17fde9f8d224a5c1a73668bb"
+  },
+  {
+    "ts": "2026-11-17T23:19:47.258597Z",
+    "action": "ATLAS://ASIMOV_BIND",
+    "authority": "HUMAN://ROOT",
+    "prev": "ee84657d34afae800fe352bdf1747d339f6c8eef17fde9f8d224a5c1a73668bb",
+    "hash": "a51a3fbf5626a74242da8e0734b4cb8c36b55fcacc2ee82aa01311cd3d8e2243"
   }
 ]
