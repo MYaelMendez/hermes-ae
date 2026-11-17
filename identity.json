@@ -30,6 +30,7 @@
     "slug": "asimov-agent",
     "authority": "HUMAN://ROOT",
     "voice": "hermes-agent (M2)",
+    "face": "optional 1:1 tablet presence module; detached mode uses tiny-voca voice, Pi500 teleop override",
     "body": "Asimov-1 (25 DOF)",
     "runtime": "hermes-ae MoH orchestrator + official Asimov-1 MJCF/URDF + tiny-voca + MuJoCo + ONNX policy",
     "receipt_action": "AGENT://ASIMOV",
@@ -41,6 +42,9 @@
       "qpos_viewport",
       "onnx_locomotion",
       "viewport_dom",
+      "removable_face",
+      "voice_fallback",
+      "pi500_teleop",
       "publish",
       "receipts"
     ],
@@ -53,6 +57,7 @@
       "policy_locomotion",
       "policy_walk",
       "viewport_dom",
+      "face",
       "masterpiece"
     ],
     "homepage": "https://mobility.foundation/mobility/",

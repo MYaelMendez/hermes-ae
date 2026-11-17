@@ -1,4 +1,4 @@
-"""hermes-ae 3.10.0 — one self-contained, receipted MoH orchestrator.
+"""hermes-ae 3.11.0 — one self-contained, receipted MoH orchestrator.
 
 `ae` dispatches to the registered tools of all local plugins by loading their
 modules with a lightweight FakeCtx, then writes a single HUMAN://ROOT
@@ -93,6 +93,7 @@ LOCAL_FUNCS = {
     'agent_body': 'Show the Asimov = hermes-agent build identity binding.',
     'agent': 'Show the unified Asimov Agent identity and runtime state.',
     'projection': 'Inspect the sovereign projection package.',
+    'face': 'Removable 1:1 tablet face: attach/detach, tiny-voca fallback, Pi500 teleop.',
     'ffmpeg': 'Probe the ffmpeg media harness runtime.',
 }
 
@@ -240,7 +241,7 @@ def _local_func(op, args):
                 vids[name] = {'sha256': _sha_file(f), 'bytes': f.stat().st_size if f.exists() else 0}
             chain = _verify_chain()
             ok = all(hashes.values()) and chain['success']
-            return {'success': ok, 'authority': 'HUMAN://ROOT', 'version': '3.10.0',
+            return {'success': ok, 'authority': 'HUMAN://ROOT', 'version': '3.11.0',
                     'model_sha256': hashes, 'videos': vids, 'receipts': chain}
         if op == 'verify':
             return _verify_chain()
@@ -250,6 +251,8 @@ def _local_func(op, args):
             return _projection(args)
         if op == 'ffmpeg':
             return _ffmpeg_harness(args)
+        if op == 'face':
+            return _run_local('removable_face.py', args, 300)
         if op == 'agent_body':
             path = ROOT / 'identity.json'
             if not path.exists():
@@ -410,7 +413,7 @@ def register(ctx):
             dirs = sorted(p.name for p in PLUGINS.iterdir() if p.is_dir()) if PLUGINS.exists() else []
             chain = _verify_chain()
             result = {'success': True, 'actor': 'hermes-ae', 'authority': 'HUMAN://ROOT',
-                      'version': '3.10.0', 'plugins_on_disk': len(dirs),
+                      'version': '3.11.0', 'plugins_on_disk': len(dirs),
                       'shortcuts': sorted(SHORTCUTS), 'receipts': chain}
         elif op == 'receipts':
             limit = int(arg.get('limit') or 10)

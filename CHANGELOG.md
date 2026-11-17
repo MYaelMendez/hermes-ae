@@ -1,3 +1,12 @@
+## 3.11.0
+
+- Made the 1:1 Asimov face a **removable presence tablet**: `ae({op:"face"})`
+  attaches/detaches it, falls back to tiny-voca voice replies, and accepts Pi500
+  keyboard teleop with arm + deadman safety.
+- Added `scripts/removable_face.py`, `scripts/pi500_teleop.py`, and
+  `docs/REMOVABLE_FACE.md`. Every mode change and command is receipted.
+- Bound the new capabilities into `identity.json`; no new harness was added.
+
 ## 3.10.0
 
 - Bound the published Asimov Viewport into Asimov Agent identity: qpos CAD
