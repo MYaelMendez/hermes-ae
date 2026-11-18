@@ -96,7 +96,7 @@ class AePluginTests(unittest.TestCase):
         result = out["result"]
         self.assertEqual(result["actor"], "hermes-ae")
         self.assertEqual(result["authority"], "HUMAN://ROOT")
-        self.assertEqual(result["version"], "3.15.0")
+        self.assertEqual(result["version"], "3.16.0")
         self.assertTrue(result["receipts"]["success"])
         self.assertTrue(self.ledger.exists())
         self.assertIn("hash", out["receipt"])
@@ -108,6 +108,7 @@ class AePluginTests(unittest.TestCase):
         self.assertIn("shortcuts", out["result"])
         self.assertIn("local_ops", out["result"])
         self.assertIn("studio_video", out["result"]["local_ops"])
+        self.assertIn("tv_episode", out["result"]["local_ops"])
         self.assertTrue(self.ledger.exists())
 
     def test_tts_aliases_advertised(self):

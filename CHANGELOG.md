@@ -1,3 +1,10 @@
+## 3.16.0
+
+- Added **æ TV**: `ae({op:"tv_episode"})` compiles a script into a receipted
+  MP4 using deterministic frames, tinyVOICE narration, and ffmpeg.
+- Added `docs/AE_TV.md`: channel ontology, harness mapping, and governance.
+- QC gates video codec, dimensions, audio codec, duration, and bright pixels.
+
 ## 3.15.0
 
 - Added **æ Robot Verbs**: `ae({op:"verbs"})` lists, plans, and optionally
