@@ -35,6 +35,31 @@ it with:
 - Asimov gives that work a body: front-facing, moving, speaking, receipted.
 - The human remains root; the robot never owns authority.
 
+## Three-layer composition
+
+Asimov Agent is not a single vendor stack. It is a governed composition:
+
+| Layer | Source | What it contributes |
+|---|---|---|
+| Chassis | Menlo Research | official Asimov-1 CAD, URDF, MJCF, 25 DOF, 26 links |
+| Harness | Nous Research | Hermes Agent runtime, tool model, and the `hermes-ae` MoH orchestration pattern built on it |
+| Logic | æ / OpenSourceWare | æ Policy, DAO Brain, receipt chain, authority boundary |
+
+This is attribution, not endorsement. The robot is an executor; `HUMAN://ROOT` remains root.
+
+## Talking face
+
+Yes — we made a governed robot head/face that can talk, as a removable 1:1 tablet projection and control surface:
+
+- viseme-driven `SPEAKING` state through tiny-voca F2/M2;
+- `IDLE`, `LISTENING`, `THINKING`, `AWAITING_APPROVAL`, `APPROVED`, `REFUSED`, and `ERROR` states through DAO Brain;
+- removable face plus voice fallback when the tablet is detached;
+- Pi500 teleop override with arm + deadman;
+- `FACE://*`, `DAO://DECISION`, and `TTS://SPEAK` receipts;
+- front-facing CAD head assets and receipted holomesh/face-state videos as proof.
+
+The physical tablet is late-bound; the repository ships the control contract, projection surface, and video proof, not fabricated hardware.
+
 ## Proof artifact
 
 `asimov-agent-build-916.mp4` is the identity clip: Asimov walks in front of the

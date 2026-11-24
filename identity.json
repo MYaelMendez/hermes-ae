@@ -29,6 +29,35 @@
     "name": "Asimov Agent",
     "slug": "asimov-agent",
     "authority": "HUMAN://ROOT",
+    "composition": {
+      "chassis": {
+        "source": "Menlo Research",
+        "artifact": "official Asimov-1 CAD / URDF / MJCF, 25 DOF, 26 links",
+        "role": "embodied robot chassis",
+        "authority": "executor only; never an authority root"
+      },
+      "harness": {
+        "source": "Nous Research",
+        "artifact": "Hermes Agent runtime + hermes-ae Mixture of Harnesses orchestrator",
+        "role": "agentic engineering harness",
+        "note": "built on Hermes Agent; no official endorsement claimed"
+      },
+      "logic": {
+        "source": "æ / OpenSourceWare",
+        "artifact": "æ Policy + DAO Brain + hash-chained receipts",
+        "role": "agentic logic, authority gate, and public proof",
+        "authority": "HUMAN://ROOT"
+      }
+    },
+    "talking_head": {
+      "surface": "removable 1:1 face tablet",
+      "voice": "tiny-voca F2/M2; SOVÆREIGN digital-twin voice optional",
+      "visemes": true,
+      "face_states": ["IDLE", "LISTENING", "THINKING", "SPEAKING", "AWAITING_APPROVAL", "APPROVED", "REFUSED", "ERROR"],
+      "governance": "face state is a policy outcome; the face never signs",
+      "status": "shipped as control contract, projection surface, and receipted video proof",
+      "physical_tablet": "late-bound; not fabricated in this repository"
+    },
     "voice": "hermes-agent (M2)",
     "face": "optional 1:1 tablet presence module; detached mode uses tiny-voca voice, Pi500 teleop override",
     "twin": {
