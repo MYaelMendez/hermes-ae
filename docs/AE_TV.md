@@ -27,7 +27,7 @@ HUMAN://ROOT → æ policy → ae router → channel → playback/voice → RECE
 | `sovereign` | `æ://sovereign` | namespace film and law | `SOVÆREIGN` |
 | `tinyVOICE` | `æ://tiny-voice` | voice demos and lessons | `F2`, `M2` |
 | `asimov` | `æ://asimov` | robot body, twin, face states | `ROBOT` |
-| `dao` | `æ://dao` | governance and face tablet | `M2` |
+| `dao` | `æ://dao` | governance and native head viewport | `M2` |
 | `course` | `æ://course` | OSW lessons | `F2`, `M2` |
 | `gallery` | `æ://gallery` | published artifacts | bound per artifact |
 

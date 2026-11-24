@@ -1,11 +1,11 @@
-# DAO Brain — 1:1 Face Tablet
+# DAO Brain — Native Head Viewport
 
-The DAO Brain powers the Asimov 1:1 face tablet as a **governance layer**, not an authority root.
+The DAO Brain powers the native Asimov head viewport as a **governance layer**, not an authority root.
 
 ```text
 VISION / HUMAN / AGENT PROPOSAL
 → æ Policy evaluation
-→ DAO Brain decision + face state
+→ DAO Brain decision + viewport state
 → tiny-voca reply (optional)
 → DAO://DECISION receipt
 ```
@@ -46,7 +46,7 @@ ae({
 })
 ```
 
-The DAO Brain evaluates the proposal through `ae_policy.py`, writes the decision into the tablet's `dao_brain` state, optionally speaks the reply with tiny-voca, and appends a `DAO://DECISION` receipt.
+The DAO Brain evaluates the proposal through `ae_policy.py`, writes the decision into the head viewport's `dao_brain` state, optionally speaks the reply with tiny-voca, and appends a `DAO://DECISION` receipt.
 
 Example outcomes:
 
@@ -72,4 +72,4 @@ All approvals must still be bound by `HUMAN://ROOT`, an action hash, and an expi
 
 ## Integration
 
-`ae({op:"face","action":"status"})` now reports the live `dao_brain` block alongside face mode, voices, keymap, and ledger head. The face tablet therefore shows not just a viseme surface, but the current governance decision behind it.
+`ae({op:"head","action":"status"})` now reports the live `dao_brain` block alongside face mode, voices, keymap, and ledger head. The head viewport therefore shows not just a viseme surface, but the current governance decision behind it.

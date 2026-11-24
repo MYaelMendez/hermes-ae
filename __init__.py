@@ -1,4 +1,4 @@
-"""hermes-ae 3.16.0 — one self-contained, receipted MoH orchestrator.
+"""hermes-ae 3.17.0 — one self-contained, receipted MoH orchestrator.
 
 `ae` dispatches to the registered tools of all local plugins by loading their
 modules with a lightweight FakeCtx, then writes a single HUMAN://ROOT
@@ -94,10 +94,11 @@ LOCAL_FUNCS = {
     'agent_body': 'Show the Asimov = hermes-agent build identity binding.',
     'agent': 'Show the unified Asimov Agent identity and runtime state.',
     'projection': 'Inspect the sovereign projection package.',
-    'face': 'Removable 1:1 tablet face: attach/detach, tiny-voca fallback, Pi500 teleop.',
+    'head': 'Native Asimov head viewport: mask state, tiny-voca fallback, Pi500 teleop.',
+    'face': 'Legacy alias of head — native Asimov head viewport.',
     'twin': 'Asimov USD digital twin: build/verify/info from official URDF + qpos.',
     'policy': 'æ Policy: show/verify/evaluate the machine-readable authority policy.',
-    'daobrain': 'DAO Brain: policy-gated proposals driving the Asimov 1:1 face tablet.',
+    'daobrain': 'DAO Brain: policy-gated proposals driving the native Asimov head viewport.',
     'verbs': 'æ Robot Verbs: list/plan/execute governed wrappers over official Menlo SDK verbs.',
     'ffmpeg': 'Probe the ffmpeg media harness runtime.',
 }
@@ -161,6 +162,7 @@ def _asimov_agent(args):
         'onnx_locomotion': (SCRIPTS / 'policy_locomotion.py').exists() and bool(pkg),
         'qpos_viewport': (ROOT / 'webgl' / 'qpos_viewer.html').exists(),
         'viewport_dom': (SCRIPTS / 'viewport_dom.py').exists(),
+        'head_viewport': (SCRIPTS / 'head_viewport.py').exists(),
         'publish': (SCRIPTS / 'publish_docs.py').exists(),
         'receipts': chain.get('success', False),
     }
@@ -246,7 +248,7 @@ def _local_func(op, args):
                 vids[name] = {'sha256': _sha_file(f), 'bytes': f.stat().st_size if f.exists() else 0}
             chain = _verify_chain()
             ok = all(hashes.values()) and chain['success']
-            return {'success': ok, 'authority': 'HUMAN://ROOT', 'version': '3.16.0',
+            return {'success': ok, 'authority': 'HUMAN://ROOT', 'version': '3.17.0',
                     'model_sha256': hashes, 'videos': vids, 'receipts': chain}
         if op == 'verify':
             return _verify_chain()
@@ -264,8 +266,8 @@ def _local_func(op, args):
             return _run_local('daobrain.py', args, 300)
         if op == 'verbs':
             return _run_local('ae_verbs.py', args, 300)
-        if op == 'face':
-            return _run_local('removable_face.py', args, 300)
+        if op in ('head', 'face'):
+            return _run_local('head_viewport.py', args, 300)
         if op == 'agent_body':
             path = ROOT / 'identity.json'
             if not path.exists():
@@ -426,7 +428,7 @@ def register(ctx):
             dirs = sorted(p.name for p in PLUGINS.iterdir() if p.is_dir()) if PLUGINS.exists() else []
             chain = _verify_chain()
             result = {'success': True, 'actor': 'hermes-ae', 'authority': 'HUMAN://ROOT',
-                      'version': '3.16.0', 'plugins_on_disk': len(dirs),
+                      'version': '3.17.0', 'plugins_on_disk': len(dirs),
                       'shortcuts': sorted(SHORTCUTS), 'receipts': chain}
         elif op == 'receipts':
             limit = int(arg.get('limit') or 10)

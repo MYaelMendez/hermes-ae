@@ -2273,5 +2273,152 @@
     "authority": "HUMAN://ROOT",
     "prev": "ad74f594efb137a9ac686728d85ae25c9c9b4affdb498a6f535e5fe46cde4749",
     "hash": "0dfeddc08f0351e733a7a89503807e73d846ccf04eba927deb5c2b343fda80dc"
+  },
+  {
+    "ts": "2026-11-18T19:53:16.155919Z",
+    "action": "VOICE://LAB",
+    "authority": "HUMAN://ROOT",
+    "prev": "0dfeddc08f0351e733a7a89503807e73d846ccf04eba927deb5c2b343fda80dc",
+    "hash": "93f60a2278e80983cb82db66dbb6d9170ab66e11f5d8b61fb3a55a9e474b0eda"
+  },
+  {
+    "ts": "2026-11-18T19:58:27.280171Z",
+    "action": "VOICE://LAB_RECORDER",
+    "authority": "HUMAN://ROOT",
+    "prev": "93f60a2278e80983cb82db66dbb6d9170ab66e11f5d8b61fb3a55a9e474b0eda",
+    "hash": "561c32498b86fb6b3b77b395410f172016cc12d6fe9e6cc1aa8b3bdcbe2e1871"
+  },
+  {
+    "ts": "2026-11-18T20:01:38.227853Z",
+    "action": "VOICE://BIND",
+    "authority": "HUMAN://ROOT",
+    "prev": "561c32498b86fb6b3b77b395410f172016cc12d6fe9e6cc1aa8b3bdcbe2e1871",
+    "hash": "3f56d545a283c255a6343199899d5c0b906a80c40188741f65cd267c750ef07c"
+  },
+  {
+    "ts": "2026-11-18T20:05:28.561740Z",
+    "action": "VOICE://REVEAL",
+    "authority": "HUMAN://ROOT",
+    "prev": "3f56d545a283c255a6343199899d5c0b906a80c40188741f65cd267c750ef07c",
+    "hash": "0b68e5e9cd40fbaa272410cccef83094b90068744710c5a7ee65c573b0bc5957"
+  },
+  {
+    "ts": "2026-11-18T20:07:17.973411Z",
+    "action": "VOICE://VARIANT",
+    "authority": "HUMAN://ROOT",
+    "prev": "0b68e5e9cd40fbaa272410cccef83094b90068744710c5a7ee65c573b0bc5957",
+    "hash": "9775235e45c08d19eb251315c19097691454d52715df95f1c3d85d9dcdf5f84e"
+  },
+  {
+    "ts": "2026-11-18T20:10:56.165749Z",
+    "action": "VOICE://DEFAULT",
+    "authority": "HUMAN://ROOT",
+    "prev": "9775235e45c08d19eb251315c19097691454d52715df95f1c3d85d9dcdf5f84e",
+    "hash": "658826952775c8c6e904cfb152be6abf6d08aa677389fb118b38772ccb23ddd1"
+  },
+  {
+    "ts": "2026-11-24T06:34:21.475847Z",
+    "action": "STORAGE://PRUNE",
+    "authority": "HUMAN://ROOT",
+    "prev": "658826952775c8c6e904cfb152be6abf6d08aa677389fb118b38772ccb23ddd1",
+    "hash": "5a5d63de6b12d1aa6a52c2807735c9cabab683b5dbd47cbf179be32f906c03a4"
+  },
+  {
+    "ts": "2026-11-24T06:58:56.227327Z",
+    "action": "STORAGE://OPTIMIZE",
+    "authority": "HUMAN://ROOT",
+    "prev": "5a5d63de6b12d1aa6a52c2807735c9cabab683b5dbd47cbf179be32f906c03a4",
+    "hash": "9f2e6cd1bac299d892cdab4ab1c32b6b18cdca10581d14c5c663621494ab3248"
+  },
+  {
+    "ts": "2026-11-24T07:01:13.186709Z",
+    "action": "IMAGE://HISTORY_SUMMARY",
+    "authority": "HUMAN://ROOT",
+    "prev": "9f2e6cd1bac299d892cdab4ab1c32b6b18cdca10581d14c5c663621494ab3248",
+    "hash": "9c91db20041eae02fa825b0f7589e6f342b920f036b01c3f7f0fb5c5d91bf710"
+  },
+  {
+    "ts": "2026-11-24T07:08:58.154126Z",
+    "action": "AE://STATUS",
+    "authority": "HUMAN://ROOT",
+    "prev": "9c91db20041eae02fa825b0f7589e6f342b920f036b01c3f7f0fb5c5d91bf710",
+    "hash": "bcc71d32a792df8dcce9694bac4f3aba6c04f7bc4022b1e77f160d1366996e11"
+  },
+  {
+    "ts": "2026-11-24T07:08:58.160513Z",
+    "action": "AE://AGENT",
+    "authority": "HUMAN://ROOT",
+    "prev": "bcc71d32a792df8dcce9694bac4f3aba6c04f7bc4022b1e77f160d1366996e11",
+    "hash": "723348eb6f67c58934c657d614fa97ad58039ec5cd7c459f6bc422a844888f57"
+  },
+  {
+    "ts": "2026-11-24T07:08:58.161103Z",
+    "action": "AE://HARNESSES",
+    "authority": "HUMAN://ROOT",
+    "prev": "723348eb6f67c58934c657d614fa97ad58039ec5cd7c459f6bc422a844888f57",
+    "hash": "2092d82ce168f28f714cadbbd5cb26430b4df9a044297ee77bae89686bbd7ce7"
+  },
+  {
+    "ts": "2026-11-24T07:08:58.164878Z",
+    "action": "AE://VERIFY",
+    "authority": "HUMAN://ROOT",
+    "prev": "2092d82ce168f28f714cadbbd5cb26430b4df9a044297ee77bae89686bbd7ce7",
+    "hash": "c4c14172597572b5b374e46259ab662d43b25228d414b15c0fc80a70a17bc004"
+  },
+  {
+    "ts": "2026-11-24T07:11:35.645476Z",
+    "action": "AE://AGENT",
+    "authority": "HUMAN://ROOT",
+    "prev": "c4c14172597572b5b374e46259ab662d43b25228d414b15c0fc80a70a17bc004",
+    "hash": "870be7a575fee18345c8926717137c79789392fc515f8205e1b9b1c3c3152978"
+  },
+  {
+    "ts": "2026-11-24T07:11:35.646046Z",
+    "action": "AGENT://COMPOSITION",
+    "authority": "HUMAN://ROOT",
+    "prev": "870be7a575fee18345c8926717137c79789392fc515f8205e1b9b1c3c3152978",
+    "hash": "d845ae96ae29f1498e0a1cbb24cff6a45385f68779c5e70af2cf741de078362c"
+  },
+  {
+    "ts": "2026-11-24T07:20:34.636415Z",
+    "action": "FACE://HTML",
+    "authority": "HUMAN://ROOT",
+    "prev": "d845ae96ae29f1498e0a1cbb24cff6a45385f68779c5e70af2cf741de078362c",
+    "hash": "54bb25f70cadc3b6504c183a20709c1e48e3510ae07f9b470517e08e292d274c"
+  },
+  {
+    "ts": "2026-11-24T07:26:03.040342Z",
+    "action": "MASK://VIEWPORT",
+    "authority": "HUMAN://ROOT",
+    "prev": "54bb25f70cadc3b6504c183a20709c1e48e3510ae07f9b470517e08e292d274c",
+    "hash": "a0448ebafad4e0beed35bd967372e5b7f68260d279e0587c777f51dd009bd833"
+  },
+  {
+    "ts": "2026-11-24T07:37:36.128158Z",
+    "action": "AE://OPS",
+    "authority": "HUMAN://ROOT",
+    "prev": "a0448ebafad4e0beed35bd967372e5b7f68260d279e0587c777f51dd009bd833",
+    "hash": "3ac9884ee063aecbb635f3355bbef5db76557cd32bd09712615c2cee9c10c7d3"
+  },
+  {
+    "ts": "2026-11-24T07:37:36.132742Z",
+    "action": "AE://AGENT",
+    "authority": "HUMAN://ROOT",
+    "prev": "3ac9884ee063aecbb635f3355bbef5db76557cd32bd09712615c2cee9c10c7d3",
+    "hash": "703f5046dfe758c56c094d1f7b886002e7c1fb9f43be3824fd58cc9814c8e531"
+  },
+  {
+    "ts": "2026-11-24T07:37:36.271185Z",
+    "action": "AE://HEAD",
+    "authority": "HUMAN://ROOT",
+    "prev": "703f5046dfe758c56c094d1f7b886002e7c1fb9f43be3824fd58cc9814c8e531",
+    "hash": "b6ca775b2cc40dcb6b427b966817390a282a91c0ed634b8d806540107c5da99e"
+  },
+  {
+    "ts": "2026-11-24T07:42:34.516253Z",
+    "action": "RELEASE://3.17.0",
+    "authority": "HUMAN://ROOT",
+    "prev": "b6ca775b2cc40dcb6b427b966817390a282a91c0ed634b8d806540107c5da99e",
+    "hash": "b8ce3ab8b35995ebe17cfc4343758f93df26e93c0fe5a3c88548a5d049f8ca96"
   }
 ]

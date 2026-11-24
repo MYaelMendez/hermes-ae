@@ -102,10 +102,10 @@ Full clips and receipts are indexed in [docs/VIDEOS.md](docs/VIDEOS.md).
 - [Policy-driven locomotion](docs/POLICY_LOCOMOTION.md) — the ONNX gait that replaced the mocap trace
 - [æLOCOMOTION package](docs/PACKAGING.md) — the policy-driven gait harness, packed
 - [Viewport DOM awareness](docs/VIEWPORT_DOM.md) — read-only CDP projection for the Asimov robot
-- [Removable face](docs/REMOVABLE_FACE.md) — optional 1:1 tablet, tiny-voca fallback, and Pi500 teleop
+- [Native head viewport](docs/HEAD_VIEWPORT.md) — four exterior shell zones, tiny-voca fallback, and Pi500 teleop
 - [Asimov USD twin](docs/ASIMOV_TWIN.md) — the official robot as a USD digital twin
 - [æ Policy](docs/AE_POLICY.md) — the machine-readable authority policy for the Internet of Agents
-- [DAO Brain](docs/DAO_BRAIN.md) — policy-gated governance for the 1:1 Asimov face tablet
+- [DAO Brain](docs/DAO_BRAIN.md) — policy-gated governance for the native Asimov head viewport
 - [Menlo SDK mapping](docs/MENLO_SDK_MAPPING.md) — how OpenSourceWare sits above the official SDK
 - [æ Robot Verbs](docs/AE_ROBOT_VERBS.md) — governed wrappers over official Menlo SDK verbs
 - [mobility.foundation](docs/MOBILITY_FOUNDATION.md) — canonical public home for Asimov Agent mobility

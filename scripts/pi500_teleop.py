@@ -16,7 +16,7 @@ HELP = """Asimov Pi500 teleop
   q/e  left/right arm    r/f  head up/down
   !key = deadman engaged (required for any motion)
   space = all stop       v = voice listen mode
-  t = toggle tablet face x/quit = exit
+  t = toggle native head viewport x/quit = exit
   help = show this map
 """
 

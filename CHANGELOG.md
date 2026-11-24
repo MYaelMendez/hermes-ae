@@ -1,3 +1,12 @@
+## 3.17.0
+
+- Removed the tablet-face concept. The head mask and three exterior covers are
+  now one native viewport system with four programmable shell zones
+  (`03C`, `04C`, `06C`, `07C`).
+- Added `ae({op:"head"})`; `ae({op:"face"})` remains a compatibility alias.
+- Renamed the runtime contract to `scripts/head_viewport.py` and rewrote the
+  DAO Brain surface around the native head viewport.
+
 ## 3.16.0
 
 - Added **æ TV**: `ae({op:"tv_episode"})` compiles a script into a receipted

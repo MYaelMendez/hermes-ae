@@ -47,18 +47,17 @@ Asimov Agent is not a single vendor stack. It is a governed composition:
 
 This is attribution, not endorsement. The robot is an executor; `HUMAN://ROOT` remains root.
 
-## Talking face
+## Native head viewport
 
-Yes — we made a governed robot head/face that can talk, as a removable 1:1 tablet projection and control surface:
+Yes — the Asimov head is a governed viewport system, not a tablet face. The head base carries the primary front mask, and the top, left, and right covers are additional programmable shell zones. See [Native head viewport](HEAD_VIEWPORT.md) for the four-piece shell map.
 
 - viseme-driven `SPEAKING` state through tiny-voca F2/M2;
 - `IDLE`, `LISTENING`, `THINKING`, `AWAITING_APPROVAL`, `APPROVED`, `REFUSED`, and `ERROR` states through DAO Brain;
-- removable face plus voice fallback when the tablet is detached;
-- Pi500 teleop override with arm + deadman;
-- `FACE://*`, `DAO://DECISION`, and `TTS://SPEAK` receipts;
+- low-bandwidth voice fallback and Pi500 teleop override with arm + deadman;
+- `VIEWPORT://*`, `DAO://DECISION`, and `TTS://SPEAK` receipts;
 - front-facing CAD head assets and receipted holomesh/face-state videos as proof.
 
-The physical tablet is late-bound; the repository ships the control contract, projection surface, and video proof, not fabricated hardware.
+The physical hardware binding is late-bound; the repository ships the control contract, projection surface, and video proof, not fabricated hardware.
 
 ## Proof artifact
 

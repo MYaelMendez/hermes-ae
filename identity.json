@@ -1,6 +1,6 @@
 {
   "authority": "HUMAN://ROOT",
-  "principle": "authority not transferable \u00b7 execution visible",
+  "principle": "authority not transferable · execution visible",
   "bindings": {
     "F2": {
       "name": "nous girl",
@@ -49,17 +49,7 @@
         "authority": "HUMAN://ROOT"
       }
     },
-    "talking_head": {
-      "surface": "removable 1:1 face tablet",
-      "voice": "tiny-voca F2/M2; SOVÆREIGN digital-twin voice optional",
-      "visemes": true,
-      "face_states": ["IDLE", "LISTENING", "THINKING", "SPEAKING", "AWAITING_APPROVAL", "APPROVED", "REFUSED", "ERROR"],
-      "governance": "face state is a policy outcome; the face never signs",
-      "status": "shipped as control contract, projection surface, and receipted video proof",
-      "physical_tablet": "late-bound; not fabricated in this repository"
-    },
     "voice": "hermes-agent (M2)",
-    "face": "optional 1:1 tablet presence module; detached mode uses tiny-voca voice, Pi500 teleop override",
     "twin": {
       "name": "asimov-avatar",
       "version": "1.0.0",
@@ -80,7 +70,7 @@
       "name": "DAO Brain",
       "version": "1.0.0",
       "engine": "scripts/daobrain.py",
-      "surface": "1:1 Asimov face tablet",
+      "surface": "native Asimov head mask viewport",
       "authority": "HUMAN://ROOT",
       "receipt_action": "DAO://DECISION"
     },
@@ -102,7 +92,7 @@
       "qpos_viewport",
       "onnx_locomotion",
       "viewport_dom",
-      "removable_face",
+      "head_viewport",
       "digital_twin",
       "ae_policy",
       "dao_brain",
@@ -114,6 +104,7 @@
     ],
     "ops": [
       "agent",
+      "head",
       "agent_body",
       "harnesses",
       "harness",
@@ -131,6 +122,46 @@
     "homepage": "https://mobility.foundation/mobility/",
     "fallback_homepage": "https://myaelmendez.github.io/mobility/",
     "viewport": "https://myaelmendez.github.io/asimov-viewport/",
-    "viewport_raw": "https://raw.githubusercontent.com/MYaelMendez/MYaelMendez.github.io/gh-pages/asimov-viewport/index.html"
+    "viewport_raw": "https://raw.githubusercontent.com/MYaelMendez/MYaelMendez.github.io/gh-pages/asimov-viewport/index.html",
+    "head_viewport": {
+      "surface": "native Asimov-1 head mask and three exterior covers",
+      "primary_mask": "ASV1_700_03C head base front mask",
+      "exterior_zones": [
+        {
+          "id": "front_mask",
+          "part": "ASV1_700_03C",
+          "role": "primary LED viewport"
+        },
+        {
+          "id": "top_cover",
+          "part": "ASV1_700_04C",
+          "role": "status strip"
+        },
+        {
+          "id": "left_cover",
+          "part": "ASV1_700_06C",
+          "role": "side status strip"
+        },
+        {
+          "id": "right_cover",
+          "part": "ASV1_700_07C",
+          "role": "side status strip"
+        }
+      ],
+      "voice": "tiny-voca F2/M2; SOVÆREIGN digital-twin voice optional",
+      "visemes": true,
+      "face_states": [
+        "IDLE",
+        "LISTENING",
+        "THINKING",
+        "SPEAKING",
+        "AWAITING_APPROVAL",
+        "APPROVED",
+        "REFUSED",
+        "ERROR"
+      ],
+      "governance": "viewport state is a policy outcome; the head never signs",
+      "status": "shipped as native viewport contract and self-contained HTML projection; physical hardware is late-bound"
+    }
   }
 }

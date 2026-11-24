@@ -1,4 +1,4 @@
-"""Unit tests for the DAO Brain face-tablet engine."""
+"""Unit tests for the DAO Brain native head-viewport engine."""
 import importlib.util
 import json
 import os

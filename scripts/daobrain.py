@@ -1,8 +1,8 @@
-"""DAO Brain for the Asimov 1:1 face tablet.
+"""DAO Brain for the native Asimov head viewport.
 
 The DAO brain deliberates proposals as a governance layer, never as an
 authority root. It evaluates every proposal through æ Policy, maps the decision
-to a face-tablet state, optionally replies with tiny-voca, and writes a
+to a head-viewport state, optionally replies with tiny-voca, and writes a
 hash-chained DAO://DECISION receipt.
 """
 import hashlib, importlib.util, json, os, subprocess, sys
@@ -14,7 +14,7 @@ HERMES_HOME = Path(os.environ.get('HERMES_HOME', Path.home() / '.hermes'))
 FACE_STATE = Path(os.environ.get('HERMES_AE_FACE_STATE', HERMES_HOME / 'ae' / 'asimov-face.json'))
 LEDGER = Path(os.environ.get('HERMES_AE_LEDGER', HERMES_HOME / 'ae-receipts.jsonl'))
 TTS = Path(os.environ.get('HERMES_AE_TTS', HERMES_HOME / 'plugins' / 'tiny-voca-voice' / 'scripts' / 'tiny_voca_voice.py'))
-AUDIO = HERMES_HOME / 'ae' / 'dao-face-reply.wav'
+AUDIO = HERMES_HOME / 'ae' / 'dao-head-reply.wav'
 PY = os.environ.get('HERMES_AE_PYTHON', '/usr/local/bin/python3')
 
 STATE_COLORS = {
@@ -38,7 +38,7 @@ def policy_engine():
 
 
 def face_module():
-    return _module('removable_face_engine', ROOT / 'scripts' / 'removable_face.py')
+    return _module('head_viewport_engine', ROOT / 'scripts' / 'head_viewport.py')
 
 
 def _last_hash():
@@ -117,7 +117,7 @@ def status():
     pv = p.run({'action': 'verify'})
     return {'success': True, 'authority': 'HUMAN://ROOT',
             'dao_brain': face.get('dao_brain'), 'face_mode': face.get('mode'),
-            'tablet_present': face.get('tablet_present'),
+            'viewport_enabled': face.get('viewport_enabled'),
             'policy_sha256': p.sha(p.POLICY), 'policy_verify': pv['success'],
             'ledger_head': _last_hash()}
 
