@@ -93,6 +93,7 @@
       "onnx_locomotion",
       "viewport_dom",
       "head_viewport",
+      "dom_awareness",
       "digital_twin",
       "ae_policy",
       "dao_brain",
@@ -105,6 +106,7 @@
     "ops": [
       "agent",
       "head",
+      "head_dom",
       "agent_body",
       "harnesses",
       "harness",
@@ -161,7 +163,10 @@
         "ERROR"
       ],
       "governance": "viewport state is a policy outcome; the head never signs",
-      "status": "shipped as native viewport contract and self-contained HTML projection; physical hardware is late-bound"
+      "status": "shipped as native viewport contract, self-contained HTML projection, and read-only DOM awareness; physical hardware is late-bound",
+    "dom_aware": true,
+    "dom_op": "ae({op:\"head\", action:\"dom\"})",
+    "dom_receipt_action": "VIEWPORT://DOM_AWARENESS"
     }
   }
 }

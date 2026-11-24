@@ -16,6 +16,7 @@ LEDGER = Path(os.environ.get('HERMES_AE_LEDGER', HERMES_HOME / 'ae-receipts.json
 TTS = Path(os.environ.get('HERMES_AE_TTS', HERMES_HOME / 'plugins' / 'tiny-voca-voice' / 'scripts' / 'tiny_voca_voice.py'))
 PY = os.environ.get('HERMES_AE_PYTHON', '/usr/local/bin/python3')
 AUDIO = HERMES_HOME / 'ae' / 'asimov-head-reply.wav'
+DOM_SCRIPT = ROOT / 'scripts' / 'viewport_dom.py'
 
 EXTERIOR_ZONES = [
     {'id': 'front_mask', 'part': 'ASV1_700_03C', 'role': 'primary LED viewport'},
@@ -141,6 +142,33 @@ def _voice(text, voice):
             'note': 'wake word and speech-to-text are supplied by Android MCP / phone; this op replies with tiny-voca'}
 
 
+def _dom(args):
+    if not DOM_SCRIPT.exists():
+        return {'success': False, 'error': f'DOM projection script missing: {DOM_SCRIPT}'}
+    payload = {
+        'endpoint': args.get('endpoint', 'http://127.0.0.1:9222'),
+        'match': args.get('match', 'asimov'),
+        'selector': args.get('selector', ''),
+    }
+    proc = subprocess.run([PY, str(DOM_SCRIPT), json.dumps(payload, ensure_ascii=False)],
+                          capture_output=True, text=True, timeout=120)
+    try:
+        out = json.loads(proc.stdout.strip().splitlines()[-1])
+    except Exception:
+        out = {'success': False, 'error': (proc.stderr or proc.stdout or 'dom read failed')[-800:]}
+    return {
+        'success': bool(out.get('success')),
+        'authority': 'HUMAN://ROOT',
+        'head': 'native Asimov head viewport',
+        'read_only': True,
+        'digest': out.get('digest'),
+        'target': out.get('target'),
+        'dom': out.get('dom'),
+        'receipt': out.get('receipt'),
+        'error': out.get('error'),
+    }
+
+
 def _teleop(key, arm, deadman):
     key = ' ' if key == 'space' else str(key).lower()
     if key not in KEYMAP:
@@ -176,13 +204,15 @@ def run(args):
         return _set_viewport(False, args.get('mode', 'voice'))
     if action == 'voice':
         return _voice(args.get('text'), args.get('voice', _load().get('voice', 'M2')))
+    if action in ('dom', 'dom_read', 'project_dom'):
+        return _dom(args)
     if action == 'teleop':
         return _teleop(args.get('key'), bool(args.get('arm')), bool(args.get('deadman')))
     if action == 'keys':
         return {'success': True, 'keys': {k: list(v) for k, v in KEYMAP.items()},
                 'note': 'motion requires --arm and deadman engaged'}
     return {'success': False, 'error': f'unknown action {action!r}',
-            'available': ['status', 'enable', 'disable', 'voice', 'teleop', 'keys']}
+            'available': ['status', 'enable', 'disable', 'voice', 'dom', 'teleop', 'keys']}
 
 
 if __name__ == '__main__':

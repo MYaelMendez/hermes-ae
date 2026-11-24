@@ -31,6 +31,17 @@ Therefore the exterior shell count is **four pieces**.[1][2][3]
 - A face state is a policy outcome, never a signature.[unverified]
 - The mask is part of the robot head, not a detachable tablet.[unverified]
 
+## DOM awareness
+
+The native head viewport can read a live page as a bounded, read-only DOM projection. It never clicks, types, or mutates the page; the projection is capped and receipted as `VIEWPORT://DOM_AWARENESS`.[unverified]
+
+```json
+ae({"op":"head","action":"dom","endpoint":"http://127.0.0.1:9222","match":"asimov","selector":"main"})
+ae({"op":"head_dom","endpoint":"http://127.0.0.1:9222","match":"asimov"})
+```
+
+The HTML projection also exposes a self-DOM digest, proving the viewport can describe its own rendered controls, program, state, and exterior-zone bindings.[unverified]
+
 ## Ops
 
 ```json

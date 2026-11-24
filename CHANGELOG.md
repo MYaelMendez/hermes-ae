@@ -1,3 +1,10 @@
+## 3.18.0
+
+- Made the native Asimov head viewport DOM aware. `ae({op:"head", action:"dom"})`
+  and `ae({op:"head_dom"})` perform bounded, read-only CDP DOM projection with
+  `VIEWPORT://DOM_AWARENESS` receipts.
+- Added a self-DOM digest panel to the self-contained head viewport HTML.
+
 ## 3.17.0
 
 - Removed the tablet-face concept. The head mask and three exterior covers are
